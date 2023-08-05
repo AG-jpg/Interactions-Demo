@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
         {
             directionMove.x = 1f;
         }
-        else if (input.x < 0.1f)
+        else if (input.x < 0f)
         {
             directionMove.x = -1f;
         }
@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
         {
             directionMove.y = 1f;
         }
-        else if (input.y < 0.1f)
+        else if (input.y < 0f)
         {
             directionMove.y = -1f;
         }
