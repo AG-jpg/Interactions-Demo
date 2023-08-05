@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private Vector2 input;
     private Vector2 directionMove;
 
-    [SerializedField]
+    [SerializeField]
     private float speed;
 
     private void Awake()
@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        input = new Vector2(input.GetAxisRaw("Horizontal"), input.GetAxisRaw("Vertical"));
+        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         //X
         if (input.x > 0.1f)
