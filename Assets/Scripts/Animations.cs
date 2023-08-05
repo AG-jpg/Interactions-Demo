@@ -15,13 +15,15 @@ public class Animations : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("X", pm.DireccionMovimiento.x);
-        anim.SetFloat("Y", pm.DireccionMovimiento.y);
+        if (pm.Moving)
+        {
+            anim.SetFloat("X", pm.DireccionMovimiento.x);
+            anim.SetFloat("Y", pm.DireccionMovimiento.y);
+        }
     }
 }

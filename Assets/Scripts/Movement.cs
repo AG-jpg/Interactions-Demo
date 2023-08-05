@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField]
     private float speed;
+    public bool Moving => directionMove.magnitude > 0f;
 
     public Vector2 DireccionMovimiento => directionMove;
 
