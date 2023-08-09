@@ -304,6 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 340a39db1fccd4cb98b9df71fdcc7232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIdle: Idle
+  layerWalk: Caminar
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
