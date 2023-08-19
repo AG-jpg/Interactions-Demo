@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Take : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Dialogues dialogues;
+    public void PressButton()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Time.timeScale = 1;
+        dialogues.IsPaused = false;
+        dialogues.chat = false;
+        dialogues.dialogueBox.SetActive(false);
+        dialogues.ziman.SetActive(false);
     }
 }

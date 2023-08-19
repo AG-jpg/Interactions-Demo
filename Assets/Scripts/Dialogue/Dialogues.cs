@@ -33,7 +33,6 @@ public class Dialogues : MonoBehaviour
         if (IsPaused)
         {
             Time.timeScale = 0;
-            TakeAction();
         }
 
         if(chat && Input.GetKeyDown(KeyCode.Return))
@@ -47,18 +46,5 @@ public class Dialogues : MonoBehaviour
     {
         dialogueBox.SetActive(true);
         IsPaused = true;
-    }
-
-    private void TakeAction()
-    {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Time.timeScale = 1;
-            IsPaused = false;
-            chat = false;
-            dialogueBox.SetActive(false);
-            ziman.SetActive(false);
-            Destroy(bc);
-        }
     }
 }
