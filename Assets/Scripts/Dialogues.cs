@@ -36,7 +36,7 @@ public class Dialogues : MonoBehaviour
             TakeAction();
         }
 
-        if(chat && Input.GetKeyDown(KeyCode.DownArrow))
+        if(chat && Input.GetKeyDown(KeyCode.Return))
         {
             Time.timeScale = 0;
             Talk();
