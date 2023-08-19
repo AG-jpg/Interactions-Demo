@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public Text nameText;
+    public Text dialogueText;
+
     private Queue<string> sentences;
 
     void Start()
@@ -14,6 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        nameText.text = dialogue.name;
         sentences.Clear();
 
         foreach(string sentence in dialogue.sentences)
@@ -33,7 +37,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        Debug.Log(sentence);
+        dialogueText.text = sentence;
     }
 
     void EndDialogue()
