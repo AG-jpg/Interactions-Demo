@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
+  m_Name: Punk
+  m_EditorClassIdentifier: 
+  Name: Johny Strummer
+  hasExtra: 0
+  IE: 0
+  Entrance: Dude! Come over here!
+  Conversation:
+  - Sentence: Do you see that lab? They are doing batshit crazy things over there.
+  - Sentence: 'All we know is that they got some animals captive, some chemical samples
+      and that soon will be tested on them. '
+  - Sentence: 'We are going to liberate them.
+
+      But we need to get pass through
+      the guard.
+
+'
+  Out: Will you help us?
