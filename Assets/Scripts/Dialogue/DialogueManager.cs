@@ -7,7 +7,8 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-    public bool DialogueEnded;
+    public GameObject dialogueBox;
+    public GameObject arrowButton;
 
     private Queue<string> sentences;
 
@@ -18,11 +19,10 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        DialogueEnded = false;
         nameText.text = dialogue.name;
         sentences.Clear();
 
-        foreach(string sentence in dialogue.sentences)
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -32,21 +32,16 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
-            EndDialogue();
+            Time.timeScale = 1;
+            dialogueBox.SetActive(false);
+            arrowButton.SetActive(false);
             return;
         }
 
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
-    }
-
-
-
-    void EndDialogue()
-    {
-        DialogueEnded = true;
     }
 
 }

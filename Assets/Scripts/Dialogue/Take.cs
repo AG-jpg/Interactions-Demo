@@ -5,12 +5,12 @@ using UnityEngine;
 public class Take : MonoBehaviour
 {
     public DialogueTrigger dialogues;
+    public GameObject ziman;
     public void PressButton()
     {
         Time.timeScale = 1;
-        dialogues.IsPaused = false;
         dialogues.chat = false;
         dialogues.dialogueBox.SetActive(false);
-        dialogues.ziman.SetActive(false);
+        ziman.SetActive(false);
     }
 }
