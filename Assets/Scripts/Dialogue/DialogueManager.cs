@@ -11,6 +11,14 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public NPCInteract NPCDisponible { get; set; }
 
+    private Queue<string> sequence;
+    private bool AnimatedDialogue;
+
+    private void Start()
+    {
+        sequence = new Queue<string>();
+    }
+
     private void Update()
     {
         if(NPCDisponible == null)
@@ -32,7 +40,42 @@ public class DialogueManager : Singleton<DialogueManager>
     private void ConfigurePanel(NPCDialogue dialogueNPC)
     {
         OpenPanel(true);
+        LoadSentences(dialogueNPC);
         NameText.text = dialogueNPC.Name;
+        ShowText(dialogueNPC.Entrance);
 
+    }
+
+    private void LoadSentences(NPCDialogue dialogueNPC)
+    {
+        if(dialogueNPC.Conversation == null || dialogueNPC.Conversation.Length <= 0)
+        {
+            return;
+        }
+
+        for(int i = 0; i < dialogueNPC.Conversation.Length; i++)
+        {
+            sequence.Enqueue(dialogueNPC.Conversation[i].Sentence);
+        }
+    }
+
+    private IEnumerator AnimateText(string oracion)
+    {
+        AnimatedDialogue = false;
+        DialogueText.text = "";
+        char[] letras = oracion.ToCharArray();
+
+        for(int i=0; i < letras.Length; i++)
+        {
+            DialogueText.text += letras[i];
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        AnimatedDialogue = true;
+    }
+
+    private void ShowText(string oracion)
+    {
+        StartCoroutine(AnimateText(oracion));
     }
 }
