@@ -13,6 +13,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private Queue<string> sequence;
     private bool AnimatedDialogue;
+    private bool ShowGoodbye;
 
     private void Start()
     {
@@ -33,7 +34,17 @@ public class DialogueManager : Singleton<DialogueManager>
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            ContinueDialogue();
+            if(ShowGoodbye)
+            {
+                OpenPanel(false);
+                ShowGoodbye = false;
+                return;
+            }
+
+            if(AnimatedDialogue)
+            {
+                ContinueDialogue();
+            }
         }
     }
 
@@ -71,6 +82,19 @@ public class DialogueManager : Singleton<DialogueManager>
             return;
         }
 
+        if(ShowGoodbye)
+        {
+            return;
+        }
+
+        if(sequence.Count == 0)
+        {
+            string despedida = NPCDisponible.Dialogo.Out;
+            ShowText(despedida);
+            ShowGoodbye = true;
+            return;
+        }
+
         string NextLine = sequence.Dequeue();
         ShowText(NextLine);
     }
@@ -84,7 +108,7 @@ public class DialogueManager : Singleton<DialogueManager>
         for(int i=0; i < letras.Length; i++)
         {
             DialogueText.text += letras[i];
-            yield return new WaitForSeconds(0.03f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         AnimatedDialogue = true;
