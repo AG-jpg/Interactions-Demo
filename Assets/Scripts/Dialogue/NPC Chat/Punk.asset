@@ -17,13 +17,11 @@ MonoBehaviour:
   IE: 0
   Entrance: Dude! Come over here!
   Conversation:
-  - Sentence: Do you see that lab? They are doing batshit crazy things over there.
-  - Sentence: 'All we know is that they got some animals captive, some chemical samples
-      and that soon will be tested on them. '
-  - Sentence: 'We are going to liberate them.
-
-      But we need to get pass through
-      the guard.
-
-'
+  - Sentence: Do you see that lab?
+  - Sentence: They are doing batshit crazy things over there.
+  - Sentence: They got some animals captive,
+  - Sentence: some chemical samples...
+  - Sentence: and that soon will be tested on them.
+  - Sentence: We are going to liberate them!
+  - Sentence: But we need to get pass through the guard.
   Out: Will you help us?
