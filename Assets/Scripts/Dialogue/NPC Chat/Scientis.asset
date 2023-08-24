@@ -18,5 +18,6 @@ MonoBehaviour:
   Entrance: What are we doing in this lab?
   Conversation:
   - Sentence: Nothing!
-  - Sentence: I mean... Nothing illegal
+  - Sentence: I mean...
+  - Sentence: Nothing illegal
   Out: Regardless if you like it or not.
