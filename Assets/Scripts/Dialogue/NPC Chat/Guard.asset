@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
   m_Name: Guard
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Guard
   hasExtra: 0
   IE: 0
   Entrance: I'm on guard duty.
