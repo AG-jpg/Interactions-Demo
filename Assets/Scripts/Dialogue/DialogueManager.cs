@@ -108,7 +108,7 @@ public class DialogueManager : Singleton<DialogueManager>
         for(int i=0; i < letras.Length; i++)
         {
             DialogueText.text += letras[i];
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.04f);
         }
 
         AnimatedDialogue = true;
