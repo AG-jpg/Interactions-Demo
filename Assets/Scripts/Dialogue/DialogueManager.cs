@@ -30,6 +30,11 @@ public class DialogueManager : Singleton<DialogueManager>
         {
             ConfigurePanel(NPCDisponible.Dialogo);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            ContinueDialogue();
+        }
     }
 
     public void OpenPanel(bool state)
@@ -59,6 +64,17 @@ public class DialogueManager : Singleton<DialogueManager>
         }
     }
 
+    private void ContinueDialogue()
+    {
+        if(NPCDisponible == null)
+        {
+            return;
+        }
+
+        string NextLine = sequence.Dequeue();
+        ShowText(NextLine);
+    }
+
     private IEnumerator AnimateText(string oracion)
     {
         AnimatedDialogue = false;
@@ -68,7 +84,7 @@ public class DialogueManager : Singleton<DialogueManager>
         for(int i=0; i < letras.Length; i++)
         {
             DialogueText.text += letras[i];
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.03f);
         }
 
         AnimatedDialogue = true;
