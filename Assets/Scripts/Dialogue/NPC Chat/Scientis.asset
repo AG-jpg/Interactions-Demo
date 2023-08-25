@@ -19,5 +19,4 @@ MonoBehaviour:
   Conversation:
   - Sentence: Nothing!
   - Sentence: I mean...
-  - Sentence: Nothing illegal
-  Out: Regardless if you like it or not.
+  Out: Nothing illegal
