@@ -5,6 +5,7 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     public GameObject pausePanel;
+    public GameObject AppPanel;
     public GameObject bg;
     public static bool gameIsPaused;
 
@@ -25,12 +26,14 @@ public class Menu : MonoBehaviour
             Time.timeScale = 0;
             pausePanel.SetActive(true);
             bg.SetActive(true);
+            AppPanel.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
             pausePanel.SetActive(false);
             bg.SetActive(false);
+            AppPanel.SetActive(false);
         }
     }
 }
