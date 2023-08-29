@@ -18,6 +18,7 @@ public class Experience : MonoBehaviour
     {
         Level = 1;
         ReqExpNextlevel = expBase;
+        UpdateExpBar();
     }
 
     public void AddExp(float expObt)
@@ -40,6 +41,8 @@ public class Experience : MonoBehaviour
                 }
             }
         }
+
+        UpdateExpBar();
     }
 
     private void UpdateLevel()
@@ -50,5 +53,10 @@ public class Experience : MonoBehaviour
             ActualExp = 0f;
             ReqExpNextlevel *= valorIncremental;
         }
+    }
+
+    private void UpdateExpBar()
+    {
+        UIManager.Instance.UpdateExpPlayer(ActualExp, ReqExpNextlevel);
     }
 }
