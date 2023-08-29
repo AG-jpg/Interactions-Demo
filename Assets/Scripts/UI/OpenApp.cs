@@ -10,6 +10,7 @@ public class OpenApp : MonoBehaviour
     private void Awake()
     {
         activeApp = false;
+        
     }
 
     public void PressButton()
@@ -21,6 +22,7 @@ public class OpenApp : MonoBehaviour
         else if(activeApp)
         {
             CloseWindow();
+            return;
         }
     }
 
