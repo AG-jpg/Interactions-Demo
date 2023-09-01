@@ -5,16 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Stats")]
 public class Stats : ScriptableObject
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float Level;
+    public float ExpNextLevel;
+    public float Jawscript;
+    public float Timer;
+    public float Miner;
 }
