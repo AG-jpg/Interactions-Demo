@@ -12,7 +12,7 @@ public class PlayerStatsEditor : Editor
         base.OnInspectorGUI();
         if(GUILayout.Button("Reset Values"))
         {
-            
+            StatsTarget.ResetValues();
         }
         
     }
