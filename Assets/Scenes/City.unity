@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7d832183cc045f78e3a9e93a9f5af6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5
 --- !u!61 &71019237
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -642,8 +642,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47685a1816b245d28ced568e958d0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: c5384c70e77974cdbb5f36186204c911, type: 2}
   levelMax: 20
-  expBase: 2
+  expBase: 10
   valorIncremental: 2
 --- !u!1 &73276746
 GameObject:
@@ -5229,7 +5230,7 @@ GameObject:
   - component: {fileID: 83579938}
   - component: {fileID: 83579937}
   m_Layer: 5
-  m_Name: Level (1)
+  m_Name: Level Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5511,7 +5512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
   m_sharedMaterial: {fileID: -4800372823563353566, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
@@ -5757,7 +5758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
   m_sharedMaterial: {fileID: -4800372823563353566, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
@@ -7392,7 +7393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
   m_sharedMaterial: {fileID: -4800372823563353566, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
@@ -11030,8 +11031,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9689635511f0d401a8ec8e0733979717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stats: {fileID: 11400000, guid: c5384c70e77974cdbb5f36186204c911, type: 2}
+  panelStats: {fileID: 465298090}
   expPlayer: {fileID: 996750227}
   expTMP: {fileID: 208769935}
+  Level: {fileID: 83579937}
+  NextLevel: {fileID: 0}
+  ExperienceNow: {fileID: 0}
+  JawscriptStat: {fileID: 126701215}
+  TimerStat: {fileID: 576771878}
+  MinerStat: {fileID: 207026356}
 --- !u!1 &1622938930
 GameObject:
   m_ObjectHideFlags: 0
