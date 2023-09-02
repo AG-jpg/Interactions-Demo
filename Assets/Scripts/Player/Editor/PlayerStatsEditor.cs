@@ -6,7 +6,7 @@ using UnityEditor;
 [CustomEditor(typeof(Stats))]
 public class PlayerStatsEditor : Editor
 {
-    public Stats StatsTarget => as Stats;
+    public Stats StatsTarget => target as Stats;
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
