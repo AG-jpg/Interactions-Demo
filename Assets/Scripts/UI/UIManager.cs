@@ -43,7 +43,7 @@ public class UIManager : Singleton<UIManager>
         }
 
         JawscriptStat.text = Stats.Jawscript.ToString();
-        TimerStat.text = Stats.TimerToString();
+        TimerStat.text = Stats.Timer.ToString();
         MinerStat.text = Stats.Miner.ToString();
         Level.text = Stats.Level.ToString();
         NextLevel.text = Stats.ExpNextLevel.ToString();
