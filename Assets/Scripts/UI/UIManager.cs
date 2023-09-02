@@ -23,6 +23,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Stats")]
     [SerializeField] private TextMeshProUGUI Level;
     [SerializeField] private TextMeshProUGUI NextLevel;
+    [SerializeField] private TextMeshProUGUI ExperienceNow;
     [SerializeField] private TextMeshProUGUI JawscriptStat;
     [SerializeField] private TextMeshProUGUI TimerStat;
     [SerializeField] private TextMeshProUGUI MinerStat;
@@ -46,6 +47,7 @@ public class UIManager : Singleton<UIManager>
         MinerStat.text = Stats.Miner.ToString();
         Level.text = Stats.Level.ToString();
         NextLevel.text = Stats.ExpNextLevel.ToString();
+        ExperienceNow.text = Stats.Experience.ToString();
 
     }
     private void UpdateUIPlayer()
