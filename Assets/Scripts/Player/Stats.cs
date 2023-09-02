@@ -6,6 +6,7 @@ using UnityEngine;
 public class Stats : ScriptableObject
 {
     public float Level;
+    public float Experience;
     public float ExpNextLevel;
     public float Jawscript;
     public float Timer;
