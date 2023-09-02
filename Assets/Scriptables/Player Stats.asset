@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62855673062b405799a3c7a0924e79d, type: 3}
   m_Name: Player Stats
   m_EditorClassIdentifier: 
+  Level: 1
+  Experience: 0
+  ExpNextLevel: 0
+  Jawscript: 1
+  Timer: 1
+  Miner: 1
