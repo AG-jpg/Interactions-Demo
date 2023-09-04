@@ -12,6 +12,15 @@ public class Stats : ScriptableObject
     public float Timer = 1;
     public float Miner = 1;
 
+    [Header("Atributos")]
+    public int JawscriptSkill;
+    public int TimerSkill;
+    public int MinerSkill;
+
+    [HideInInspector]
+    public int PuntosDisponibles;
+
+
     public void ResetValues()
     {
         Level = 1;
