@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("Paneles")]
+    [Header("Object")]
     [SerializeField] private Stats Stats;
     [Header("Paneles")]
     [SerializeField] private GameObject panelStats;
@@ -27,6 +27,10 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI JawscriptStat;
     [SerializeField] private TextMeshProUGUI TimerStat;
     [SerializeField] private TextMeshProUGUI MinerStat;
+    [SerializeField] private TextMeshProUGUI AtributeJawscript;
+    [SerializeField] private TextMeshProUGUI AtributeTimer;
+    [SerializeField] private TextMeshProUGUI AtributeMiner;
+    [SerializeField] private TextMeshProUGUI AtributoDisponible;
 
 
     private void Update()
@@ -46,8 +50,16 @@ public class UIManager : Singleton<UIManager>
         TimerStat.text = Stats.Timer.ToString();
         MinerStat.text = Stats.Miner.ToString();
         Level.text = Stats.Level.ToString();
-        NextLevel.text = Stats.ExpNextLevel.ToString();
-        ExperienceNow.text = Stats.Experience.ToString();
+        //NextLevel.text = Stats.ExpNextLevel.ToString();
+        //ExperienceNow.text = Stats.Experience.ToString();
+
+        AtributeJawscript.text = Stats.JawscriptSkill.ToString();
+        AtributeTimer.text = Stats.TimerSkill.ToString();
+        AtributeMiner.text = Stats.MinerSkill.ToString();
+        AtributoDisponible.text = Stats.PuntosDisponibles.ToString();
+
+
+
 
     }
     private void UpdateUIPlayer()
