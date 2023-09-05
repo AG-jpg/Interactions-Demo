@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 71019235}
   - component: {fileID: 71019238}
   - component: {fileID: 71019237}
+  - component: {fileID: 71019241}
   - component: {fileID: 71019236}
   - component: {fileID: 71019239}
   - component: {fileID: 71019240}
@@ -646,6 +647,19 @@ MonoBehaviour:
   levelMax: 20
   expBase: 10
   valorIncremental: 2
+--- !u!114 &71019241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71019232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6392fc9b5ab14bed9d57bd8359d512b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: c5384c70e77974cdbb5f36186204c911, type: 2}
 --- !u!1 &73276746
 GameObject:
   m_ObjectHideFlags: 0
