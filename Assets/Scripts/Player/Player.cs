@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Stats stats;
     private void AtributoRespuesta(AttributeType type)
     {
+        if(stats.PuntosDisponibles <= 0)
+        {
+            return;
+        }
+
         switch (type)
         {
             case AttributeType.Jawscript:

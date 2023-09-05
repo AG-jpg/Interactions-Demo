@@ -17,9 +17,25 @@ public class Stats : ScriptableObject
     public int TimerSkill;
     public int MinerSkill;
 
-    [HideInInspector]
-    public int PuntosDisponibles;
+    [HideInInspector] public int PuntosDisponibles;
 
+    public void AddBonusJawscript()
+    {
+        JawscriptSkill += 1;
+        Jawscript += 1;
+    }
+
+        public void AddBonusTimer()
+    {
+        TimerSkill += 1;
+        Timer += 1;
+    }
+
+    public void AddBonusMiner()
+    {
+        MinerSkill += 1;
+        Miner += 1;
+    }
 
     public void ResetValues()
     {
@@ -29,5 +45,10 @@ public class Stats : ScriptableObject
         Miner = 1;
         Experience = 0;
         ExpNextLevel = 0;
+
+        JawscriptSkill = 0;
+        TimerSkill = 0;
+        MinerSkill = 0;
+        PuntosDisponibles = 0;
     }
 }
