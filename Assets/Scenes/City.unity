@@ -6662,7 +6662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &465298091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12035,6 +12035,10 @@ MonoBehaviour:
   JawscriptStat: {fileID: 126701215}
   TimerStat: {fileID: 576771878}
   MinerStat: {fileID: 207026356}
+  AtributeJawscript: {fileID: 178841747}
+  AtributeTimer: {fileID: 1872276357}
+  AtributeMiner: {fileID: 2119852902}
+  AtributoDisponible: {fileID: 1632040836}
 --- !u!1 &1622938930
 GameObject:
   m_ObjectHideFlags: 0
@@ -12920,7 +12924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1827971022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13514,7 +13518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1920420963
 MonoBehaviour:
   m_ObjectHideFlags: 0
