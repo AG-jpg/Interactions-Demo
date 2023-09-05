@@ -28,13 +28,11 @@ public class Stats : ScriptableObject
         public void AddBonusTimer()
     {
         TimerSkill += 1;
-        Timer += 1;
     }
 
     public void AddBonusMiner()
     {
         MinerSkill += 1;
-        Miner += 1;
     }
 
     public void ResetValues()

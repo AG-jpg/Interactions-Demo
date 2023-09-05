@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public Stats stats;
     private void AtributoRespuesta(AttributeType type)
     {
-        if(stats.PuntosDisponibles <= 0)
+        if (stats.PuntosDisponibles <= 0)
         {
             return;
         }
@@ -15,10 +15,16 @@ public class Player : MonoBehaviour
         switch (type)
         {
             case AttributeType.Jawscript:
+                stats.Jawscript++;
+                stats.AddBonusJawscript();
                 break;
             case AttributeType.Timer:
+                stats.Timer++;
+                stats.AddBonusTimer();
                 break;
             case AttributeType.Miner:
+                stats.Miner++;
+                stats.AddBonusMiner();
                 break;
         }
     }
