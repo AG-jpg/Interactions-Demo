@@ -60,6 +60,7 @@ public class Experience : MonoBehaviour
             ExpActualTemporal = 0f;
             ReqExpNextlevel *= valorIncremental;
             stats.ExpNextLevel = ReqExpNextlevel;
+            stats.PuntosDisponibles +=1;
         }
     }
 
