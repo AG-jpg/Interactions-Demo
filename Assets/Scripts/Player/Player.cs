@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
                 stats.AddBonusMiner();
                 break;
         }
+
+        stats.PuntosDisponibles -= 1;
     }
 
     private void OnEnable()
