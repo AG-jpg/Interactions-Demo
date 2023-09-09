@@ -9,8 +9,16 @@ public class UIManager : Singleton<UIManager>
     [Header("Object")]
     [SerializeField] private Stats Stats;
     [Header("Paneles")]
-    [SerializeField] private GameObject panelStats;
+    [SerializeField] private GameObject panelID;
+    [SerializeField] private GameObject panelWallet;
+    [SerializeField] private GameObject panelContacts;
+    [SerializeField] private GameObject panelMap;
+    [SerializeField] private GameObject panelTasks;
     [SerializeField] private GameObject panelInventario;
+    [SerializeField] private GameObject panelStats;
+    [SerializeField] private GameObject panelPC;
+    [SerializeField] private GameObject panelMusic;
+    
 
 
     [Header("Barra")] 
@@ -80,14 +88,49 @@ public class UIManager : Singleton<UIManager>
 
     #region Panels
 
-    public void OpenPanelStats()
+    public void OpenPanelID()
     {
-        panelStats.SetActive(!panelStats.activeSelf);
+        panelID.SetActive(!panelID.activeSelf);
+    }
+
+    public void OpenPanelWallet()
+    {
+        panelWallet.SetActive(!panelWallet.activeSelf);
+    }
+
+    public void OpenPanelContacts()
+    {
+        panelContacts.SetActive(!panelContacts.activeSelf);
+    }
+
+    public void OpenPanelMaps()
+    {
+        panelMap.SetActive(!panelMap.activeSelf);
+    }
+    
+    public void OpenPanelTasks()
+    {
+        panelTasks.SetActive(!panelTasks.activeSelf);
     }
 
     public void OpenPanelInventario()
     {
         panelInventario.SetActive(!panelInventario.activeSelf);
+    }
+
+    public void OpenPanelStats()
+    {
+        panelStats.SetActive(!panelStats.activeSelf);
+    }
+
+    public void OpenPanelPC()
+    {
+        panelPC.SetActive(!panelPC.activeSelf);
+    }
+
+    public void OpenPanelMusic()
+    {
+        panelMusic.SetActive(!panelMusic.activeSelf);
     }
 
     #endregion
