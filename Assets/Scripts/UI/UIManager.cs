@@ -10,6 +10,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Stats Stats;
     [Header("Paneles")]
     [SerializeField] private GameObject panelStats;
+    [SerializeField] private GameObject panelInventario;
+
 
     [Header("Barra")] 
     [SerializeField] private Image expPlayer;
@@ -75,4 +77,18 @@ public class UIManager : Singleton<UIManager>
         expActual = pExpActual;
         expRequiredNewLevel = pExpRequerida;
     }
+
+    #region Panels
+
+    public void OpenPanelStats()
+    {
+        panelStats.SetActive(!panelStats.activeSelf);
+    }
+
+    public void OpenPanelInventario()
+    {
+        panelInventario.SetActive(!panelInventario.activeSelf);
+    }
+
+    #endregion
 }
