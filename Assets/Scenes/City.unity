@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 834206}
   - component: {fileID: 834205}
   - component: {fileID: 834204}
-  - component: {fileID: 834207}
   m_Layer: 5
   m_Name: Objects
   m_TagString: Untagged
@@ -207,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 834207}
-        m_TargetAssemblyTypeName: OpenApp, Assembly-CSharp
-        m_MethodName: PressButton
+      - m_Target: {fileID: 1615515614}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenPanelInventario
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -257,20 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834202}
   m_CullTransparentMesh: 1
---- !u!114 &834207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 834202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65dce5e2d0e9d416e8118f1b281e1b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIBox: {fileID: 512485285}
-  activeApp: 0
 --- !u!1 &20809420
 GameObject:
   m_ObjectHideFlags: 0
@@ -7785,7 +7770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &512485286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10468,7 +10453,6 @@ GameObject:
   - component: {fileID: 1009077282}
   - component: {fileID: 1009077281}
   - component: {fileID: 1009077280}
-  - component: {fileID: 1009077283}
   m_Layer: 5
   m_Name: Skills
   m_TagString: Untagged
@@ -10540,9 +10524,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1009077283}
-        m_TargetAssemblyTypeName: OpenApp, Assembly-CSharp
-        m_MethodName: PressButton
+      - m_Target: {fileID: 1615515614}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: OpenPanelStats
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10590,20 +10574,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009077278}
   m_CullTransparentMesh: 1
---- !u!114 &1009077283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009077278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65dce5e2d0e9d416e8118f1b281e1b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIBox: {fileID: 1920420962}
-  activeApp: 0
 --- !u!1 &1017492179
 GameObject:
   m_ObjectHideFlags: 0
@@ -13286,7 +13256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats: {fileID: 11400000, guid: c5384c70e77974cdbb5f36186204c911, type: 2}
-  panelStats: {fileID: 465298090}
+  panelStats: {fileID: 1920420962}
+  panelInventario: {fileID: 512485285}
   expPlayer: {fileID: 996750227}
   expTMP: {fileID: 208769935}
   Level: {fileID: 83579937}
@@ -14184,7 +14155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1827971022
 RectTransform:
   m_ObjectHideFlags: 0
