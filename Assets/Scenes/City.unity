@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 20809423}
   - component: {fileID: 20809422}
   m_Layer: 5
-  m_Name: experience
+  m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -677,6 +677,7 @@ GameObject:
   - component: {fileID: 71019236}
   - component: {fileID: 71019239}
   - component: {fileID: 71019240}
+  - component: {fileID: 71019242}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -874,6 +875,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: c5384c70e77974cdbb5f36186204c911, type: 2}
+--- !u!114 &71019242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71019232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5041cb224f6524ea6a25b31d38b8f0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyInitial: 100
+  energyMax: 100
+  regenXSecond: -1
 --- !u!1 &73276746
 GameObject:
   m_ObjectHideFlags: 0
@@ -14347,7 +14363,9 @@ MonoBehaviour:
   panelPC: {fileID: 34132093}
   panelMusic: {fileID: 876772301}
   expPlayer: {fileID: 996750227}
+  energyPlayer: {fileID: 20809422}
   expTMP: {fileID: 208769935}
+  energyTMP: {fileID: 1107676476}
   Level: {fileID: 83579937}
   NextLevel: {fileID: 0}
   ExperienceNow: {fileID: 0}
