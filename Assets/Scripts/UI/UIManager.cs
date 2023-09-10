@@ -23,12 +23,16 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Barra")] 
     [SerializeField] private Image expPlayer;
+    [SerializeField] private Image energyPlayer;
 
     [Header("Texto")] 
     [SerializeField] private TextMeshProUGUI expTMP;
+    [SerializeField] private TextMeshProUGUI energyTMP;
 
     private float expActual;
     private float expRequiredNewLevel;
+    private float energyActual;
+    private float energyMax;
 
     [Header("Stats")]
     [SerializeField] private TextMeshProUGUI Level;
@@ -77,13 +81,23 @@ public class UIManager : Singleton<UIManager>
         expPlayer.fillAmount = Mathf.Lerp(expPlayer.fillAmount, 
         expActual / expRequiredNewLevel, 10f * Time.deltaTime);
 
+        energyPlayer.fillAmount = Mathf.Lerp(energyPlayer.fillAmount, 
+        energyActual / energyMax,10f * Time.deltaTime);
+
         expTMP.text = $"{expActual}/{expRequiredNewLevel}";
+        energyTMP.text = $"{energyActual}/{energyMax}";
     }
 
     public void UpdateExpPlayer(float pExpActual, float pExpRequerida)
     {
         expActual = pExpActual;
         expRequiredNewLevel = pExpRequerida;
+    }
+
+    public void UpdateEnergyPlayer(float pEnergyActual, float pEnergyMax)
+    {
+        energyActual = pEnergyActual;
+        energyMax = pEnergyMax;
     }
 
     #region Panels
