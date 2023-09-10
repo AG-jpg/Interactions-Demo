@@ -12,13 +12,35 @@ public class Energy : MonoBehaviour
     void Start()
     {
         energyActual = energyInitial;
+        UpdateEnergyBar();
+
+        InvokeRepeating(nameof(GetEnergy), 1, 1);
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            Useenergy(5f);
+        }
+    }
     public void Useenergy(float cantidad)
     {
         if(energyActual >= cantidad)
         {
             energyActual -= cantidad;
+            UpdateEnergyBar();
         }
+    }
+
+    private void GetEnergy()
+    {
+        energyActual += regenXSecond;
+        UpdateEnergyBar();
+    }
+
+    private void UpdateEnergyBar()
+    {
+        UIManager.Instance.UpdateEnergyPlayer(energyActual, energyMax);
     }
 }
