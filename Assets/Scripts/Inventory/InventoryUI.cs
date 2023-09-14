@@ -19,6 +19,7 @@ public class InventoryUI : MonoBehaviour
         for(int i = 0; i < Inventory.Instance.NumeroSlots; i++)
         {
            Slot nuevoSlot = Instantiate(slotPrefab, container);
+           nuevoSlot.Index = i;
            slotsDisponibles.Add(nuevoSlot);
         }
     }
