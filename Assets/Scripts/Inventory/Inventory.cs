@@ -88,6 +88,7 @@ public class Inventory : Singleton<Inventory>
             {
                 itemsInventario[i] = item;
                 itemsInventario[i].Cantidad = cantidad;
+                return;
             }
         }
     }
