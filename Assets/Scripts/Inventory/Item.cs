@@ -23,4 +23,10 @@ public class Item : ScriptableObject
 
     [HideInInspector]    
     public int Cantidad;
+
+    public Item CopyItem()
+    {
+        Item newInstance = Instantiate(this);
+        return newInstance;
+    }
 }
