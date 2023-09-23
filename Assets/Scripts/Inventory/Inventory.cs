@@ -42,6 +42,23 @@ public class Inventory : Singleton<Inventory>
                 }
             }
         }
+
+        if(cantidad <= 0)
+        {
+            return;
+        }
+
+        if(cantidad > itemtoAdd.AcumulacionMax)
+        {
+            AddItemInSlot(itemtoAdd, itemtoAdd.AcumulacionMax);
+            cantidad -= itemtoAdd.AcumulacionMax;
+            AddItem(itemtoAdd, cantidad);
+        }
+        else
+        {
+            AddItemInSlot(itemtoAdd, cantidad);
+        }
+
     }
 
     private List<int> VerificarExistencias(string itemID)
@@ -56,6 +73,18 @@ public class Inventory : Singleton<Inventory>
         }
 
         return indexItem;
+    }
+
+    private void AddItemInSlot(Item item, int cantidad)
+    {
+        for(int i = 0; i < itemsInventario.Length; i++)
+        {
+            if(itemsInventario[i] == null)
+            {
+                itemsInventario[i] = item;
+                itemsInventario[i].Cantidad = cantidad;
+            }
+        }
     }
 
 }
