@@ -7,7 +7,7 @@ public class Inventory : Singleton<Inventory>
     [SerializeField] private int numeroSlots;
     public int NumeroSlots => numeroSlots;
 
-    [Header ("Items")]
+    [Header("Items")]
     [SerializeField] private Item[] itemsInventario;
 
     private void Start()
@@ -15,21 +15,21 @@ public class Inventory : Singleton<Inventory>
         itemsInventario = new Item[numeroSlots];
     }
 
-    private void AddItem(Item itemtoAdd,int cantidad)
+    public void AddItem(Item itemtoAdd, int cantidad)
     {
-        if(itemtoAdd == null)
+        if (itemtoAdd == null)
         {
             return;
         }
 
         List<int> indexes = VerificarExistencias(itemtoAdd.ID);
-        if(itemtoAdd.Acumulable)
+        if (itemtoAdd.Acumulable)
         {
-            if(indexes.Count > 0)
+            if (indexes.Count > 0)
             {
-                for(int i = 0; i < indexes.Count; i++)
+                for (int i = 0; i < indexes.Count; i++)
                 {
-                    if(itemsInventario[indexes[i]].Cantidad < itemtoAdd.AcumulacionMax)
+                    if (itemsInventario[indexes[i]].Cantidad < itemtoAdd.AcumulacionMax)
                     {
                         itemsInventario[indexes[i]].Cantidad += cantidad;
                         if (itemsInventario[indexes[i]].Cantidad > itemtoAdd.AcumulacionMax)
@@ -43,12 +43,12 @@ public class Inventory : Singleton<Inventory>
             }
         }
 
-        if(cantidad <= 0)
+        if (cantidad <= 0)
         {
             return;
         }
 
-        if(cantidad > itemtoAdd.AcumulacionMax)
+        if (cantidad > itemtoAdd.AcumulacionMax)
         {
             AddItemInSlot(itemtoAdd, itemtoAdd.AcumulacionMax);
             cantidad -= itemtoAdd.AcumulacionMax;
@@ -64,12 +64,17 @@ public class Inventory : Singleton<Inventory>
     private List<int> VerificarExistencias(string itemID)
     {
         List<int> indexItem = new List<int>();
-        for (int i=0; i < itemsInventario.Length; i++)
+        for (int i = 0; i < itemsInventario.Length; i++)
         {
-            if (itemsInventario[i].ID == itemID)
+            if (itemsInventario[i] != null)
             {
-                indexItem.Add(i);
+                if (itemsInventario[i].ID == itemID)
+                {
+                    indexItem.Add(i);
+                }
             }
+
+
         }
 
         return indexItem;
@@ -77,9 +82,9 @@ public class Inventory : Singleton<Inventory>
 
     private void AddItemInSlot(Item item, int cantidad)
     {
-        for(int i = 0; i < itemsInventario.Length; i++)
+        for (int i = 0; i < itemsInventario.Length; i++)
         {
-            if(itemsInventario[i] == null)
+            if (itemsInventario[i] == null)
             {
                 itemsInventario[i] = item;
                 itemsInventario[i].Cantidad = cantidad;
