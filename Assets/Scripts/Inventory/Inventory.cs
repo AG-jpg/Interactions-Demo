@@ -86,7 +86,7 @@ public class Inventory : Singleton<Inventory>
         {
             if (itemsInventario[i] == null)
             {
-                itemsInventario[i] = item;
+                itemsInventario[i] = item.CopyItem();
                 itemsInventario[i].Cantidad = cantidad;
                 return;
             }
