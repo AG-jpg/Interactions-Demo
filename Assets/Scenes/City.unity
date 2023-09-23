@@ -723,8 +723,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 917406339
+  m_SortingLayer: 1
   m_SortingOrder: 20
   m_Sprite: {fileID: -1884802276, guid: c6502cd59f5d6472d980f42640fbc8b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyInitial: 100
   energyMax: 100
-  regenXSecond: -1
+  regenXSecond: 1
 --- !u!1 &73276746
 GameObject:
   m_ObjectHideFlags: 0
@@ -7208,6 +7208,7 @@ GameObject:
   - component: {fileID: 416196839}
   - component: {fileID: 416196838}
   - component: {fileID: 416196840}
+  - component: {fileID: 416196841}
   m_Layer: 0
   m_Name: pizza
   m_TagString: Untagged
@@ -7255,7 +7256,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -725871867
   m_SortingLayer: 2
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4032cdffb0e564cbc8ddac839ac0866c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7308,6 +7309,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &416196841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416196837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e9d9199493e40bab79f04cabda9109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventarioItem: {fileID: 11400000, guid: 452fae18f23cd450982a0451002f4dba, type: 2}
+  cantidadtoAdd: 1
 --- !u!1 &449926419
 GameObject:
   m_ObjectHideFlags: 0
@@ -15745,7 +15760,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Energy
+  m_text: Stamina
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
   m_sharedMaterial: {fileID: -4800372823563353566, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
