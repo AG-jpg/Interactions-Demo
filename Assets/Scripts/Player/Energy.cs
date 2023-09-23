@@ -21,7 +21,7 @@ public class Energy : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
-            Useenergy(0.05f);
+            Useenergy(5f);
         }
     }
     public void Useenergy(float cantidad)
