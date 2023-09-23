@@ -15,11 +15,32 @@ public class Inventory : Singleton<Inventory>
         itemsInventario = new Item[numeroSlots];
     }
 
-    private void AddItem(Item itemtoAdd,int Cantidad)
+    private void AddItem(Item itemtoAdd,int cantidad)
     {
         if(itemtoAdd == null)
         {
             return;
+        }
+
+        List<int> indexes = VerificarExistencias(itemtoAdd.ID);
+        if(itemtoAdd.Acumulable)
+        {
+            if(indexes.Count > 0)
+            {
+                for(int i = 0; i < indexes.Count; i++)
+                {
+                    if(itemsInventario[indexes[i]].Cantidad < itemtoAdd.AcumulacionMax)
+                    {
+                        itemsInventario[indexes[i]].Cantidad += cantidad;
+                        if (itemsInventario[indexes[i]].Cantidad > itemtoAdd.AcumulacionMax)
+                        {
+                            int diferencia = itemsInventario[indexes[i]].Cantidad - itemtoAdd.AcumulacionMax;
+                            itemsInventario[indexes[i]].Cantidad = itemtoAdd.AcumulacionMax;
+                            AddItem(itemtoAdd, diferencia);
+                        }
+                    }
+                }
+            }
         }
     }
 
