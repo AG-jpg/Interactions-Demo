@@ -38,6 +38,9 @@ public class Inventory : Singleton<Inventory>
                             itemsInventario[indexes[i]].Cantidad = itemtoAdd.AcumulacionMax;
                             AddItem(itemtoAdd, diferencia);
                         }
+
+                        InventoryUI.Instance.DrawItemInventory(itemtoAdd, itemsInventario[indexes[i]].Cantidad, indexes[i]);
+                        return;
                     }
                 }
             }
@@ -88,6 +91,7 @@ public class Inventory : Singleton<Inventory>
             {
                 itemsInventario[i] = item.CopyItem();
                 itemsInventario[i].Cantidad = cantidad;
+                InventoryUI.Instance.DrawItemInventory(item, cantidad, i);
                 return;
             }
         }
