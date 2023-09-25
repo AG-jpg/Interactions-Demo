@@ -33,7 +33,7 @@ public class Slot : MonoBehaviour
         fondo.SetActive(state);
     }
 
-    public void ClickSLot()
+    public void ClickSlot()
     {
         EventoSlotInteraction?.Invoke(TiposInteraccion.Click, Index);
     }
