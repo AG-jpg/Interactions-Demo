@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: Pizza
   Name: Pizza Slice
   Icon: {fileID: 21300000, guid: 4032cdffb0e564cbc8ddac839ac0866c, type: 3}
-  Description: Pepperoni pizza slice that restores +20 of energy.
+  Description: Pepperoni pizza slice. Restores +20 Stamina.
   Tipo: 1
   Consumible: 1
   Acumulable: 1
