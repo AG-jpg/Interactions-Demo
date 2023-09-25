@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryUI : Singleton<InventoryUI>
 {
+    [Header ("Panel Descripción")]
+    [SerializeField] private TextMeshProUGUI descripcion;
+    [SerializeField] private TextMeshProUGUI itemName;
+
     [SerializeField] private Slot slotPrefab;
     [SerializeField] private Transform container;
 
@@ -36,5 +41,32 @@ public class InventoryUI : Singleton<InventoryUI>
         {
             slot.ActivarSlotUI(false);
         }
+    }
+
+    private void UpdateDescription(int index)
+    {
+        if(Inventory.Instance.ItemsInventario[index] != null)
+        {
+            itemName.text = Inventory.Instance.ItemsInventario[index].Name;
+            itemName.text = Inventory.Instance.ItemsInventario[index].Description;
+        }
+    }
+
+    private void SlotRespuesta(TiposInteraccion tipo, int index)
+    {
+        if(tipo == TiposInteraccion.Click)
+        {
+            UpdateDescription(index);
+        }
+    }
+
+    private void OnEnable()
+    {
+        Slot.EventoSlotInteraction += SlotRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        Slot.EventoSlotInteraction -= SlotRespuesta;
     }
 }
