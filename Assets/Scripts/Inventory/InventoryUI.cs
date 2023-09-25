@@ -48,7 +48,12 @@ public class InventoryUI : Singleton<InventoryUI>
         if(Inventory.Instance.ItemsInventario[index] != null)
         {
             itemName.text = Inventory.Instance.ItemsInventario[index].Name;
-            itemName.text = Inventory.Instance.ItemsInventario[index].Description;
+            descripcion.text = Inventory.Instance.ItemsInventario[index].Description;
+        }
+        else
+        {
+            itemName.text = " ";
+            descripcion.text = " ";
         }
     }
 
