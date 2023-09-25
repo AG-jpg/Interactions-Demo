@@ -9,6 +9,7 @@ public class Inventory : Singleton<Inventory>
 
     [Header("Items")]
     [SerializeField] private Item[] itemsInventario;
+    public Item[] ItemsInventario => itemsInventario;
 
     private void Start()
     {
