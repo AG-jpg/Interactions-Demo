@@ -5891,7 +5891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
   m_sharedMaterial: {fileID: -4800372823563353566, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
@@ -6745,8 +6745,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3debcd21a5b32496aa7e7cd209e3309c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numeroSlots: 24
   itemsInventario: []
+  player: {fileID: 71019241}
+  numeroSlots: 24
 --- !u!4 &223466049
 Transform:
   m_ObjectHideFlags: 0
@@ -7768,7 +7769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &465298091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8453,7 +8454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &512485286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9009,7 +9010,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 566685585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 223466047}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: UsarItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &566685585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15201,7 +15214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Item Name
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
   m_sharedMaterial: {fileID: -4800372823563353566, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
@@ -15781,7 +15794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1827971022
 RectTransform:
   m_ObjectHideFlags: 0
