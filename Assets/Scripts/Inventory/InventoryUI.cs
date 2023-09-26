@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using  UnityEngine.EventSystems;
 using TMPro;
 
 public class InventoryUI : Singleton<InventoryUI>
@@ -12,11 +13,17 @@ public class InventoryUI : Singleton<InventoryUI>
     [SerializeField] private Slot slotPrefab;
     [SerializeField] private Transform container;
 
+    public Slot SelectedSlot { get; private set; }
     private List<Slot> slotsDisponibles = new List<Slot>();
 
     void Start()
     {
         InicializarInventario();
+    }
+
+    private void Update()
+    {
+        UpdateSlectedSlot();
     }
 
     private void InicializarInventario()
@@ -26,6 +33,21 @@ public class InventoryUI : Singleton<InventoryUI>
            Slot nuevoSlot = Instantiate(slotPrefab, container);
            nuevoSlot.Index = i;
            slotsDisponibles.Add(nuevoSlot);
+        }
+    }
+
+    private void UpdateSlectedSlot()
+    {
+        GameObject goselected = EventSystem.current.currentSelectedGameObject;
+        if(goselected == null)
+        {
+            return;
+        }
+
+        Slot slot = goselected.GetComponent<Slot>();
+        if( slot != null)
+        {
+            SelectedSlot = slot;
         }
     }
 
