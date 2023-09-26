@@ -34,6 +34,22 @@ public class Energy : MonoBehaviour
         }
     }
 
+    public void RestoreEnergy(float cantidad)
+    {
+        if(energyActual >= energyMax)
+        {
+            return;
+        }
+
+        energyActual += cantidad;
+        if(energyActual > energyMax)
+        {
+            energyActual = energyMax;
+        }
+
+        UIManager.Instance.UpdateEnergyPlayer(energyActual, energyMax);
+    }
+
     private void GetEnergy()
     {
         energyActual += regenXSecond;
