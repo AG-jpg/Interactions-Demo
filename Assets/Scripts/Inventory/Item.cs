@@ -29,4 +29,19 @@ public class Item : ScriptableObject
         Item newInstance = Instantiate(this);
         return newInstance;
     }
+
+    public virtual bool UsarItem()
+    {
+        return true;
+    }
+
+    public virtual bool GiveItem()
+    {
+        return true;
+    }
+
+    public virtual bool RemoveItem()
+    {
+        return true;
+    }
 }
