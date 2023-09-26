@@ -5,6 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Stats stats;
+    public Energy Energy { get; private set; }
+
+
+    private void Awake()
+    {
+        Energy = GetComponent<Energy>();
+    }
+
     private void AtributoRespuesta(AttributeType type)
     {
         if (stats.PuntosDisponibles <= 0)
