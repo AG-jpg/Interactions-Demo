@@ -9,6 +9,7 @@ public class Energy : MonoBehaviour
     [SerializeField] private float regenXSecond;
 
     public float energyActual { get; private set; }
+    public bool CanRestore => energyActual < energyMax;
     void Start()
     {
         energyActual = energyInitial;
