@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Vending Machine
   m_EditorClassIdentifier: 
   Name: Vending Machine
+  Icon: {fileID: 21300000, guid: 71cf6b387f53e475ab2b75b20849feeb, type: 3}
   hasExtra: 1
   IE: 1
   Entrance: Select your product
   Conversation: []
-  Out: Select
+  Out: 
