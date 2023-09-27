@@ -16826,6 +16826,7 @@ GameObject:
   - component: {fileID: 1922154807}
   - component: {fileID: 1922154806}
   - component: {fileID: 1922154808}
+  - component: {fileID: 1922154809}
   m_Layer: 0
   m_Name: vending-machine
   m_TagString: Untagged
@@ -16926,6 +16927,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7488804, y: 0.2293706}
   m_EdgeRadius: 0
+--- !u!114 &1922154809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922154805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13423d9ed8bbd4c13ac52976bf66cea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueNPC: {fileID: 11400000, guid: 829cec33a9bf24abd822d0a58a70f9a4, type: 2}
 --- !u!1 &1964136662
 GameObject:
   m_ObjectHideFlags: 0
