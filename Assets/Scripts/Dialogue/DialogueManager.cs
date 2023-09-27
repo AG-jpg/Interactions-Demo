@@ -8,6 +8,7 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] public GameObject dialogueBox;
     [SerializeField] private Text NameText;
     [SerializeField] private Text DialogueText;
+    [SerializeField] private Image npcIon;
 
     public NPCInteract NPCDisponible { get; set; }
 
@@ -56,6 +57,7 @@ public class DialogueManager : Singleton<DialogueManager>
     private void ConfigurePanel(NPCDialogue dialogueNPC)
     {
         OpenPanel(true);
+        npcIon.sprite = dialogueNPC.Icon;
         LoadSentences(dialogueNPC);
         NameText.text = dialogueNPC.Name;
         ShowText(dialogueNPC.Entrance);

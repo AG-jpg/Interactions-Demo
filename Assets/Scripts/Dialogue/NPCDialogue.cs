@@ -14,7 +14,7 @@ public class NPCDialogue : ScriptableObject
 {
     [Header("Info")]
     public string Name;
-    //public Sprite Icon;
+    public Sprite Icon;
     public bool hasExtra;
     public InteractionExtraNPC IE;
 
