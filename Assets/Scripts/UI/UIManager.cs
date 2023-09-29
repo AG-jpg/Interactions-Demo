@@ -15,17 +15,18 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelMap;
     [SerializeField] private GameObject panelTasks;
     [SerializeField] private GameObject panelInventario;
+    [SerializeField] private GameObject panelQuest;
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelPC;
     [SerializeField] private GameObject panelMusic;
-    
 
 
-    [Header("Barra")] 
+
+    [Header("Barra")]
     [SerializeField] private Image expPlayer;
     [SerializeField] private Image energyPlayer;
 
-    [Header("Texto")] 
+    [Header("Texto")]
     [SerializeField] private TextMeshProUGUI expTMP;
     [SerializeField] private TextMeshProUGUI energyTMP;
 
@@ -55,7 +56,7 @@ public class UIManager : Singleton<UIManager>
 
     private void UpdatePanelStats()
     {
-        if(panelStats.activeSelf == false)
+        if (panelStats.activeSelf == false)
         {
             return;
         }
@@ -78,11 +79,11 @@ public class UIManager : Singleton<UIManager>
     }
     private void UpdateUIPlayer()
     {
-        expPlayer.fillAmount = Mathf.Lerp(expPlayer.fillAmount, 
+        expPlayer.fillAmount = Mathf.Lerp(expPlayer.fillAmount,
         expActual / expRequiredNewLevel, 10f * Time.deltaTime);
 
-        energyPlayer.fillAmount = Mathf.Lerp(energyPlayer.fillAmount, 
-        energyActual / energyMax,10f * Time.deltaTime);
+        energyPlayer.fillAmount = Mathf.Lerp(energyPlayer.fillAmount,
+        energyActual / energyMax, 10f * Time.deltaTime);
 
         expTMP.text = $"{expActual}/{expRequiredNewLevel}";
         energyTMP.text = $"{energyActual}/{energyMax}";
@@ -121,7 +122,7 @@ public class UIManager : Singleton<UIManager>
     {
         panelMap.SetActive(!panelMap.activeSelf);
     }
-    
+
     public void OpenPanelTasks()
     {
         panelTasks.SetActive(!panelTasks.activeSelf);
@@ -147,5 +148,25 @@ public class UIManager : Singleton<UIManager>
         panelMusic.SetActive(!panelMusic.activeSelf);
     }
 
+    public void OpenPanelQuest()
+    {
+        panelQuest.SetActive(!panelMusic.activeSelf);
+    }
+
+    public void OpenPanelInteraction(InteractionExtraNPC tipoInteraccion)
+    {
+        switch (tipoInteraccion)
+        {
+            case InteractionExtraNPC.Quests:
+            OpenPanelQuest();
+                break;
+            case InteractionExtraNPC.Tienda:
+                break;
+            case InteractionExtraNPC.Crafting:
+                break;
+        }
+    }
+
     #endregion
+
 }
