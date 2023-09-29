@@ -150,7 +150,7 @@ public class UIManager : Singleton<UIManager>
 
     public void OpenPanelQuest()
     {
-        panelQuest.SetActive(!panelMusic.activeSelf);
+        panelQuest.SetActive(!panelQuest.activeSelf);
     }
 
     public void OpenPanelInteraction(InteractionExtraNPC tipoInteraccion)
