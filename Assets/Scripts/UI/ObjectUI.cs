@@ -46,4 +46,10 @@ public class ObjectUI : MonoBehaviour
             Background.SetActive(false);
         }
     }
+
+    private void ClosePanel()
+    {
+        UIBox.SetActive(false);
+        Background.SetActive(false);
+    }
 }
