@@ -8,7 +8,7 @@ public class InspectorQuest : QuestDescription
     {
         base.ConfigureQuestUI(questtoLoad);
         questReward.text =  $"{questtoLoad.Credits} Credits" +
-                            $"{questtoLoad.Experience} Exp" +
-                            $"{questtoLoad.RewardItem.Item.Name} x{questtoLoad.RewardItem.cantidad}";
+                            $"    {questtoLoad.Experience} Exp" ;
+                            //+ $" {questtoLoad.RewardItem.cantidad} {questtoLoad.RewardItem.Item.Name} ";
     }
 }
