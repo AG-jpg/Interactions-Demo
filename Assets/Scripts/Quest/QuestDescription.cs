@@ -11,7 +11,7 @@ public class QuestDescription : MonoBehaviour
     public virtual void ConfigureQuestUI(Quest questtoLoad)
     {
         questName.text = questtoLoad.Name;
-        questName.text = questtoLoad.Description;
+        questDescription.text = questtoLoad.Description;
     }
 
 }
