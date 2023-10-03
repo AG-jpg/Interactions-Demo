@@ -5,6 +5,7 @@ using UnityEngine;
 public enum InteractionExtraNPC
 {
     Quests,
+    Machine,
     Tienda,
     Crafting
 }
