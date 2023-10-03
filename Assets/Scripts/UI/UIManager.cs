@@ -16,6 +16,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelTasks;
     [SerializeField] private GameObject panelInventario;
     [SerializeField] private GameObject panelQuest;
+    [SerializeField] private GameObject panelMachine;
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelPC;
     [SerializeField] private GameObject panelMusic;
@@ -153,12 +154,20 @@ public class UIManager : Singleton<UIManager>
         panelQuest.SetActive(!panelQuest.activeSelf);
     }
 
+    public void OpenPanelMachine()
+    {
+        panelMachine.SetActive(!panelMachine.activeSelf);
+    }
+
     public void OpenPanelInteraction(InteractionExtraNPC tipoInteraccion)
     {
         switch (tipoInteraccion)
         {
             case InteractionExtraNPC.Quests:
             OpenPanelQuest();
+                break;
+                case InteractionExtraNPC.Machine:
+            OpenPanelMachine();
                 break;
             case InteractionExtraNPC.Tienda:
                 break;
