@@ -1,63 +1,59 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class Quest : ScriptableObject
 {
-    public static Action<Quest> EventoQuestCompletado;
+    public static Action<Quest> EventQuestCompleted;
 
-    [Header("Info")] 
-    public string Nombre;
+    [Header ("Info")]
+    public string Name;
     public string ID;
     public int CantidadObjetivo;
 
-    [Header("Descripcion")] 
-    [TextArea] public string Descripcion;
+    [Header("Description")]
+    public string Description;
 
-    [Header("Recompensas")] 
-    public int RecompensaOro;
-    public float RecompensaExp;
-    public QuestRecompensaItem RecompensaItem;
+    [Header("Rewards")]
+    public int Credits;
+    public float Experience;
+    public QuestRewardItem RewardItem;
 
-    [HideInInspector] public int CantidadActual;
-    [HideInInspector] public bool QuestCompletadoCheck;
+    [HideInInspector] public int cantidadActual;
+    [HideInInspector] bool QuestCompleted;
 
-    public void AñadirProgreso(int cantidad)
+    public void AddProgress(int cantidad)
     {
-        CantidadActual += cantidad;
-        VerificarQuestCompletado();
+        cantidadActual += cantidad;
+        VerifyCompletedQuest();
     }
 
-    private void VerificarQuestCompletado()
+    private void VerifyCompletedQuest()
     {
-        if (CantidadActual >= CantidadObjetivo)
+        if(cantidadActual >= CantidadObjetivo)
         {
-            CantidadActual = CantidadObjetivo;
-            QuestCompletado();
+            cantidadActual = CantidadObjetivo;
+            CompletedQuest();
         }
     }
 
-    private void QuestCompletado()
+    private void CompletedQuest()
     {
-        if (QuestCompletadoCheck)
+        if(QuestCompleted)
         {
             return;
         }
 
-        QuestCompletadoCheck = true;
-        EventoQuestCompletado?.Invoke(this);
+        QuestCompleted = true;
+        EventQuestCompleted?.Invoke(this);
     }
 
-    private void OnEnable()
-    {
-        QuestCompletadoCheck = false;
-        CantidadActual = 0;
-    }
 }
 
 [Serializable]
-public class QuestRecompensaItem
-{
-    public InventarioItem Item;
-    public int Cantidad;
+public class QuestRewardItem
+{ 
+    public Item Item;
+    public int cantidad;
 }
