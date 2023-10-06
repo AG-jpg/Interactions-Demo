@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d31d086ac55554bd882553deb3a328d3, type: 3}
-  m_Name: Rock the Casbah
+  m_Name: Looking For Water
   m_EditorClassIdentifier: 
-  Name: Rock the Casbah
-  ID: Rock the Casbah
-  CantidadObjetivo: 3
-  Description: Breach the systems to liberate the animals
-  Credits: 200
-  Experience: 50
+  Name: Looking For Water
+  ID: Looking for Water
+  CantidadObjetivo: 1
+  Description: Hack the vending machine
+  Credits: 20
+  Experience: 15
   RewardItem:
-    Item: {fileID: 11400000, guid: 452fae18f23cd450982a0451002f4dba, type: 2}
+    Item: {fileID: 11400000, guid: ad53c5f24b12244e0b6dd30a369d3b49, type: 2}
     cantidad: 1
   cantidadActual: 0
