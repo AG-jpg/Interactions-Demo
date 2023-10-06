@@ -21,6 +21,15 @@ public class QuestManager : Singleton<QuestManager>
         LoadQuestInspector();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            AddProgress("Rock the Casbah", 1);
+            AddProgress("Looking for Water", 1);
+        }
+    }
+
     private void LoadQuestInspector()
     {
         for(int i=0; i < questDisponible.Length; i++)
