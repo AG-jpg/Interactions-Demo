@@ -5,7 +5,7 @@ using UnityEngine;
 public class QuestManager : Singleton<QuestManager>
 {
     [Header ("Quests")]
-    [SerializeField] private Quest[] questDisponible;
+    [SerializeField] private Quest[] questDisponibles;
 
     [Header ("Inspector Quest Quests")]
     [SerializeField] private QuestDescription inspectorQuestPrefab;
@@ -25,29 +25,29 @@ public class QuestManager : Singleton<QuestManager>
     {
         if(Input.GetKeyDown(KeyCode.V))
         {
-            AddProgress("Rock the Casbah", 1);
+            AddProgress("Rock the Casbah", 2);
             AddProgress("Looking for Water", 1);
         }
     }
 
     private void LoadQuestInspector()
     {
-        for(int i=0; i < questDisponible.Length; i++)
+        for(int i=0; i < questDisponibles.Length; i++)
         {
             QuestDescription newQuest = Instantiate(inspectorQuestPrefab, InpsectorQuestContainer);
-            newQuest.ConfigureQuestUI(questDisponible[i]);
+            newQuest.ConfigureQuestUI(questDisponibles[i]);
         }
     }
 
-    private void AddQuesttoComplete(Quest questtocomplete)
+    private void AddQuesttoComplete(Quest questToComplete)
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
-        newQuest.ConfigureQuestUI(questtocomplete);
+        newQuest.ConfigureQuestUI(questToComplete);
     }
 
-    public void AddQuest(Quest questtocomplete)
+    public void AddQuest(Quest questToComplete)
     {
-        AddQuesttoComplete(questtocomplete);
+        AddQuesttoComplete(questToComplete);
     }
 
     public void AddProgress(string questID, int cantidad)
@@ -56,13 +56,13 @@ public class QuestManager : Singleton<QuestManager>
         questtoUpdate.AddProgress(cantidad);
     }
 
-    public Quest QuestExist(string questID)
+    private Quest QuestExist(string questID)
     {
-        for (int i = 0; i < questDisponible.Length; i++)
+        for (int i = 0; i < questDisponibles.Length; i++)
         {
-            if(questDisponible[i].ID == questID)
+            if(questDisponibles[i].ID == questID)
             {
-                return questDisponible[i];
+                return questDisponibles[i];
             }
         }
 

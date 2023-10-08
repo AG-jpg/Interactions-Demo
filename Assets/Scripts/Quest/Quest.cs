@@ -21,7 +21,7 @@ public class Quest : ScriptableObject
     public QuestRewardItem RewardItem;
 
     [HideInInspector] public int cantidadActual;
-    [HideInInspector] bool QuestCompleted;
+    [HideInInspector] public bool QuestCompletedCheck;
 
     public void AddProgress(int cantidad)
     {
@@ -40,12 +40,12 @@ public class Quest : ScriptableObject
 
     private void CompletedQuest()
     {
-        if(QuestCompleted)
+        if(QuestCompletedCheck)
         {
             return;
         }
 
-        QuestCompleted = true;
+        QuestCompletedCheck = true;
         EventQuestCompleted?.Invoke(this);
     }
 
