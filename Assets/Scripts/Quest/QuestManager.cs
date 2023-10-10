@@ -26,7 +26,7 @@ public class QuestManager : Singleton<QuestManager>
         if(Input.GetKeyDown(KeyCode.V))
         {
             AddProgress("Rock the Casbah", 1);
-            AddProgress("Looking for Water", 1);
+            //AddProgress("Looking for Water", 1);
         }
     }
 
