@@ -8,7 +8,7 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private Quest[] questDisponibles;
 
     [Header ("Inspector Quest Quests")]
-    [SerializeField] private QuestDescription inspectorQuestPrefab;
+    [SerializeField] private InspectorQuest inspectorQuestPrefab;
     [SerializeField] private Transform InpsectorQuestContainer;
 
     [Header ("Player Quests")]
@@ -25,7 +25,7 @@ public class QuestManager : Singleton<QuestManager>
     {
         if(Input.GetKeyDown(KeyCode.V))
         {
-            AddProgress("Rock the Casbah", 2);
+            AddProgress("Rock the Casbah", 1);
             AddProgress("Looking for Water", 1);
         }
     }

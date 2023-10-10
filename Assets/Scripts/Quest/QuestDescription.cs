@@ -12,7 +12,7 @@ public class QuestDescription : MonoBehaviour
 
     public virtual void ConfigureQuestUI(Quest quest)
     {
-        QuestLoaded  = quest;
+        QuestLoaded = quest;
         questName.text = quest.Name;
         questDescription.text = quest.Description;
     }
