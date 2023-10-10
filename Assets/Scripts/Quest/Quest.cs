@@ -49,6 +49,12 @@ public class Quest : ScriptableObject
         EventQuestCompleted?.Invoke(this);
     }
 
+    private void OnEnable()
+    {
+        QuestCompletedCheck = false;
+        cantidadActual = 0;
+    }
+
 }
 
 [Serializable]
