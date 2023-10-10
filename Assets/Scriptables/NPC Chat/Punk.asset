@@ -14,15 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Johny Strummer
   Icon: {fileID: 21300000, guid: a1e80120f602a4a8e83b729ae22e9c5d, type: 3}
-  hasExtra: 0
-  IE: 0
-  Entrance: Dude! Come over here!
+  hasExtra: 1
+  InteraccionExtra: 0
+  Entrance: Do you see that lab?
   Conversation:
-  - Sentence: Do you see that lab?
   - Sentence: They are doing crazy things over there.
   - Sentence: They got some animals captive,
   - Sentence: some chemical samples...
   - Sentence: and soon will be tested on them.
   - Sentence: We are going to liberate them!
-  - Sentence: But we need to get pass through the guard.
+  - Sentence: We need to get through the guard.
   Out: Will you help us?
