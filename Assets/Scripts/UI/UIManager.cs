@@ -166,9 +166,6 @@ public class UIManager : Singleton<UIManager>
             case InteractionExtraNPC.Quests:
             OpenPanelQuest();
                 break;
-                case InteractionExtraNPC.Machine:
-            OpenPanelMachine();
-                break;
             case InteractionExtraNPC.Tienda:
                 break;
             case InteractionExtraNPC.Crafting:
