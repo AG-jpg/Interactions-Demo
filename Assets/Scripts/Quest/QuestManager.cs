@@ -23,15 +23,17 @@ public class QuestManager : Singleton<QuestManager>
 
     void Start()
     {
-        //questDisponibles = new Quest[questDisponibles.Length + 1];
         LoadNPCQuest();
-        LoadQuestInspector();
     }
 
     private void Update()
     {
         LoadNPCQuest();
-        LoadQuestInspector();
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            LoadQuestInspector();
+        }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -59,7 +61,6 @@ public class QuestManager : Singleton<QuestManager>
                     questDisponibles = NPCquest[i].Quests;
                 }
             }
-
         }
     }
 
