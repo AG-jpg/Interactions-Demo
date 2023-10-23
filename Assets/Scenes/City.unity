@@ -7750,11 +7750,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310535757}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01599884, y: 0.9359999, z: 0}
+  m_LocalPosition: {x: 10.243, y: -2.6220002, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 494479570}
+  m_Father: {fileID: 580333654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322993386
@@ -8982,9 +8982,10 @@ GameObject:
   - component: {fileID: 494479571}
   - component: {fileID: 494479572}
   - component: {fileID: 494479573}
+  - component: {fileID: 494479574}
   m_Layer: 0
   m_Name: punk
-  m_TagString: Untagged
+  m_TagString: Punk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9052,10 +9053,9 @@ Transform:
   m_LocalPosition: {x: 10.258999, y: -3.558, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 310535759}
+  m_Children: []
   m_Father: {fileID: 580333654}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &494479571
 CapsuleCollider2D:
@@ -9112,6 +9112,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueNPC: {fileID: 11400000, guid: fcf944cf742ec4b1db53e1f7b7daa5e1, type: 2}
+--- !u!114 &494479574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494479568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6deb94da18f40028a20fa13bdbffc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Jonny Strummer
+  Quests:
+  - {fileID: 11400000, guid: 4d7f957c9849f4f36b2947c971ffb132, type: 2}
+  NPCActive: 0
 --- !u!1 &502342217
 GameObject:
   m_ObjectHideFlags: 0
@@ -10138,6 +10154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 310535759}
   - {fileID: 494479570}
   - {fileID: 2146790069}
   - {fileID: 959650653}
@@ -12641,7 +12658,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 580333654}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &959650654
 CapsuleCollider2D:
@@ -13588,7 +13605,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 580333654}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1070665546
 CapsuleCollider2D:
@@ -13970,7 +13987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 580333654}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1112903148
 CapsuleCollider2D:
@@ -15859,12 +15876,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c718c81462ac485b8083c4efcc15f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questDisponible:
-  - {fileID: 11400000, guid: 4d7f957c9849f4f36b2947c971ffb132, type: 2}
+  questDisponibles: []
   inspectorQuestPrefab: {fileID: 2024550114275584428, guid: 310cb3abcda7f4fb9a0f56dbc272e4c6, type: 3}
   InpsectorQuestContainer: {fileID: 523488954}
   playerQuestPrefab: {fileID: 5674529467582778970, guid: 34e7711cbbec1405db9343dfc89a57ee, type: 3}
   playerQuestContainer: {fileID: 1273119279}
+  NPCquest:
+  - {fileID: 494479574}
 --- !u!4 &1585138174
 Transform:
   m_ObjectHideFlags: 0
@@ -18460,7 +18478,6 @@ GameObject:
   - component: {fileID: 1922154806}
   - component: {fileID: 1922154808}
   - component: {fileID: 1922154810}
-  - component: {fileID: 1922154809}
   m_Layer: 0
   m_Name: vending-machine
   m_TagString: Untagged
@@ -18561,24 +18578,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7488804, y: 0.2293706}
   m_EdgeRadius: 0
---- !u!114 &1922154809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922154805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c718c81462ac485b8083c4efcc15f56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questDisponible:
-  - {fileID: 11400000, guid: ac65259a2419a4fc5923c6721749bdc5, type: 2}
-  inspectorQuestPrefab: {fileID: 2024550114275584428, guid: 310cb3abcda7f4fb9a0f56dbc272e4c6, type: 3}
-  InpsectorQuestContainer: {fileID: 2010106491}
-  playerQuestPrefab: {fileID: 5674529467582778970, guid: 34e7711cbbec1405db9343dfc89a57ee, type: 3}
-  playerQuestContainer: {fileID: 1273119279}
 --- !u!114 &1922154810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19281,7 +19280,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 580333654}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2146790070
 CapsuleCollider2D:
