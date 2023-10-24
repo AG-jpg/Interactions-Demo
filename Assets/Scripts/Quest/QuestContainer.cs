@@ -8,7 +8,7 @@ public class QuestContainer : MonoBehaviour
     public string Name;
 
     [Header("Quests")]
-    [SerializeField] public Quest[] Quests;
+    [SerializeField] public Quest Quests;
 
     public bool NPCActive;
 

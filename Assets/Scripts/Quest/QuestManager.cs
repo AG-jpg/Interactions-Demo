@@ -21,17 +21,18 @@ public class QuestManager : Singleton<QuestManager>
     [Header("NPC Quests")]
     [SerializeField] private QuestContainer[] NPCquest;
 
-    void Start()
+    private Quest newquest;
+
+    private void Start()
     {
-        LoadNPCQuest();
+        questDisponibles = new Quest[questDisponibles.Length];
     }
 
     private void Update()
     {
-        LoadNPCQuest();
-
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            LoadNPCQuest();
             LoadQuestInspector();
         }
 
@@ -54,12 +55,10 @@ public class QuestManager : Singleton<QuestManager>
     {
         for (int i = 0; i < NPCquest.Length; i++)
         {
-            if (NPCquest[i] != null)
+            if (NPCquest[i].NPCActive == true)
             {
-                if (NPCquest[i].NPCActive == true)
-                {
-                    questDisponibles = NPCquest[i].Quests;
-                }
+                newquest = NPCquest[i].Quests;
+                questDisponibles = questDisponibles.Append(newquest).ToArray();
             }
         }
     }
