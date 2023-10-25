@@ -21,15 +21,13 @@ public class InspectorQuest : QuestDescription
         }
 
         QuestManager.Instance.AddQuest(QuestLoaded);
-        gameObject.SetActive(false);
-        InpsectorContainer.SetActive(false);
+        Destroy(this.gameObject);
         UIManager.Instance.OpenPanelQuest();
     }
 
     public void DenyQuest()
     {
         QuestManager.Instance.ResetQuestList();
-        gameObject.SetActive(false);
         Destroy(this.gameObject);
         UIManager.Instance.OpenPanelQuest();
     }
