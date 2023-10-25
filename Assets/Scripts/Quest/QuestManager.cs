@@ -22,6 +22,7 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private QuestContainer[] NPCquest;
 
     private Quest newquest;
+    private bool questloaded;
 
     private void Start()
     {
@@ -59,6 +60,7 @@ public class QuestManager : Singleton<QuestManager>
             {
                 newquest = NPCquest[i].Quests;
                 questDisponibles = questDisponibles.Append(newquest).ToArray();
+                questloaded = true;
             }
         }
     }
@@ -67,6 +69,8 @@ public class QuestManager : Singleton<QuestManager>
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
+        //Array.Clear(questDisponibles);
+        questDisponibles = new Quest[0];
     }
 
     public void AddQuest(Quest questToComplete)
