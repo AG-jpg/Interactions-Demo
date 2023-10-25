@@ -29,6 +29,6 @@ public class InspectorQuest : QuestDescription
     {
         QuestManager.Instance.ResetQuestList();
         gameObject.SetActive(false);
-        InpsectorContainer.SetActive(false);
+        Destroy(this.gameObject);
     }
 }
