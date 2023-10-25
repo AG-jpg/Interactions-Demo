@@ -22,7 +22,6 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private QuestContainer[] NPCquest;
 
     private Quest newquest;
-    private bool questloaded;
 
     private void Start()
     {
@@ -49,6 +48,7 @@ public class QuestManager : Singleton<QuestManager>
         {
             QuestDescription newQuest = Instantiate(inspectorQuestPrefab, InpsectorQuestContainer);
             newQuest.ConfigureQuestUI(questDisponibles[i]);
+            OnloadQuestNPC();
         }
     }
 
@@ -60,17 +60,32 @@ public class QuestManager : Singleton<QuestManager>
             {
                 newquest = NPCquest[i].Quests;
                 questDisponibles = questDisponibles.Append(newquest).ToArray();
-                questloaded = true;
             }
         }
+    }
+
+    public void ResetQuestList()
+    {
+        questDisponibles = new Quest[0];
     }
 
     private void AddQuesttoComplete(Quest questToComplete)
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
-        //Array.Clear(questDisponibles);
         questDisponibles = new Quest[0];
+        EraseQuestNPC();
+    }
+
+    private void EraseQuestNPC()
+    {
+        for (int i = 0; i < NPCquest.Length; i++)
+        {
+            if (NPCquest[i].NPCActive == true)
+            {
+                NPCquest[i].Quests = null;
+            }
+        }
     }
 
     public void AddQuest(Quest questToComplete)
@@ -88,7 +103,6 @@ public class QuestManager : Singleton<QuestManager>
     {
         for (int i = 0; i < questDisponibles.Length; i++)
         {
-            //Aquí hay que editar la lista
             if (questDisponibles[i].ID == questID)
             {
                 return questDisponibles[i];
