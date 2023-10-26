@@ -13738,8 +13738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6deb94da18f40028a20fa13bdbffc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  Quests: {fileID: 0}
+  Name: Ella Kova
+  Quests: {fileID: 11400000, guid: ac65259a2419a4fc5923c6721749bdc5, type: 2}
   NPCActive: 0
 --- !u!114 &1238209729
 MonoBehaviour:
