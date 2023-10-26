@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Guard
   Icon: {fileID: 21300000, guid: ba4e860b6d1274960bff04284afb8d5a, type: 3}
-  hasExtra: 0
-  IE: 0
+  hasExtra: 1
+  InteraccionExtra: 0
   Entrance: I'm on guard duty.
   Conversation:
   - Sentence: 'Gee, I''m thirsty though. '
