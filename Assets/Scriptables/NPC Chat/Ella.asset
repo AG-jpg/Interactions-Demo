@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
   m_Name: Ella
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Ella Kova
   Icon: {fileID: 0}
-  hasExtra: 0
+  hasExtra: 1
   InteraccionExtra: 0
-  Entrance: 
-  Conversation: []
-  Out: 
+  Entrance: Nothing  in this city works!
+  Conversation:
+  - Sentence: That vending machine it's glitching!
+  Out: Can anybody fix it?
