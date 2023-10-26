@@ -12665,6 +12665,7 @@ GameObject:
   - component: {fileID: 1070665548}
   - component: {fileID: 1070665549}
   - component: {fileID: 1070665547}
+  - component: {fileID: 1070665550}
   m_Layer: 0
   m_Name: guard
   m_TagString: Untagged
@@ -12820,6 +12821,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1429396, y: 0.29521942}
   m_EdgeRadius: 0
+--- !u!114 &1070665550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070665543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6deb94da18f40028a20fa13bdbffc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Guard
+  Quests: {fileID: 11400000, guid: ac65259a2419a4fc5923c6721749bdc5, type: 2}
+  NPCActive: 0
 --- !u!1 &1079370487
 GameObject:
   m_ObjectHideFlags: 0
@@ -13753,7 +13769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13423d9ed8bbd4c13ac52976bf66cea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueNPC: {fileID: 0}
+  dialogueNPC: {fileID: 11400000, guid: 33ff797142e2441f0aaee265fae3a720, type: 2}
 --- !u!61 &1238209730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13856,7 +13872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238209727}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.7870007, y: -0.4800005, z: 0}
+  m_LocalPosition: {x: -8.19, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15174,6 +15190,7 @@ MonoBehaviour:
   NPCquest:
   - {fileID: 494479574}
   - {fileID: 1238209728}
+  - {fileID: 1070665550}
 --- !u!4 &1585138174
 Transform:
   m_ObjectHideFlags: 0
