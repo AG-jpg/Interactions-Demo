@@ -66,17 +66,20 @@ public class QuestManager : Singleton<QuestManager>
         }
     }
 
+    //This rejects the quest in inspector
     public void ResetQuestList()
     {
         questDisponibles = new Quest[0];
         ReadyforQuest = true;
     }
 
+    //This accpets the quest in inspector
     private void AddQuesttoComplete(Quest questToComplete)
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
-        ResetQuestList();
+        questDisponibles = new Quest[0];
+        ReadyforQuest = true;
         EraseQuestNPC();
     }
 
