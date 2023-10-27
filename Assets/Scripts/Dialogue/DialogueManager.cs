@@ -15,40 +15,44 @@ public class DialogueManager : Singleton<DialogueManager>
     private Queue<string> sequence;
     private bool AnimatedDialogue;
     private bool ShowGoodbye;
+    private bool ConversationInitiated;
 
     private void Start()
     {
         sequence = new Queue<string>();
+        ConversationInitiated = false;
     }
 
     private void Update()
     {
-        if(NPCDisponible == null)
+        if (NPCDisponible == null)
         {
             return;
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && ConversationInitiated == false)
         {
             ConfigurePanel(NPCDisponible.Dialogo);
+            ConversationInitiated = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return) && ConversationInitiated == true)
         {
-            if(ShowGoodbye)
+            if (ShowGoodbye)
             {
+                if (NPCDisponible.Dialogo.hasExtra)
+                {
+                    UIManager.Instance.OpenPanelInteraction(NPCDisponible.Dialogo.InteraccionExtra);
+                    OpenPanel(false);
+                }
+
                 OpenPanel(false);
                 ShowGoodbye = false;
+                ConversationInitiated = false;
                 return;
             }
 
-            if(NPCDisponible.Dialogo.hasExtra)
-            {
-                UIManager.Instance.OpenPanelInteraction(NPCDisponible.Dialogo.InteraccionExtra);
-                OpenPanel(false);
-            }
-
-            if(AnimatedDialogue)
+            if (AnimatedDialogue)
             {
                 ContinueDialogue();
             }
@@ -72,12 +76,12 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void LoadSentences(NPCDialogue dialogueNPC)
     {
-        if(dialogueNPC.Conversation == null || dialogueNPC.Conversation.Length <= 0)
+        if (dialogueNPC.Conversation == null || dialogueNPC.Conversation.Length <= 0)
         {
             return;
         }
 
-        for(int i = 0; i < dialogueNPC.Conversation.Length; i++)
+        for (int i = 0; i < dialogueNPC.Conversation.Length; i++)
         {
             sequence.Enqueue(dialogueNPC.Conversation[i].Sentence);
         }
@@ -85,17 +89,17 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void ContinueDialogue()
     {
-        if(NPCDisponible == null)
+        if (NPCDisponible == null)
         {
             return;
         }
 
-        if(ShowGoodbye)
+        if (ShowGoodbye)
         {
             return;
         }
 
-        if(sequence.Count == 0)
+        if (sequence.Count == 0)
         {
             string despedida = NPCDisponible.Dialogo.Out;
             ShowText(despedida);
@@ -113,7 +117,7 @@ public class DialogueManager : Singleton<DialogueManager>
         DialogueText.text = "";
         char[] letras = oracion.ToCharArray();
 
-        for(int i=0; i < letras.Length; i++)
+        for (int i = 0; i < letras.Length; i++)
         {
             DialogueText.text += letras[i];
             yield return new WaitForSeconds(0.04f);
