@@ -22,18 +22,21 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private QuestContainer[] NPCquest;
 
     private Quest newquest;
+    private bool ReadyforQuest;
 
     private void Start()
     {
         questDisponibles = new Quest[questDisponibles.Length];
+        ReadyforQuest = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && ReadyforQuest == true)
         {
             LoadNPCQuest();
             LoadQuestInspector();
+            ReadyforQuest = false;
         }
 
         if (Input.GetKeyDown(KeyCode.V))
@@ -48,7 +51,6 @@ public class QuestManager : Singleton<QuestManager>
         {
             QuestDescription newQuest = Instantiate(inspectorQuestPrefab, InpsectorQuestContainer);
             newQuest.ConfigureQuestUI(questDisponibles[i]);
-            OnloadQuestNPC();
         }
     }
 
@@ -67,13 +69,14 @@ public class QuestManager : Singleton<QuestManager>
     public void ResetQuestList()
     {
         questDisponibles = new Quest[0];
+        ReadyforQuest = true;
     }
 
     private void AddQuesttoComplete(Quest questToComplete)
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
-        questDisponibles = new Quest[0];
+        ResetQuestList();
         EraseQuestNPC();
     }
 
