@@ -22,7 +22,11 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private QuestContainer[] NPCquest;
 
     private Quest newquest;
+
+    //Bools
     private bool ReadyforQuest;
+    public bool QuestAccepted;
+
 
     private void Start()
     {
@@ -80,6 +84,7 @@ public class QuestManager : Singleton<QuestManager>
         newQuest.ConfigureQuestUI(questToComplete);
         questDisponibles = new Quest[0];
         ReadyforQuest = true;
+        QuestAccepted = true;
         EraseQuestNPC();
     }
 
