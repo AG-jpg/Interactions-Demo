@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da40a132042c84c9e9369ce6de254af6, type: 3}
+  m_Name: Quest Added
+  m_EditorClassIdentifier: 
+  Description: New task added to list
+  Icon: {fileID: 21300000, guid: 337f05de18890400aae0e8b7f1f338ff, type: 3}
+  BG: {fileID: 21300000, guid: 04f30b2dbfc2e4eb68b9fc09ecdccb8e, type: 3}
