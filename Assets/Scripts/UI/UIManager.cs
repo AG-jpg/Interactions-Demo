@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    public QuestManager questManager;
+
     [Header("Object")]
     [SerializeField] private Stats Stats;
     [Header("Paneles")]
@@ -48,11 +50,18 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI AtributeMiner;
     [SerializeField] private TextMeshProUGUI AtributoDisponible;
 
+    [Header("Notifications")]
+    [SerializeField] private Notifications notificationsPrefab;
+    [SerializeField] private Transform notificationsContainer;
+
+    [SerializeField] private Popup infoAccepted;
+
 
     private void Update()
     {
         UpdateUIPlayer();
         UpdatePanelStats();
+        ShowNotification();
     }
 
     private void UpdatePanelStats()
@@ -73,11 +82,8 @@ public class UIManager : Singleton<UIManager>
         AtributeTimer.text = Stats.TimerSkill.ToString();
         AtributeMiner.text = Stats.MinerSkill.ToString();
         AtributoDisponible.text = Stats.PuntosDisponibles.ToString();
-
-
-
-
     }
+
     private void UpdateUIPlayer()
     {
         expPlayer.fillAmount = Mathf.Lerp(expPlayer.fillAmount,
@@ -101,6 +107,19 @@ public class UIManager : Singleton<UIManager>
         energyActual = pEnergyActual;
         energyMax = pEnergyMax;
     }
+
+    #region Notifications
+
+    public void ShowNotification()
+    {
+        if (questManager.QuestAccepted == true)
+        {
+            Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
+            newNotification.ConfigureNotificationUI(infoAccepted);
+        }
+    }
+
+    #endregion
 
     #region Panels
 
@@ -164,7 +183,7 @@ public class UIManager : Singleton<UIManager>
         switch (tipoInteraccion)
         {
             case InteractionExtraNPC.Quests:
-            OpenPanelQuest();
+                OpenPanelQuest();
                 break;
             case InteractionExtraNPC.Tienda:
                 break;
