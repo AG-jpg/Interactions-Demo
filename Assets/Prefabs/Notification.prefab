@@ -14,14 +14,14 @@ GameObject:
   - component: {fileID: 6165610927017094325}
   - component: {fileID: 6165610927017094324}
   - component: {fileID: 6165610927017094323}
-  - component: {fileID: 6165610927017094472}
+  - component: {fileID: -5171810375339967236}
   m_Layer: 5
   m_Name: Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6165610927017094322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: -5
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &6165610927017094326
 MonoBehaviour:
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6165610927017094472
+--- !u!114 &-5171810375339967236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,12 +152,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6165610927017094321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da24bf36a314f48d096484e7e0e5cf92, type: 3}
+  m_Script: {fileID: 11500000, guid: 84b18ab95e5354f31983f618b198a6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: {fileID: 6165610927692484382}
-  Icon: {fileID: 6165610927872423252}
-  BG: {fileID: 6165610927017094323}
+  info: {fileID: 6165610927692484382}
+  icon: {fileID: 6165610927872423252}
+  bg: {fileID: 6165610927017094323}
 --- !u!1 &6165610927692484380
 GameObject:
   m_ObjectHideFlags: 0
