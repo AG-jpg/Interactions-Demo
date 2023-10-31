@@ -51,11 +51,10 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI AtributoDisponible;
 
     [Header("Notifications")]
-    [SerializeField] private Notifications notificationsPrefab;
+    [SerializeField] private Notify notificationsPrefab;
     [SerializeField] private Transform notificationsContainer;
 
-    [SerializeField] private Popup infoAccepted;
-
+    [SerializeField] public Popup infoAccepted;
 
     private void Update()
     {
@@ -116,6 +115,7 @@ public class UIManager : Singleton<UIManager>
         {
             Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
             newNotification.ConfigureNotificationUI(infoAccepted);
+            questManager.QuestAccepted = false;
         }
     }
 
