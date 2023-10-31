@@ -4,18 +4,16 @@ using UnityEngine.UI;
 
 public class Notifications : MonoBehaviour
 {
-    [Header("Notifications")]
-    [SerializeField] public TextMeshProUGUI Description;
-    [SerializeField] public Image Icon;
-    [SerializeField] public Image BG;
+    [SerializeField] public TextMeshProUGUI info;
+    [SerializeField] public Image icon;
+    [SerializeField] public Image bg;
+    public Popup PopupLoad  { get; set; }
 
-    public Popup Popup  { get; set; }
-
-    public virtual void ConfigureNotificationUI(Popup notify)
+    public virtual void ConfigureNotificationUI(Popup popup)
     {
-        Popup = notify;
-        Popup.Description = notify.Description;
-        Popup.Icon = notify.Icon;
-        Popup.BG = notify.BG;
+        PopupLoad = popup;
+        info.text = popup.Description;
+        icon.sprite = popup.Icon;
+        bg.sprite = popup.BG;
     }
 }

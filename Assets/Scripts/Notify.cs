@@ -4,13 +4,12 @@ using UnityEngine.UI;
 
 public class Notify : Notifications
 {
-
-
-    public override void ConfigureNotificationUI(Popup notify)
+    
+    public override void ConfigureNotificationUI(Popup popup)
     {
-        Popup = notify;
-        Popup.Description = notify.Description;
-        Popup.Icon = notify.Icon;
-        Popup.BG = notify.BG;
+        base.ConfigureNotificationUI(popup);
+        info.text = popup.Description;
+        icon.sprite = popup.Icon;
+        bg.sprite = popup.BG;
     }
 }
