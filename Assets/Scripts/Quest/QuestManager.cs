@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : Singleton<QuestManager>
@@ -22,6 +19,7 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private QuestContainer[] NPCquest;
 
     private Quest newquest;
+    public string questName;
 
     //Bools
     private bool ReadyforQuest;
@@ -66,6 +64,7 @@ public class QuestManager : Singleton<QuestManager>
             {
                 newquest = NPCquest[i].Quests;
                 questDisponibles = questDisponibles.Append(newquest).ToArray();
+                questName = newquest.Name;
             }
         }
     }
