@@ -85,7 +85,7 @@ public class QuestManager : Singleton<QuestManager>
         }
         else if (QuestAccepted && questName == "Looking For Water")
         {
-            NPCmanager.HideJohny();
+            NPCmanager.HideGuard();
         }
     }
 
