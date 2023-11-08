@@ -75,10 +75,18 @@ public class QuestManager : Singleton<QuestManager>
 
     private void ManageNPC()
     {
-            if(QuestAccepted && questName == "Fix You")
-            {
-                NPCmanager.HideElla();
-            }
+        if (QuestAccepted && questName == "Fix You")
+        {
+            NPCmanager.HideElla();
+        }
+        else if (QuestAccepted && questName == "Rock the Casbah")
+        {
+            NPCmanager.HideJohny();
+        }
+        else if (QuestAccepted && questName == "Looking For Water")
+        {
+            NPCmanager.HideJohny();
+        }
     }
 
     //This rejects the quest in inspector
@@ -86,6 +94,7 @@ public class QuestManager : Singleton<QuestManager>
     {
         questDisponibles = new Quest[0];
         ReadyforQuest = true;
+        QuestAccepted = false;
     }
 
     //This accpets the quest in inspector
