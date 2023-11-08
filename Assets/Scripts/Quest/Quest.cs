@@ -18,7 +18,6 @@ public class Quest : ScriptableObject
     [Header("Rewards")]
     public int Credits;
     public float Experience;
-    public QuestRewardItem RewardItem;
 
     [HideInInspector] public int cantidadActual;
     [HideInInspector] public bool QuestCompletedCheck;
@@ -55,11 +54,4 @@ public class Quest : ScriptableObject
         cantidadActual = 0;
     }
 
-}
-
-[Serializable]
-public class QuestRewardItem
-{ 
-    public Item Item;
-    public int cantidad;
 }
