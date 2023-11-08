@@ -18,6 +18,8 @@ public class QuestManager : Singleton<QuestManager>
     [Header("NPC Quests")]
     [SerializeField] private QuestContainer[] NPCquest;
 
+    [SerializeField] private NPCManager NPCmanager;
+
     private Quest newquest;
     public string questName;
 
@@ -25,11 +27,11 @@ public class QuestManager : Singleton<QuestManager>
     private bool ReadyforQuest;
     public bool QuestAccepted;
 
-
     private void Start()
     {
         questDisponibles = new Quest[questDisponibles.Length];
         ReadyforQuest = true;
+        QuestAccepted = false;
     }
 
     private void Update()
@@ -40,6 +42,8 @@ public class QuestManager : Singleton<QuestManager>
             LoadQuestInspector();
             ReadyforQuest = false;
         }
+
+        ManageNPC();
 
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -67,6 +71,14 @@ public class QuestManager : Singleton<QuestManager>
                 questName = newquest.Name;
             }
         }
+    }
+
+    private void ManageNPC()
+    {
+            if(QuestAccepted && questName == "Fix You")
+            {
+                NPCmanager.HideElla();
+            }
     }
 
     //This rejects the quest in inspector
