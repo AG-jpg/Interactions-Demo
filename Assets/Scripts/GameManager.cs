@@ -34,8 +34,8 @@ public class GameManager : MonoBehaviour
     private void SpawnLevel()
     {
         Vector3 camPos = Camera.main.transform.position;
-        camPos.x = _level.Col * 0.5f;
-        camPos.y = _level.Row * 0.5f;
+        camPos.x = _level.Col * 0f;
+        camPos.y = _level.Row * 0f;
         Camera.main.transform.position = camPos;
         Camera.main.orthographicSize = Mathf.Max(_level.Row, _level.Col) + 2f;
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             for(int j=0; j < _level.Col; j++)
             {
-                if(!cells[1,j].Filled)
+                if(!cells[i,j].Filled)
                     return;
             }
         }
