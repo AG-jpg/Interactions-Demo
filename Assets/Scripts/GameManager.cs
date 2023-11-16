@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,11 +32,6 @@ public class GameManager : MonoBehaviour
 
     private void SpawnLevel()
     {
-        Vector3 camPos = Camera.main.transform.position;
-        camPos.x = _level.Col * 0f;
-        camPos.y = _level.Row * 0f;
-        Camera.main.transform.position = camPos;
-        Camera.main.orthographicSize = Mathf.Max(_level.Row, _level.Col) + 2f;
 
         for(int i=0; i < _level.Row; i++)
         {
@@ -45,9 +39,19 @@ public class GameManager : MonoBehaviour
             {
                 cells[i,j] = Instantiate(_cellPrefab);
                 cells[i,j].Init(_level.Data[i * _level.Col + j]);
-                cells[i,j].transform.position = new Vector3(j + 0.5f, i + 0.5f, 0);
+                cells[i,j].transform.position = new Vector3(j + 0f, i + 0f, 0);
             }
         }
+    }
+
+    private bool IsNeighbour()
+    {
+        return IsValid(startPos) && IsValid(endPos) && directions.Contains(startPos - endPos);
+    }
+
+    private bool IsValid(Vector2Int pos)
+    {
+        return pos.x >= 0 && pos.y >= 0 && pos.x < _level.Row && pos.y < _level.Col;
     }
 
     private void CheckWin()
