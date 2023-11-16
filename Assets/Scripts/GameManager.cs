@@ -33,15 +33,79 @@ public class GameManager : MonoBehaviour
     private void SpawnLevel()
     {
 
-        for(int i=0; i < _level.Row; i++)
+        for (int i = 0; i < _level.Row; i++)
         {
-            for(int j=0; j < _level.Col; j++)
+            for (int j = 0; j < _level.Col; j++)
             {
-                cells[i,j] = Instantiate(_cellPrefab);
-                cells[i,j].Init(_level.Data[i * _level.Col + j]);
-                cells[i,j].transform.position = new Vector3(j + 0f, i + 0f, 0);
+                cells[i, j] = Instantiate(_cellPrefab);
+                cells[i, j].Init(_level.Data[i * _level.Col + j]);
+                cells[i, j].transform.position = new Vector3(j + 0f, i + 0f, 0);
             }
         }
+    }
+
+    private void Update()
+    {
+        if (hasGameFinished) return;
+
+        if (_level == null) return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            startPos = new Vector2Int(Mathf.FloorToInt(mousePos.y), Mathf.FloorToInt(mousePos.x));
+
+            if(!IsNeighbour()) return;
+
+            if(AddEmpty())
+            {
+
+            }
+            else if(AddToEnd())
+            {
+
+            }
+            else if (AddToStart())
+            {
+
+            }
+
+            endPos = startPos;
+        }
+        else if(Input.GetMouseButton(0))
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            endPos = new Vector2Int(Mathf.FloorToInt(mousePos.y), Mathf.FloorToInt(mousePos.x));
+            endPos = startPos;
+        }
+    }
+
+    private bool AddEmpty()
+    {
+        if (edges.Count > 0) return false;
+        if (cells[startPos.x, startPos.y].Filled) return false;
+        if (cells[endPos.x, endPos.y].Filled) return false;
+        return true;
+    }
+
+    private bool AddToEnd()
+    {
+        if (filledPoints.Count < 2) return false;
+        Vector2Int pos = filledPoints[filledPoints.Count - 1];
+        Cell lastCell = cells[pos.x, pos.y];
+        if (cells[startPos.x, startPos.y] != lastCell) return false;
+        if (cells[endPos.x, endPos.y].Filled) return false;
+        return true;
+    }
+
+    private bool AddToStart()
+    {
+        if (filledPoints.Count < 2) return false;
+        Vector2Int pos = filledPoints[0];
+        Cell lastCell = cells[pos.x, pos.y];
+        if (cells[startPos.x, startPos.y] != lastCell) return false;
+        if (cells[endPos.x, endPos.y].Filled) return false;
+        return true;
     }
 
     private bool IsNeighbour()
@@ -56,11 +120,11 @@ public class GameManager : MonoBehaviour
 
     private void CheckWin()
     {
-        for(int i=0; i < _level.Row; i++)
+        for (int i = 0; i < _level.Row; i++)
         {
-            for(int j=0; j < _level.Col; j++)
+            for (int j = 0; j < _level.Col; j++)
             {
-                if(!cells[i,j].Filled)
+                if (!cells[i, j].Filled)
                     return;
             }
         }
