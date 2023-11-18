@@ -16,6 +16,10 @@ public class NPCManager : MonoBehaviour
     [SerializeField] public GameObject Guard01;
     [SerializeField] public GameObject Guard02;
 
+    [Header("VendingMachine")]
+    [SerializeField] public GameObject VM01;
+    [SerializeField] public GameObject VM02;
+
     public void HideElla()
     {
         Ella01.SetActive(false);
@@ -32,5 +36,11 @@ public class NPCManager : MonoBehaviour
     {
         Guard01.SetActive(false);
         Guard02.SetActive(true);
+    }
+
+    public void HideVM()
+    {
+        VM01.SetActive(false);
+        VM02.SetActive(true);
     }
 }
