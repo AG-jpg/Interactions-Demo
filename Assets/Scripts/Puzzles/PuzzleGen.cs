@@ -24,11 +24,9 @@ public class PuzzleGen : MonoBehaviour
         filledPoints = new List<Vector2Int>();
         cells = new Cell[_row, _col];
         edges = new List<Transform>();
-        CreateLevel();
-        SpawnLevel();
     }
 
-    private void CreateLevel()
+    public void CreateLevel()
     {
         if(_level.Row == _row && _level.Col == _col) return;
 
@@ -47,7 +45,7 @@ public class PuzzleGen : MonoBehaviour
         EditorUtility.SetDirty(_level);
     }
 
-    private void SpawnLevel()
+    public void SpawnLevel()
     {
         Vector3 camPos = Camera.main.transform.position;
         camPos.x = _level.Col * 0.5f;
