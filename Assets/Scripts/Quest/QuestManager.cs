@@ -20,6 +20,9 @@ public class QuestManager : Singleton<QuestManager>
 
     [SerializeField] private NPCManager NPCmanager;
 
+    [Header("Puzzle")]
+    [SerializeField] private PuzzleGen puzzle;
+
     private Quest newquest;
     public string questName;
 
@@ -78,6 +81,7 @@ public class QuestManager : Singleton<QuestManager>
         if (QuestAccepted && questName == "Fix You")
         {
             NPCmanager.HideElla();
+            NPCmanager.HideVM();
         }
         else if (QuestAccepted && questName == "Rock the Casbah")
         {
