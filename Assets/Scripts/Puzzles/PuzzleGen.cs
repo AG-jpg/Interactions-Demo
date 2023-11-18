@@ -1,14 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PuzzleGen : MonoBehaviour
 {
+    [SerializeField] private int _row;
+    [SerializeField] private int _col;
     [SerializeField] private Level _level;
     [SerializeField] private Cell _cellPrefab;
     [SerializeField] private Transform _edgePrefab;
 
-    private bool hasGameFinished;
     private Cell[,] cells;
     private List<Vector2Int> filledPoints;
     private List<Transform> edges;
@@ -20,11 +21,30 @@ public class PuzzleGen : MonoBehaviour
 
     private void Awake()
     {
-        hasGameFinished = false;
         filledPoints = new List<Vector2Int>();
-        cells = new Cell[_level.Row, _level.Col];
+        cells = new Cell[_row, _col];
         edges = new List<Transform>();
+        CreateLevel();
         SpawnLevel();
+    }
+
+    private void CreateLevel()
+    {
+        if(_level.Row == _row && _level.Col == _col) return;
+
+        _level.Row = _row;
+        _level.Col = _col;
+        _level.Data = new List<int>();
+
+        for (int i = 0; i < _row; i++)
+        {
+            for (int j = 0; j < _col; j++)
+            {
+                _level.Data.Add(0);
+            }
+        }
+
+        EditorUtility.SetDirty(_level);
     }
 
     private void SpawnLevel()
