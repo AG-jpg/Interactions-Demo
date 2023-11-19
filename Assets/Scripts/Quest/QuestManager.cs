@@ -20,9 +20,6 @@ public class QuestManager : Singleton<QuestManager>
 
     [SerializeField] private NPCManager NPCmanager;
 
-    [Header("Puzzle")]
-    [SerializeField] private PuzzleGen puzzle;
-
     private Quest newquest;
     public string questName;
 
@@ -33,12 +30,16 @@ public class QuestManager : Singleton<QuestManager>
     private void Start()
     {
         questDisponibles = new Quest[questDisponibles.Length];
-        ReadyforQuest = true;
         QuestAccepted = false;
     }
 
     private void Update()
     {
+        if(questDisponibles.Length <= 0)
+        {
+            ReadyforQuest = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.Return) && ReadyforQuest == true)
         {
             LoadNPCQuest();
@@ -57,7 +58,7 @@ public class QuestManager : Singleton<QuestManager>
     private void LoadQuestInspector()
     {
         for (int i = 0; i < questDisponibles.Length; i++)
-        {
+        {   
             QuestDescription newQuest = Instantiate(inspectorQuestPrefab, InpsectorQuestContainer);
             newQuest.ConfigureQuestUI(questDisponibles[i]);
         }
@@ -101,13 +102,13 @@ public class QuestManager : Singleton<QuestManager>
         QuestAccepted = false;
     }
 
-    //This accpets the quest in inspector
+    //This accepts the quest in inspector
     private void AddQuesttoComplete(Quest questToComplete)
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
         questDisponibles = new Quest[0];
-        ReadyforQuest = true;
+        //ReadyforQuest = true;
         QuestAccepted = true;
         EraseQuestNPC();
     }
