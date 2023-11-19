@@ -56,6 +56,8 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] public Popup infoAccepted;
 
+    public bool QuestStarted;
+
     private void Update()
     {
         UpdateUIPlayer();
@@ -116,6 +118,7 @@ public class UIManager : Singleton<UIManager>
             Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
             newNotification.ConfigureNotificationUI(infoAccepted);
             questManager.QuestAccepted = false;
+            QuestStarted = true;
         }
     }
 
@@ -125,46 +128,55 @@ public class UIManager : Singleton<UIManager>
 
     public void OpenPanelID()
     {
+        CloseAllPanels();
         panelID.SetActive(!panelID.activeSelf);
     }
 
     public void OpenPanelWallet()
     {
+        CloseAllPanels();
         panelWallet.SetActive(!panelWallet.activeSelf);
     }
 
     public void OpenPanelContacts()
     {
+        CloseAllPanels();
         panelContacts.SetActive(!panelContacts.activeSelf);
     }
 
     public void OpenPanelMaps()
     {
+        CloseAllPanels();
         panelMap.SetActive(!panelMap.activeSelf);
     }
 
     public void OpenPanelTasks()
     {
+        CloseAllPanels();
         panelTasks.SetActive(!panelTasks.activeSelf);
     }
 
     public void OpenPanelInventario()
     {
+        CloseAllPanels();
         panelInventario.SetActive(!panelInventario.activeSelf);
     }
 
     public void OpenPanelStats()
     {
+        CloseAllPanels();
         panelStats.SetActive(!panelStats.activeSelf);
     }
 
     public void OpenPanelPC()
     {
+        CloseAllPanels();
         panelPC.SetActive(!panelPC.activeSelf);
     }
 
     public void OpenPanelMusic()
     {
+        CloseAllPanels();
         panelMusic.SetActive(!panelMusic.activeSelf);
     }
 
@@ -173,9 +185,17 @@ public class UIManager : Singleton<UIManager>
         panelQuest.SetActive(!panelQuest.activeSelf);
     }
 
-    public void OpenPanelMachine()
+    private void CloseAllPanels()
     {
-        panelMachine.SetActive(!panelMachine.activeSelf);
+        panelID.SetActive(false);
+        panelWallet.SetActive(false);
+        panelContacts.SetActive(false);
+        panelMap.SetActive(false);
+        panelTasks.SetActive(false);
+        panelInventario.SetActive(false);
+        panelStats.SetActive(false);
+        panelPC.SetActive(false);
+        panelMusic.SetActive(false);
     }
 
     public void OpenPanelInteraction(InteractionExtraNPC tipoInteraccion)
