@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Cinemachine;
 
 public class PuzzleGen : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PuzzleGen : MonoBehaviour
     [SerializeField] private Level _level;
     [SerializeField] private Cell _cellPrefab;
     [SerializeField] private Transform _edgePrefab;
+
+    [SerializeField] public CinemachineVirtualCamera vcam;
 
     private Cell[,] cells;
     private List<Vector2Int> filledPoints;
@@ -47,17 +50,17 @@ public class PuzzleGen : MonoBehaviour
 
     public void SpawnLevel()
     {
-        Vector3 camPos = Camera.main.transform.position;
+        Vector3 camPos = vcam.transform.position;
         camPos.x = _level.Col * 0.5f;
         camPos.y = _level.Row * 0.5f;
-        Camera.main.transform.position = camPos;
-        Camera.main.orthographicSize = Mathf.Max(_level.Row, _level.Col) + 2f;
+        vcam.transform.position = camPos;
+        vcam.m_Lens.OrthographicSize = Mathf.Max(_level.Row, _level.Col) + 2f;
 
         for (int i = 0; i < _level.Row; i++)
         {
             for (int j = 0; j < _level.Col; j++)
             {
-                cells[i, j] = Instantiate(_cellPrefab);
+                cells[i, j] = Instantiate(_cellPrefab, vcam.transform);
                 cells[i, j].Init(_level.Data[i * _level.Col + j]);
                 cells[i, j].transform.position = new Vector3(j + 0.5f, i + 0.5f, 0);
             }
