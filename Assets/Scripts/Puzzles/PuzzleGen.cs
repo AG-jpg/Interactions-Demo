@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using Cinemachine;
 
 public class PuzzleGen : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class PuzzleGen : MonoBehaviour
     [SerializeField] private Level _level;
     [SerializeField] private Cell _cellPrefab;
     [SerializeField] private Transform _edgePrefab;
-    [SerializeField] private GameObject puzzleContainer;
+    [SerializeField] private Transform puzzleContainer;
 
     private Cell[,] cells;
     private List<Vector2Int> filledPoints;
@@ -26,11 +25,13 @@ public class PuzzleGen : MonoBehaviour
         filledPoints = new List<Vector2Int>();
         cells = new Cell[_row, _col];
         edges = new List<Transform>();
+        CreateLevel();
+        SpawnLevel();
     }
 
     public void CreateLevel()
     {
-        if(_level.Row == _row && _level.Col == _col) return;
+        if (_level.Row == _row && _level.Col == _col) return;
 
         _level.Row = _row;
         _level.Col = _col;
@@ -50,8 +51,8 @@ public class PuzzleGen : MonoBehaviour
     public void SpawnLevel()
     {
         Vector3 camPos = Camera.main.transform.position;
-        camPos.x = _level.Col * 0.5f;
-        camPos.y = _level.Row * 0.5f;
+        camPos.x = puzzleContainer.position.x + _level.Col * 0.5f;
+        camPos.y = puzzleContainer.position.y + _level.Row * 0.5f;
         Camera.main.transform.position = camPos;
         Camera.main.orthographicSize = Mathf.Max(_level.Row, _level.Col) + 2f;
 
@@ -60,8 +61,9 @@ public class PuzzleGen : MonoBehaviour
             for (int j = 0; j < _level.Col; j++)
             {
                 cells[i, j] = Instantiate(_cellPrefab);
+                cells[i, j].transform.parent = puzzleContainer;
                 cells[i, j].Init(_level.Data[i * _level.Col + j]);
-                cells[i, j].transform.position = new Vector3(j + 0.5f, i + 0.5f, 0);
+                cells[i, j].transform.localPosition = new Vector3(j + 0.5f, i + 0.5f, 0);
             }
         }
     }
@@ -72,12 +74,14 @@ public class PuzzleGen : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos -= puzzleContainer.position;
             startPos = new Vector2Int(Mathf.FloorToInt(mousePos.y), Mathf.FloorToInt(mousePos.x));
             endPos = startPos;
         }
         else if (Input.GetMouseButton(0))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos -= puzzleContainer.position;
             endPos = new Vector2Int(Mathf.FloorToInt(mousePos.y), Mathf.FloorToInt(mousePos.x));
 
             if (!IsNeighbour()) return;
@@ -89,12 +93,15 @@ public class PuzzleGen : MonoBehaviour
                 cells[startPos.x, startPos.y].Add();
                 cells[endPos.x, endPos.y].Add();
                 Transform edge = Instantiate(_edgePrefab);
+                edge.parent = puzzleContainer;
                 edges.Add(edge);
-                edge.transform.position = new Vector3(
-                    startPos.y * 0.5f + 0.5f + endPos.y * 0.5f,
-                    startPos.x * 0.5f + 0.5f + endPos.x * 0.5f,
-                    0f
-                    );
+
+
+                Vector2Int center = (startPos + endPos) / 2;
+                edge.transform.localPosition = new Vector3(center.y * 0.5f + 0.5f + center.x * 0.5f,
+                                                             center.x * 0.5f + 0.5f + center.y * 0.5f,
+                                                             0f);
+
                 bool horizontal = (endPos.y - startPos.y) < 0 || (endPos.y - startPos.y) > 0;
                 edge.transform.eulerAngles = new Vector3(0, 0, horizontal ? 90f : 0);
             }
@@ -103,8 +110,9 @@ public class PuzzleGen : MonoBehaviour
                 filledPoints.Add(endPos);
                 cells[endPos.x, endPos.y].Add();
                 Transform edge = Instantiate(_edgePrefab);
+                edge.parent = puzzleContainer;
                 edges.Add(edge);
-                edge.transform.position = new Vector3(
+                edge.transform.localPosition = new Vector3(
                     startPos.y * 0.5f + 0.5f + endPos.y * 0.5f,
                     startPos.x * 0.5f + 0.5f + endPos.x * 0.5f,
                     0f

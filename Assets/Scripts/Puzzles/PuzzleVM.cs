@@ -10,15 +10,18 @@ public class PuzzleVM : MonoBehaviour
 
     [Header("Puzzle")]
     [SerializeField] private PuzzleGen puzzle;
+    [SerializeField] private GameObject puzzleContainer;
     public bool puzzleInitiated;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) && puzzleInitiated == true)
         {
-            bg.SetActive(true);
+            //bg.SetActive(true);
+            puzzleContainer.SetActive(true);
             puzzle.CreateLevel();
             puzzle.SpawnLevel();
+            puzzleInitiated = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
