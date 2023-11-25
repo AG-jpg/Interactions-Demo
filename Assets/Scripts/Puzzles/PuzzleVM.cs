@@ -1,27 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuzzleVM : MonoBehaviour
 {
-
-    [Header("UI")]
-    [SerializeField] public GameObject bg;
-
-    [Header("Puzzle")]
-    [SerializeField] private PuzzleGen puzzle;
-    [SerializeField] private GameObject puzzleContainer;
-    [SerializeField] private GameObject puzzleUI;
-    public bool puzzleInitiated;
+    public int sceneID;
+     [HideInInspector] public bool puzzleInitiated;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) && puzzleInitiated == true)
         {
-            puzzleContainer.SetActive(true);
-            puzzleUI.SetActive(true);
-            puzzle.CreateLevel();
-            puzzle.SpawnLevel();
+            SceneManager.LoadScene(sceneID);
             puzzleInitiated = false;
         }
     }
