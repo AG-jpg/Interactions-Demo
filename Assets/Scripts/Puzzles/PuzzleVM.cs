@@ -11,14 +11,15 @@ public class PuzzleVM : MonoBehaviour
     [Header("Puzzle")]
     [SerializeField] private PuzzleGen puzzle;
     [SerializeField] private GameObject puzzleContainer;
+    [SerializeField] private GameObject puzzleUI;
     public bool puzzleInitiated;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) && puzzleInitiated == true)
         {
-            //bg.SetActive(true);
             puzzleContainer.SetActive(true);
+            puzzleUI.SetActive(true);
             puzzle.CreateLevel();
             puzzle.SpawnLevel();
             puzzleInitiated = false;
