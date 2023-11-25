@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuzzleGen : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PuzzleGen : MonoBehaviour
     [SerializeField] private Cell _cellPrefab;
     [SerializeField] private Transform _edgePrefab;
     [SerializeField] private Transform puzzleContainer;
+
+    public bool hasGameFinished;
+    public int sceneID;
 
     private Cell[,] cells;
     private List<Vector2Int> filledPoints;
@@ -96,7 +100,6 @@ public class PuzzleGen : MonoBehaviour
                 edge.parent = puzzleContainer;
                 edges.Add(edge);
 
-
                 Vector2Int center = (startPos + endPos) / 2;
                 edge.transform.localPosition = new Vector3(center.y * 0.5f + 0.5f + center.x * 0.5f,
                                                              center.x * 0.5f + 0.5f + center.y * 0.5f,
@@ -152,6 +155,7 @@ public class PuzzleGen : MonoBehaviour
             }
 
             RemoveEmpty();
+            CheckWin();
             startPos = endPos;
         }
     }
@@ -223,4 +227,20 @@ public class PuzzleGen : MonoBehaviour
     {
         return pos.x >= 0 && pos.y >= 0 && pos.x < _level.Row && pos.y < _level.Col;
     }
+
+    private void CheckWin()
+    {
+        for (int i = 0; i < _level.Row; i++)
+        {
+            for (int j = 0; j < _level.Col; j++)
+            {
+                if (!cells[i, j].Filled)
+                    return;
+            }
+        }
+
+        hasGameFinished = true;
+        SceneManager.LoadScene(sceneID);
+    }
+
 }
