@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -100,10 +101,12 @@ public class PuzzleGen : MonoBehaviour
                 edge.parent = puzzleContainer;
                 edges.Add(edge);
 
-                Vector2Int center = (startPos + endPos) / 2;
-                edge.transform.localPosition = new Vector3(center.y * 0.5f + 0.5f + center.x * 0.5f,
-                                                             center.x * 0.5f + 0.5f + center.y * 0.5f,
-                                                             0f);
+                //Vector2Int center = (startPos + endPos) / 2;
+                edge.transform.localPosition = new Vector3(
+                    startPos.y * 0.5f + 0.5f + endPos.y * 0.5f,
+                    startPos.x * 0.5f + 0.5f + endPos.x * 0.5f,
+                    0f
+                    );
 
                 bool horizontal = (endPos.y - startPos.y) < 0 || (endPos.y - startPos.y) > 0;
                 edge.transform.eulerAngles = new Vector3(0, 0, horizontal ? 90f : 0);
@@ -240,6 +243,12 @@ public class PuzzleGen : MonoBehaviour
         }
 
         hasGameFinished = true;
+        StartCoroutine(GameFinished());
+    }
+
+    private IEnumerator GameFinished()
+    {
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(sceneID);
     }
 
