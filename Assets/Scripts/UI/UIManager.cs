@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : Singleton<UIManager>
 {
     public QuestManager questManager;
+    public SoundManager soundManager;
 
     [Header("Object")]
     [SerializeField] private Stats Stats;
@@ -119,6 +120,7 @@ public class UIManager : Singleton<UIManager>
             newNotification.ConfigureNotificationUI(infoAccepted);
             questManager.QuestAccepted = false;
             QuestStarted = true;
+            soundManager.Notify();
         }
     }
 
