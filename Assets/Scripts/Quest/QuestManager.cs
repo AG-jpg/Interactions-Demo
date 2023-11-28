@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class QuestManager : Singleton<QuestManager>
 {
-    private UIManager uimanager;
+    public UIManager uiManager;
 
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
@@ -161,7 +161,7 @@ public class QuestManager : Singleton<QuestManager>
 
     private void ShowCompletedQuest()
     {
-        uimanager.ShowSuccesNotification();
+        uiManager.ShowSuccesNotification();
     }
 
     private void QuestCompletedRespond(Quest questCompleted)
