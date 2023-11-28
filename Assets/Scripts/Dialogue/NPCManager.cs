@@ -19,6 +19,7 @@ public class NPCManager : MonoBehaviour
     [Header("VendingMachine")]
     [SerializeField] public GameObject VM01;
     [SerializeField] public GameObject VM02;
+    [SerializeField] public GameObject VM03;
 
     public void HideElla()
     {
@@ -42,5 +43,11 @@ public class NPCManager : MonoBehaviour
     {
         VM01.SetActive(false);
         VM02.SetActive(true);
+    }
+
+    public void VMFInal()
+    {
+        VM02.SetActive(false);
+        VM03.SetActive(true);
     }
 }
