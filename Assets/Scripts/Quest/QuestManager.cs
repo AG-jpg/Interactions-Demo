@@ -148,11 +148,11 @@ public class QuestManager : Singleton<QuestManager>
 //This Needs to be fixed! Array gets emptied after accepting!
     private Quest QuestExist(string questID)
     {
-        for (int i = 0; i < questDisponibles.Length; i++)
+        for (int i = 0; i < questTaken.Length; i++)
         {
-            if (questDisponibles[i].ID == questID)
+            if (questTaken[i].ID == questID)
             {
-                return questDisponibles[i];
+                return questTaken[i];
             }
         }
 
