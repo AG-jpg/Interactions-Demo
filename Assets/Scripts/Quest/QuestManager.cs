@@ -62,6 +62,7 @@ public class QuestManager : Singleton<QuestManager>
         if (Input.GetKeyDown(KeyCode.V))
         {
             AddProgress("Fix You", 1);
+            NPCmanager.VMFInal();
         }
     }
 
