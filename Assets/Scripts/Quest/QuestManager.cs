@@ -1,10 +1,16 @@
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestManager : Singleton<QuestManager>
 {
+    private UIManager uimanager;
+
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
+
+    [SerializeField] private Quest[] questTaken;
 
     [Header("Inspector Quests")]
     [SerializeField] private InspectorQuest inspectorQuestPrefab;
@@ -23,9 +29,13 @@ public class QuestManager : Singleton<QuestManager>
     private Quest newquest;
     public string questName;
 
+    public Quest questtoClaim { get; private set; }
+
     //Bools
     private bool ReadyforQuest;
     public bool QuestAccepted;
+
+    public bool QuestClaim;
 
     private void Start()
     {
@@ -51,7 +61,7 @@ public class QuestManager : Singleton<QuestManager>
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            AddProgress("Rock the Casbah", 1);
+            AddProgress("Fix You", 1);
         }
     }
 
@@ -108,7 +118,6 @@ public class QuestManager : Singleton<QuestManager>
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
         questDisponibles = new Quest[0];
-        //ReadyforQuest = true;
         QuestAccepted = true;
         EraseQuestNPC();
     }
@@ -127,6 +136,7 @@ public class QuestManager : Singleton<QuestManager>
     public void AddQuest(Quest questToComplete)
     {
         AddQuesttoComplete(questToComplete);
+        questTaken = questTaken.Append(questToComplete).ToArray();
     }
 
     public void AddProgress(string questID, int cantidad)
@@ -135,6 +145,7 @@ public class QuestManager : Singleton<QuestManager>
         questtoUpdate.AddProgress(cantidad);
     }
 
+//This Needs to be fixed! Array gets emptied after accepting!
     private Quest QuestExist(string questID)
     {
         for (int i = 0; i < questDisponibles.Length; i++)
@@ -146,5 +157,29 @@ public class QuestManager : Singleton<QuestManager>
         }
 
         return null;
+    }
+
+    private void ShowCompletedQuest()
+    {
+        uimanager.ShowSuccesNotification();
+    }
+
+    private void QuestCompletedRespond(Quest questCompleted)
+    {
+        questtoClaim = QuestExist(questCompleted.ID);
+        if(questCompleted.ID != null)
+        {
+            ShowCompletedQuest();
+        }
+    }
+
+    private void OnEnable()
+    {   
+        Quest.EventQuestCompleted += QuestCompletedRespond;
+    }
+
+    private void OnDisable()
+    {
+        Quest.EventQuestCompleted -= QuestCompletedRespond;
     }
 }
