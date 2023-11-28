@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MoneyManager : Singleton<MoneyManager>
 {
+    [SerializeField] private int startCredits;
     public int TotalCredits { get; set; }
     private string KEY_CREDITS = "MYGAME_CREDITS";
 
     private void Start()
     {
-        
+        TotalCredits += startCredits;
+        LoadCredits();
     }
 
     private void LoadCredits()
