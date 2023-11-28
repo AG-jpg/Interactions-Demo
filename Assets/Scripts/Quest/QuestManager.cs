@@ -7,6 +7,9 @@ public class QuestManager : Singleton<QuestManager>
 {
     public UIManager uiManager;
 
+    [Header("Player")]
+    [SerializeField] private Player player;
+
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
 
@@ -62,6 +65,7 @@ public class QuestManager : Singleton<QuestManager>
         if (Input.GetKeyDown(KeyCode.V))
         {
             AddProgress("Fix You", 1);
+            ClaimReward();
             NPCmanager.VMFInal();
         }
     }
@@ -132,6 +136,18 @@ public class QuestManager : Singleton<QuestManager>
                 NPCquest[i].Quests = null;
             }
         }
+    }
+
+    public void ClaimReward()
+    {
+        if(questtoClaim == null)
+        {
+            return;
+        }
+
+        MoneyManager.Instance.AddCredits(questtoClaim.Credits);
+        player.Experience.AddExp(questtoClaim.Experience);
+        questtoClaim = null;
     }
 
     public void AddQuest(Quest questToComplete)
