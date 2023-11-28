@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +31,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Texto")]
     [SerializeField] private TextMeshProUGUI expTMP;
     [SerializeField] private TextMeshProUGUI energyTMP;
+    [SerializeField] private TextMeshProUGUI creditsTMP;
 
     private float expActual;
     private float expRequiredNewLevel;
@@ -56,6 +55,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Transform notificationsContainer;
 
     [SerializeField] public Popup infoAccepted;
+    [SerializeField] public Popup succeed;
 
     public bool QuestStarted;
 
@@ -96,6 +96,7 @@ public class UIManager : Singleton<UIManager>
 
         expTMP.text = $"{expActual}/{expRequiredNewLevel}";
         energyTMP.text = $"{energyActual}/{energyMax}";
+        creditsTMP.text = MoneyManager.Instance.TotalCredits.ToString();
     }
 
     public void UpdateExpPlayer(float pExpActual, float pExpRequerida)
@@ -122,6 +123,13 @@ public class UIManager : Singleton<UIManager>
             QuestStarted = true;
             soundManager.Notify();
         }
+    }
+
+    public void ShowSuccesNotification()
+    {
+        Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
+        newNotification.ConfigureNotificationUI(succeed);
+        soundManager.Success();
     }
 
     #endregion
