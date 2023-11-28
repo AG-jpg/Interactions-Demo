@@ -6,11 +6,12 @@ public class Player : MonoBehaviour
 {
     public Stats stats;
     public Energy Energy { get; private set; }
-
+    public Experience Experience { get; private set; }
 
     private void Awake()
     {
         Energy = GetComponent<Energy>();
+        Experience = GetComponent<Experience>();
     }
 
     private void AtributoRespuesta(AttributeType type)
