@@ -10,13 +10,13 @@ public class MoneyManager : Singleton<MoneyManager>
 
     private void Start()
     {
-        TotalCredits += startCredits;
+        PlayerPrefs.DeleteKey(KEY_CREDITS);
         LoadCredits();
     }
 
     private void LoadCredits()
     {
-        TotalCredits = PlayerPrefs.GetInt(KEY_CREDITS);
+        TotalCredits = PlayerPrefs.GetInt(KEY_CREDITS, startCredits);
     }
 
     public void AddCredits(int cantidad)
@@ -28,7 +28,7 @@ public class MoneyManager : Singleton<MoneyManager>
 
     public void RemoveCredits(int cantidad)
     {
-        if(cantidad > TotalCredits)
+        if (cantidad > TotalCredits)
         {
             return;
         }
