@@ -77,8 +77,8 @@ public class UIManager : Singleton<UIManager>
         TimerStat.text = Stats.Timer.ToString();
         MinerStat.text = Stats.Miner.ToString();
         Level.text = Stats.Level.ToString();
-        //NextLevel.text = Stats.ExpNextLevel.ToString();
-        //ExperienceNow.text = Stats.Experience.ToString();
+        NextLevel.text = Stats.ExpNextLevel.ToString();
+        ExperienceNow.text = Stats.Experience.ToString();
 
         AtributeJawscript.text = Stats.JawscriptSkill.ToString();
         AtributeTimer.text = Stats.TimerSkill.ToString();
@@ -97,6 +97,7 @@ public class UIManager : Singleton<UIManager>
         expTMP.text = $"{expActual}/{expRequiredNewLevel}";
         energyTMP.text = $"{energyActual}/{energyMax}";
         creditsTMP.text = MoneyManager.Instance.TotalCredits.ToString();
+        Level.text = Stats.Level.ToString();
     }
 
     public void UpdateExpPlayer(float pExpActual, float pExpRequerida)
