@@ -11,7 +11,7 @@ public class PlayerQuest : QuestDescription
 
     private void Update()
     {
-        if(QuestLoaded.QuestCompletedCheck)
+        if(QuestLoaded.QuestCompletedCheck == true)
         {
             return;
         }
@@ -34,5 +34,19 @@ public class PlayerQuest : QuestDescription
             task.text = $"Task: {QuestLoaded.cantidadActual} / {QuestLoaded.CantidadObjetivo}";
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnEnable()
+    {
+        if(QuestLoaded.QuestCompletedCheck)
+        {
+            gameObject.SetActive(false);
+        }
+        Quest.EventQuestCompleted += QuestCompletadoRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        Quest.EventQuestCompleted -= QuestCompletadoRespuesta;
     }
 }
