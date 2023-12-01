@@ -22,6 +22,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelPC;
     [SerializeField] private GameObject panelMusic;
 
+    [SerializeField] private GameObject panelStore;
+
 
 
     [Header("Barra")]
@@ -196,6 +198,12 @@ public class UIManager : Singleton<UIManager>
         panelQuest.SetActive(!panelQuest.activeSelf);
     }
 
+    public void OpenPanelStore()
+    {
+        CloseAllPanels();
+        panelStore.SetActive(!panelStore.activeSelf);
+    }
+
     private void CloseAllPanels()
     {
         panelID.SetActive(false);
@@ -207,6 +215,7 @@ public class UIManager : Singleton<UIManager>
         panelStats.SetActive(false);
         panelPC.SetActive(false);
         panelMusic.SetActive(false);
+        panelStore.SetActive(false);
     }
 
     public void OpenPanelInteraction(InteractionExtraNPC tipoInteraccion)
@@ -217,6 +226,7 @@ public class UIManager : Singleton<UIManager>
                 OpenPanelQuest();
                 break;
             case InteractionExtraNPC.Tienda:
+            OpenPanelStore();
                 break;
             case InteractionExtraNPC.Crafting:
                 break;
