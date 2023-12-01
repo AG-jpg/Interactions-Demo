@@ -17,7 +17,6 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelTasks;
     [SerializeField] private GameObject panelInventario;
     [SerializeField] private GameObject panelQuest;
-    [SerializeField] private GameObject panelMachine;
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelPC;
     [SerializeField] private GameObject panelMusic;
@@ -226,7 +225,7 @@ public class UIManager : Singleton<UIManager>
                 OpenPanelQuest();
                 break;
             case InteractionExtraNPC.Tienda:
-            OpenPanelStore();
+                OpenPanelStore();
                 break;
             case InteractionExtraNPC.Crafting:
                 break;
