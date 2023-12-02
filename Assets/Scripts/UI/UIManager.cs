@@ -214,7 +214,6 @@ public class UIManager : Singleton<UIManager>
         panelStats.SetActive(false);
         panelPC.SetActive(false);
         panelMusic.SetActive(false);
-        panelStore.SetActive(false);
     }
 
     public void OpenPanelInteraction(InteractionExtraNPC tipoInteraccion)
