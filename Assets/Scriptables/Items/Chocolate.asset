@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3590b2be974b74197b23265c89099e8d, type: 3}
   m_Name: Chocolate
   m_EditorClassIdentifier: 
-  ID: 
-  Name: 
+  ID: Chocolate
+  Name: Chocolate Bar
   Icon: {fileID: 0}
-  Description: 
-  Tipo: 0
-  Consumible: 0
-  Acumulable: 0
-  AcumulacionMax: 0
+  Description: Fair trade milk chocolate
+  Tipo: 1
+  Consumible: 1
+  Acumulable: 1
+  AcumulacionMax: 50
   Cantidad: 0
-  HPRestore: 0
+  HPRestore: 20
