@@ -42,6 +42,7 @@ public class Store : MonoBehaviour
             MoneyManager.Instance.RemoveCredits(actualCost);
             cantidadCompra = 1;
             actualCost = initialCost;
+            UIManager.Instance.ShowPurchase();
         }
     }
 
