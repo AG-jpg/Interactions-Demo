@@ -14660,9 +14660,15 @@ MonoBehaviour:
   - Name: Bottled Water
     Item: {fileID: 11400000, guid: ad53c5f24b12244e0b6dd30a369d3b49, type: 2}
     Cost: 20
-  - Name: Pizza Slice
-    Item: {fileID: 11400000, guid: 452fae18f23cd450982a0451002f4dba, type: 2}
-    Cost: 50
+  - Name: Fizzle Cola
+    Item: {fileID: 11400000, guid: 2668aa47cb02d4d97be2ab5aed001c5d, type: 2}
+    Cost: 20
+  - Name: Chocolate
+    Item: {fileID: 11400000, guid: 84c7a49b1301d44bc89e255b5725a731, type: 2}
+    Cost: 15
+  - Name: Potato Chips
+    Item: {fileID: 11400000, guid: 4a9f230624ed841a1817c634cfaea545, type: 2}
+    Cost: 15
 --- !u!1 &1178738550
 GameObject:
   m_ObjectHideFlags: 0
