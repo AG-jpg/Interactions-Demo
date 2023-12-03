@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
 {
-    [SerializeField] private int numeroSlots;
-    public int NumeroSlots => numeroSlots;
-
     [Header("Items")]
     [SerializeField] private Item[] itemsInventario;
+    [SerializeField] Player player;
+    public int NumeroSlots => numeroSlots;
+
+    [SerializeField] private int numeroSlots;
     public Item[] ItemsInventario => itemsInventario;
+    public Player Player => player;
 
     private void Start()
     {
@@ -77,8 +79,6 @@ public class Inventory : Singleton<Inventory>
                     indexItem.Add(i);
                 }
             }
-
-
         }
 
         return indexItem;
@@ -97,5 +97,64 @@ public class Inventory : Singleton<Inventory>
             }
         }
     }
+
+    private void EliminarItem(int index)
+    {
+        ItemsInventario[index].Cantidad--;
+
+        if (itemsInventario[index].Cantidad <= 0)
+        {
+            itemsInventario[index].Cantidad = 0;
+            itemsInventario[index] = null;
+            InventoryUI.Instance.DrawItemInventory(null, 0, index);
+        }
+        else
+        {
+            InventoryUI.Instance.DrawItemInventory(itemsInventario[index], itemsInventario[index].Cantidad, index);
+        }
+    }
+
+    private void UsarItem(int index)
+    {
+        if (itemsInventario[index] == null)
+        {
+            return;
+        }
+
+        if (itemsInventario[index].UsarItem())
+        {
+            EliminarItem(index);
+        }
+    }
+
+    #region Events
+
+    private void SlotRespuesta(TiposInteraccion tipo, int index)
+    {
+        switch (tipo)
+        {
+            case TiposInteraccion.Usar:
+                UsarItem(index);
+                break;
+            case TiposInteraccion.Dar:
+                break;
+            case TiposInteraccion.Remover:
+                EliminarItem(index);
+                break;
+
+        }
+    }
+
+    private void OnEnable()
+    {
+        Slot.EventoSlotInteraction += SlotRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        Slot.EventoSlotInteraction -= SlotRespuesta;
+    }
+
+    #endregion
 
 }

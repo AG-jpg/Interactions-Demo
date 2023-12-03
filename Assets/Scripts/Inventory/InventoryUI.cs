@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using  UnityEngine.EventSystems;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class InventoryUI : Singleton<InventoryUI>
 {
-    [Header ("Panel Descripción")]
+    [Header("Panel Descripción")]
     [SerializeField] private TextMeshProUGUI descripcion;
     [SerializeField] private TextMeshProUGUI itemName;
 
@@ -28,24 +28,24 @@ public class InventoryUI : Singleton<InventoryUI>
 
     private void InicializarInventario()
     {
-        for(int i = 0; i < Inventory.Instance.NumeroSlots; i++)
+        for (int i = 0; i < Inventory.Instance.NumeroSlots; i++)
         {
-           Slot nuevoSlot = Instantiate(slotPrefab, container);
-           nuevoSlot.Index = i;
-           slotsDisponibles.Add(nuevoSlot);
+            Slot nuevoSlot = Instantiate(slotPrefab, container);
+            nuevoSlot.Index = i;
+            slotsDisponibles.Add(nuevoSlot);
         }
     }
 
     private void UpdateSlectedSlot()
     {
         GameObject goselected = EventSystem.current.currentSelectedGameObject;
-        if(goselected == null)
+        if (goselected == null)
         {
             return;
         }
 
         Slot slot = goselected.GetComponent<Slot>();
-        if( slot != null)
+        if (slot != null)
         {
             SelectedSlot = slot;
         }
@@ -67,7 +67,7 @@ public class InventoryUI : Singleton<InventoryUI>
 
     private void UpdateDescription(int index)
     {
-        if(Inventory.Instance.ItemsInventario[index] != null)
+        if (Inventory.Instance.ItemsInventario[index] != null)
         {
             itemName.text = Inventory.Instance.ItemsInventario[index].Name;
             descripcion.text = Inventory.Instance.ItemsInventario[index].Description;
@@ -79,9 +79,27 @@ public class InventoryUI : Singleton<InventoryUI>
         }
     }
 
+    public void UsarItem()
+    {
+        if(SelectedSlot != null)
+        {
+            SelectedSlot.SlotUseItem();
+        }
+    }
+
+    public void RemoveItem()
+    {
+        if(SelectedSlot != null)
+        {
+            SelectedSlot.SlotRemoveItem();
+        }
+    }
+
+    #region Events
+
     private void SlotRespuesta(TiposInteraccion tipo, int index)
     {
-        if(tipo == TiposInteraccion.Click)
+        if (tipo == TiposInteraccion.Click)
         {
             UpdateDescription(index);
         }
@@ -96,4 +114,6 @@ public class InventoryUI : Singleton<InventoryUI>
     {
         Slot.EventoSlotInteraction -= SlotRespuesta;
     }
+
+    #endregion
 }
