@@ -31,9 +31,14 @@ public class Menu : MonoBehaviour
         else
         {
             Time.timeScale = 1;
-            pausePanel.SetActive(false);
-            bg.SetActive(false);
-            AppPanel.SetActive(false);
+            ExitPanels();
         }
+    }
+
+    public void ExitPanels()
+    {
+        pausePanel.SetActive(false);
+        bg.SetActive(false);
+        AppPanel.SetActive(false);
     }
 }
