@@ -14,12 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Looking For Water
   ID: Looking for Water
-  CantidadObjetivo: 10
+  CantidadObjetivo: 1
   Description: Get some water for the guard
   Credits: 20
   Experience: 15
-  RewardItem:
-    Item: {fileID: 11400000, guid: ad53c5f24b12244e0b6dd30a369d3b49, type: 2}
-    cantidad: 1
   cantidadActual: 0
   QuestCompletedCheck: 0
