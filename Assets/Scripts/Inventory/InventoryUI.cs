@@ -16,12 +16,12 @@ public class InventoryUI : Singleton<InventoryUI>
     public Slot SelectedSlot { get; private set; }
     private List<Slot> slotsDisponibles = new List<Slot>();
 
-    [HideInInspector]
-    private bool itemGiven;
+    [HideInInspector] private bool itemGiven;
 
     void Start()
     {
         InicializarInventario();
+        itemGiven = false;
     }
 
     private void Update()
@@ -100,7 +100,7 @@ public class InventoryUI : Singleton<InventoryUI>
 
     public void GiveItem()
     {
-        if (SelectedSlot != null)
+        if (SelectedSlot != null && DialogueManager.Instance.NPCDisponible != null)
         {
             SelectedSlot.SlotRemoveItem();
             itemGiven = true;
