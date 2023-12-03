@@ -136,12 +136,9 @@ public class Inventory : Singleton<Inventory>
             case TiposInteraccion.Usar:
                 UsarItem(index);
                 break;
-            case TiposInteraccion.Dar:
-                break;
             case TiposInteraccion.Remover:
                 EliminarItem(index);
                 break;
-
         }
     }
 
@@ -156,5 +153,4 @@ public class Inventory : Singleton<Inventory>
     }
 
     #endregion
-
 }
