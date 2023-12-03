@@ -9,7 +9,6 @@ public enum TiposInteraccion
 {
     Click,
     Usar,
-    Dar,
     Remover
 }
 public class Slot : MonoBehaviour

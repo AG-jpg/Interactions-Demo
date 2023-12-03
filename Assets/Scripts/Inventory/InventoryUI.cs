@@ -17,6 +17,9 @@ public class InventoryUI : Singleton<InventoryUI>
     private List<Slot> slotsDisponibles = new List<Slot>();
 
     [HideInInspector] private bool itemGiven;
+    
+    //[HideInInspector] 
+    public string itemID;
 
     void Start()
     {
@@ -74,6 +77,7 @@ public class InventoryUI : Singleton<InventoryUI>
         {
             itemName.text = Inventory.Instance.ItemsInventario[index].Name;
             descripcion.text = Inventory.Instance.ItemsInventario[index].Description;
+            itemID = Inventory.Instance.ItemsInventario[index].Name;
         }
         else
         {
@@ -102,8 +106,8 @@ public class InventoryUI : Singleton<InventoryUI>
     {
         if (SelectedSlot != null && DialogueManager.Instance.NPCDisponible != null)
         {
-            SelectedSlot.SlotRemoveItem();
             itemGiven = true;
+            SelectedSlot.SlotRemoveItem();
         }
     }
 
