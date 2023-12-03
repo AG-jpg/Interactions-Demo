@@ -16,6 +16,9 @@ public class InventoryUI : Singleton<InventoryUI>
     public Slot SelectedSlot { get; private set; }
     private List<Slot> slotsDisponibles = new List<Slot>();
 
+    [HideInInspector]
+    private bool itemGiven;
+
     void Start()
     {
         InicializarInventario();
@@ -81,7 +84,7 @@ public class InventoryUI : Singleton<InventoryUI>
 
     public void UsarItem()
     {
-        if(SelectedSlot != null)
+        if (SelectedSlot != null)
         {
             SelectedSlot.SlotUseItem();
         }
@@ -89,9 +92,18 @@ public class InventoryUI : Singleton<InventoryUI>
 
     public void RemoveItem()
     {
-        if(SelectedSlot != null)
+        if (SelectedSlot != null)
         {
             SelectedSlot.SlotRemoveItem();
+        }
+    }
+
+    public void GiveItem()
+    {
+        if (SelectedSlot != null)
+        {
+            SelectedSlot.SlotRemoveItem();
+            itemGiven = true;
         }
     }
 
