@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class QuestManager : Singleton<QuestManager>
 {
-    public UIManager uiManager;
-
     [Header("Player")]
     [SerializeField] private Player player;
+    [SerializeField] private Menu menu;
 
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
@@ -48,7 +47,7 @@ public class QuestManager : Singleton<QuestManager>
 
     private void Update()
     {
-        if(questDisponibles.Length <= 0)
+        if (questDisponibles.Length <= 0)
         {
             ReadyforQuest = true;
         }
@@ -67,13 +66,16 @@ public class QuestManager : Singleton<QuestManager>
             AddProgress("Fix You", 1);
             ClaimReward();
             NPCmanager.VMFInal();
+            AddProgress("Rock the Casbah", 1);
         }
+
+        LookigForWater();
     }
 
     private void LoadQuestInspector()
     {
         for (int i = 0; i < questDisponibles.Length; i++)
-        {   
+        {
             QuestDescription newQuest = Instantiate(inspectorQuestPrefab, InpsectorQuestContainer);
             newQuest.ConfigureQuestUI(questDisponibles[i]);
         }
@@ -140,7 +142,7 @@ public class QuestManager : Singleton<QuestManager>
 
     public void ClaimReward()
     {
-        if(questtoClaim == null)
+        if (questtoClaim == null)
         {
             return;
         }
@@ -162,7 +164,7 @@ public class QuestManager : Singleton<QuestManager>
         questtoUpdate.AddProgress(cantidad);
     }
 
-//This Needs to be fixed! Array gets emptied after accepting!
+    //This Needs to be fixed! Array gets emptied after accepting!
     private Quest QuestExist(string questID)
     {
         for (int i = 0; i < questTaken.Length; i++)
@@ -178,25 +180,46 @@ public class QuestManager : Singleton<QuestManager>
 
     private void ShowCompletedQuest()
     {
-        uiManager.ShowSuccesNotification();
+        UIManager.Instance.ShowSuccesNotification();
     }
 
     private void QuestCompletedRespond(Quest questCompleted)
     {
         questtoClaim = QuestExist(questCompleted.ID);
-        if(questCompleted.ID != null)
+        if (questCompleted.ID != null)
         {
             ShowCompletedQuest();
         }
     }
 
     private void OnEnable()
-    {   
+    {
         Quest.EventQuestCompleted += QuestCompletedRespond;
     }
 
     private void OnDisable()
     {
         Quest.EventQuestCompleted -= QuestCompletedRespond;
+    }
+
+    private void LookigForWater()
+    {
+        if (InventoryUI.Instance.itemID == "Bottled Water")
+        {
+            if (InventoryUI.Instance.itemGiven == true)
+            {
+                AddProgress("Looking For Water", 1);
+                ClaimReward();
+                NPCmanager.FinalGuard();
+                AddProgress("Rock the Casbah", 1);
+                NPCmanager.FinalGuard();
+                UIManager.Instance.CloseAllPanels();
+                InventoryUI.Instance.itemGiven = false;
+            }
+        }
+        else
+        {
+            InventoryUI.Instance.itemGiven = false;
+        }
     }
 }
