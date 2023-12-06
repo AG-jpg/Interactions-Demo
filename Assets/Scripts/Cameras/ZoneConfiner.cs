@@ -2,7 +2,7 @@ using System;
 using Cinemachine;
 using UnityEngine;
 
-public class ZonaConfiner : MonoBehaviour
+public class ZoneConfiner : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera camara;
 
