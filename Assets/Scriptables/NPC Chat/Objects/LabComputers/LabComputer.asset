@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
+  m_Name: LabComputer
+  m_EditorClassIdentifier: 
+  Name: Lab Computer
+  Icon: {fileID: 21300000, guid: 1523b4fdfac1f4822a581bd1acca958c, type: 3}
+  hasExtra: 0
+  InteraccionExtra: 0
+  Entrance: 'To: All Employees
+
+    From: General Direction'
+  Conversation:
+  - Sentence: No need to report again the gang roaming outside our facilities.
+  - Sentence: Our Director, Dr. Katai, has taken all necessary measures.
+  - Sentence: 'Let''s focus on the success
+
+      of our project.'
+  Out: 'Jikken Labs.
+
+    Innovation that inspires.'
