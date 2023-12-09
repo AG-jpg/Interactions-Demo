@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
   m_Name: DrComputer
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
+  Name: Dr. Fehlerland's Computer
+  Icon: {fileID: 21300000, guid: 1523b4fdfac1f4822a581bd1acca958c, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: 
-  Conversation: []
-  Out: 
+  Entrance: 'To: Dr. Katai'
+  Conversation:
+  - Sentence: From Dr. Fehlerland
+  - Sentence: This is the work of my life
+  - Sentence: So either you make sure it's safe
+  - Sentence: from those punks plotting outside
+  - Sentence: Or I'll take everything I have on you
+  Out: to the board and the media.

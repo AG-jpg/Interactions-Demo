@@ -16,15 +16,8 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 1523b4fdfac1f4822a581bd1acca958c, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: 'To: All Employees
-
-    From: General Direction'
+  Entrance: 'To: All Employees'
   Conversation:
-  - Sentence: No need to report again the gang roaming outside our facilities.
-  - Sentence: Our Director, Dr. Katai, has taken all necessary measures.
-  - Sentence: 'Let''s focus on the success
-
-      of our project.'
-  Out: 'Jikken Labs.
-
-    Innovation that inspires.'
+  - Sentence: Our Director, Dr. Katai, is taking care
+  - Sentence: of the gang roaming outside our facilities.
+  Out: Focus on the success of our project.
