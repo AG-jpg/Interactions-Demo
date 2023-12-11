@@ -11899,7 +11899,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091919223}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &555340651
 SpriteRenderer:
@@ -15153,7 +15153,7 @@ Transform:
   m_GameObject: {fileID: 887431942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.9629993, y: 19.175, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2028994829}
@@ -21857,8 +21857,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552971742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8670006, y: 11.869999, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 4.8670006, y: 11.957, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2028994829}
@@ -22340,7 +22340,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091919223}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1602463594
 SpriteRenderer:
@@ -23366,7 +23366,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091919223}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1667469452
 SpriteRenderer:
@@ -24279,7 +24279,7 @@ GameObject:
   - component: {fileID: 1748561548}
   - component: {fileID: 1748561547}
   m_Layer: 0
-  m_Name: katai
+  m_Name: Dr Katai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24293,12 +24293,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748561545}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.838997, y: -17.643, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 23.605001, y: 15.028, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2091919223}
-  m_RootOrder: 7
+  m_Father: {fileID: 2028994829}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1748561547
 CapsuleCollider2D:
@@ -25495,7 +25495,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091919223}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1868874132
 SpriteRenderer:
@@ -27147,7 +27147,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091919223}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2019513963
 SpriteRenderer:
@@ -27313,6 +27313,7 @@ Transform:
   - {fileID: 887431943}
   - {fileID: 1112903147}
   - {fileID: 2131521539}
+  - {fileID: 1748561546}
   m_Father: {fileID: 580333654}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -27743,7 +27744,6 @@ Transform:
   - {fileID: 1020611610}
   - {fileID: 1019159389}
   - {fileID: 658777041}
-  - {fileID: 1748561546}
   - {fileID: 555340650}
   - {fileID: 1667469451}
   - {fileID: 2019513962}
