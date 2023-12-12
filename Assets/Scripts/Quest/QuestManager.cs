@@ -66,7 +66,6 @@ public class QuestManager : Singleton<QuestManager>
             AddProgress("Fix You", 1);
             ClaimReward();
             NPCmanager.VMFInal();
-            AddProgress("Rock the Casbah", 1);
         }
 
         LookigForWater();
@@ -211,7 +210,6 @@ public class QuestManager : Singleton<QuestManager>
                 AddProgress("Looking For Water", 1);
                 ClaimReward();
                 NPCmanager.FinalGuard();
-                AddProgress("Rock the Casbah", 1);
                 NPCmanager.FinalGuard();
                 UIManager.Instance.CloseAllPanels();
                 InventoryUI.Instance.itemGiven = false;
