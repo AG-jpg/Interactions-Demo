@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
 
     [Header ("Music")]
     [SerializeField] public AudioClip main;
-    [SerializeField] public AudioClip labgroove;
 
     [Header ("Sound FX")]
     [SerializeField] public AudioClip notification;
@@ -37,8 +36,8 @@ public class SoundManager : MonoBehaviour
         audioSource.PlayOneShot(purchase);
     }
 
-    public void labMusic()
+    public void stopMusic()
     {
-        audioSource.PlayOneShot(labgroove);
+        audioSource.Stop();
     }
 }
