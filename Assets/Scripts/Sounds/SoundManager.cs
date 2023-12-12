@@ -16,10 +16,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] public AudioClip purchase;
 
-    private void Awake()
-    {
-        audioSource.PlayOneShot(main);
-    }
+
 
     public void Notify()
     {
@@ -34,10 +31,5 @@ public class SoundManager : MonoBehaviour
     public void Purchase()
     {
         audioSource.PlayOneShot(purchase);
-    }
-
-    public void stopMusic()
-    {
-        audioSource.Stop();
     }
 }

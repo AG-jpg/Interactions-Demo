@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MusicTrigger : MonoBehaviour
 {
-    [SerializeField] private SoundManager sm;
-
     [Header("Music")]
     public AudioSource audioSource;
+    public AudioSource main;
     [SerializeField] public AudioClip levelMusic;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        sm.stopMusic();
+        main.Stop();
         audioSource.PlayOneShot(levelMusic);
     }
 }
