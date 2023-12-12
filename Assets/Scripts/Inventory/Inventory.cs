@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : Singleton<Inventory>
 {
     [Header("Items")]
+    [SerializeField] private Storage storage;
     [SerializeField] private Item[] itemsInventario;
     [SerializeField] Player player;
     public int NumeroSlots => numeroSlots;
