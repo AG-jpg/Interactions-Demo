@@ -68,6 +68,8 @@ public class Inventory : Singleton<Inventory>
             AddItemInSlot(itemtoAdd, cantidad);
         }
 
+        SaveInventory();
+
     }
 
     private List<int> VerificarExistencias(string itemID)
@@ -115,6 +117,8 @@ public class Inventory : Singleton<Inventory>
         {
             InventoryUI.Instance.DrawItemInventory(itemsInventario[index], itemsInventario[index].Cantidad, index);
         }
+
+        SaveInventory();
     }
 
     private void UsarItem(int index)
@@ -162,12 +166,12 @@ public class Inventory : Singleton<Inventory>
     private void SaveInventory()
     {
         InventoryData savedData = new InventoryData();
-        savedData.ItemsData = new string [numeroSlots];
-        savedData.ItemsCantidad = new int [numeroSlots];
+        savedData.ItemsData = new string[numeroSlots];
+        savedData.ItemsCantidad = new int[numeroSlots];
 
-        for(int i=0; i < numeroSlots; i++)
+        for (int i = 0; i < numeroSlots; i++)
         {
-            if(itemsInventario[i] == null || string.IsNullOrEmpty(itemsInventario[i].ID))
+            if (itemsInventario[i] == null || string.IsNullOrEmpty(itemsInventario[i].ID))
             {
                 savedData.ItemsData[i] = null;
                 savedData.ItemsCantidad[i] = 0;
@@ -178,11 +182,13 @@ public class Inventory : Singleton<Inventory>
                 savedData.ItemsCantidad[i] = itemsInventario[i].Cantidad;
             }
         }
+
+        SaveGame.Save(INVENTORY_KEY, savedData);
     }
 
     private void LoadInventory()
     {
-        
+
     }
 
     #endregion
