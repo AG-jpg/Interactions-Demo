@@ -13,8 +13,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public AudioClip notification;
     [SerializeField] public AudioClip error;
     [SerializeField] public AudioClip success;
-
     [SerializeField] public AudioClip purchase;
+    [SerializeField] public AudioClip useitem;
 
 
 
@@ -31,5 +31,10 @@ public class SoundManager : MonoBehaviour
     public void Purchase()
     {
         audioSource.PlayOneShot(purchase);
+    }
+
+    public void UseItem()
+    {
+        audioSource.PlayOneShot(useitem);
     }
 }
