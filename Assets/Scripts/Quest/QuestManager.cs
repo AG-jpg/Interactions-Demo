@@ -108,6 +108,10 @@ public class QuestManager : Singleton<QuestManager>
         {
             NPCmanager.HideGuard();
         }
+        else if (QuestAccepted && questName == "Somebody Told Me")
+        {
+            NPCmanager.HideJr();
+        }
     }
 
     //This rejects the quest in inspector
