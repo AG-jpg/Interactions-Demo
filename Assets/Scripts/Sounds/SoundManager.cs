@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public AudioClip purchase;
     [SerializeField] public AudioClip useitem;
 
+    [SerializeField] public AudioClip openDoors;
+
 
 
     public void Notify()
@@ -36,5 +38,10 @@ public class SoundManager : MonoBehaviour
     public void UseItem()
     {
         audioSource.PlayOneShot(useitem);
+    }
+
+    public void OpenDoors()
+    {
+        audioSource.PlayOneShot(openDoors);
     }
 }
