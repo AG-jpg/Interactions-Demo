@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
 {
+    private SoundManager soundManager;
+
     [Header("Items")]
     [SerializeField] private Storage storage;
     [SerializeField] private Item[] itemsInventario;
@@ -142,6 +144,7 @@ public class Inventory : Singleton<Inventory>
         {
             case TiposInteraccion.Usar:
                 UsarItem(index);
+                soundManager.UseItem();
                 break;
             case TiposInteraccion.Remover:
                 EliminarItem(index);
