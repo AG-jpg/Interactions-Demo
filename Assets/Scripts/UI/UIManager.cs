@@ -58,6 +58,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public Popup infoAccepted;
     [SerializeField] public Popup succeed;
     [SerializeField] public Popup purchase;
+    [SerializeField] public Popup doors;
 
     public bool QuestStarted;
 
@@ -142,6 +143,13 @@ public class UIManager : Singleton<UIManager>
         soundManager.Success();
     }
 
+    public void DoorsNotification()
+    {
+        Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
+        newNotification.ConfigureNotificationUI(doors);
+        soundManager.OpenDoors();
+    }
+
     #endregion
 
     #region Panels
@@ -211,7 +219,7 @@ public class UIManager : Singleton<UIManager>
         panelStore.SetActive(!panelStore.activeSelf);
     }
 
-    private void CloseAllPanels()
+    public void CloseAllPanels()
     {
         panelID.SetActive(false);
         panelWallet.SetActive(false);
