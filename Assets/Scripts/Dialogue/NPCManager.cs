@@ -15,11 +15,16 @@ public class NPCManager : MonoBehaviour
     [Header("Guard")]
     [SerializeField] public GameObject Guard01;
     [SerializeField] public GameObject Guard02;
+    [SerializeField] public GameObject Guard03;
 
     [Header("VendingMachine")]
     [SerializeField] public GameObject VM01;
     [SerializeField] public GameObject VM02;
     [SerializeField] public GameObject VM03;
+
+    [Header("Jr. Scientist")]
+    [SerializeField] public GameObject Jr01;
+    [SerializeField] public GameObject Jr02;
 
     public void HideElla()
     {
@@ -45,9 +50,22 @@ public class NPCManager : MonoBehaviour
         VM02.SetActive(true);
     }
 
+    public void HideJr()
+    {
+        Jr01.SetActive(false);
+        Jr02.SetActive(true);
+    }
+
+//Final Dialogues
     public void VMFInal()
     {
         VM02.SetActive(false);
         VM03.SetActive(true);
+    }
+
+        public void FinalGuard()
+    {
+        Guard02.SetActive(false);
+        Guard03.SetActive(true);
     }
 }
