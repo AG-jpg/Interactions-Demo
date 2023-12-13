@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +12,8 @@ public class Inventory : Singleton<Inventory>
     [SerializeField] private int numeroSlots;
     public Item[] ItemsInventario => itemsInventario;
     public Player Player => player;
+
+    private readonly string INVENTORY_KEY = "Items105020";
 
     private void Start()
     {
@@ -151,6 +152,20 @@ public class Inventory : Singleton<Inventory>
     private void OnDisable()
     {
         Slot.EventoSlotInteraction -= SlotRespuesta;
+    }
+
+    #endregion
+
+    #region Saving
+
+    private void SaveInventory()
+    {
+
+    }
+
+    private void LoadInventory()
+    {
+        
     }
 
     #endregion
