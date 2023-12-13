@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
@@ -160,7 +161,23 @@ public class Inventory : Singleton<Inventory>
 
     private void SaveInventory()
     {
+        InventoryData savedData = new InventoryData();
+        savedData.ItemsData = new string [numeroSlots];
+        savedData.ItemsCantidad = new int [numeroSlots];
 
+        for(int i=0; i < numeroSlots; i++)
+        {
+            if(itemsInventario[i] == null || string.IsNullOrEmpty(itemsInventario[i].ID))
+            {
+                savedData.ItemsData[i] = null;
+                savedData.ItemsCantidad[i] = 0;
+            }
+            else
+            {
+                savedData.ItemsData[i] = itemsInventario[i].ID;
+                savedData.ItemsCantidad[i] = itemsInventario[i].Cantidad;
+            }
+        }
     }
 
     private void LoadInventory()
