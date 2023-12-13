@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     [Header("Ella")]
     [SerializeField] public GameObject Ella01;
     [SerializeField] public GameObject Ella02;
@@ -25,6 +27,9 @@ public class NPCManager : MonoBehaviour
     [Header("Jr. Scientist")]
     [SerializeField] public GameObject Jr01;
     [SerializeField] public GameObject Jr02;
+
+    [Header("Red Doors")]
+    [SerializeField] public GameObject redDoors;
 
     public void HideElla()
     {
@@ -54,6 +59,11 @@ public class NPCManager : MonoBehaviour
     {
         Jr01.SetActive(false);
         Jr02.SetActive(true);
+    }
+
+    public void HideRedDoors()
+    {
+        redDoors.SetActive(false);
     }
 
 //Final Dialogues
