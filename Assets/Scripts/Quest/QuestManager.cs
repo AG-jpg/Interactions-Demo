@@ -69,6 +69,14 @@ public class QuestManager : Singleton<QuestManager>
         }
 
         LookigForWater();
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            AddProgress("Rock the Casbah", 1);
+            NPCmanager.HideRedDoors();
+            UIManager.Instance.DoorsNotification();
+            ClaimReward();
+        }
     }
 
     private void LoadQuestInspector()
