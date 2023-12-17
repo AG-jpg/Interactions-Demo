@@ -18,6 +18,8 @@ public class NPCManager : MonoBehaviour
     [SerializeField] public GameObject Guard01;
     [SerializeField] public GameObject Guard02;
     [SerializeField] public GameObject Guard03;
+    [SerializeField] public GameObject Guardziman;
+    [SerializeField] public GameObject Guardzimansecond;
 
     [Header("VendingMachine")]
     [SerializeField] public GameObject VM01;
@@ -47,6 +49,12 @@ public class NPCManager : MonoBehaviour
     {
         Guard01.SetActive(false);
         Guard02.SetActive(true);
+    }
+
+    public void HideZimanGuard()
+    {
+        Guardziman.SetActive(false);
+        Guardzimansecond.SetActive(true);
     }
 
     public void HideVM()
