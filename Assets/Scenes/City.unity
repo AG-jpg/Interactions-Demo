@@ -18436,7 +18436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1070665544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19009,8 +19009,8 @@ MonoBehaviour:
   Guard01: {fileID: 1070665543}
   Guard02: {fileID: 1387373453}
   Guard03: {fileID: 254197156}
-  Guardziman: {fileID: 0}
-  Guardzimansecond: {fileID: 0}
+  Guardziman: {fileID: 1435652708}
+  Guardzimansecond: {fileID: 1667839693}
   VM01: {fileID: 1922154805}
   VM02: {fileID: 511865362}
   VM03: {fileID: 1056877777}
@@ -21094,7 +21094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1387373454
 Transform:
   m_ObjectHideFlags: 0
