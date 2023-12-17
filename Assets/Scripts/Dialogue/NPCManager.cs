@@ -30,10 +30,20 @@ public class NPCManager : MonoBehaviour
     [SerializeField] public GameObject Jr01;
     [SerializeField] public GameObject Jr02;
 
+    [Header("Dr. Katai")]
+    [SerializeField] public GameObject Katai01;
+    [SerializeField] public GameObject Katai02;
+
+    //Objects
+
     [Header("Red Doors")]
     [SerializeField] public GameObject redDoors;
+
     [Header("Messages")]
     [SerializeField] public GameObject messages;
+
+    [Header("Animals")]
+    [SerializeField] public GameObject animals;
 
     private void Awake()
     {
@@ -75,9 +85,20 @@ public class NPCManager : MonoBehaviour
         Jr02.SetActive(true);
     }
 
+    public void HideKatai()
+    {
+        Katai01.SetActive(false);
+        Katai02.SetActive(true);
+    }
+
     public void HideRedDoors()
     {
         redDoors.SetActive(false);
+    }
+
+    public void HideAnimals()
+    {
+        animals.SetActive(false);
     }
 
     public void ShowMessage()
