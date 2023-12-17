@@ -78,6 +78,15 @@ public class QuestManager : Singleton<QuestManager>
             UIManager.Instance.DoorsNotification();
             ClaimReward();
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            AddProgress("Rock the Casbah", 1);
+            NPCmanager.HideAnimals();
+            NPCmanager.HideKatai();
+            UIManager.Instance.DoorsNotification();
+            ClaimReward();
+        }
     }
 
     private void LoadQuestInspector()
