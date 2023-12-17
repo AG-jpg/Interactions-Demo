@@ -120,6 +120,7 @@ public class QuestManager : Singleton<QuestManager>
         else if (QuestAccepted && questName == "Somebody Told Me")
         {
             NPCmanager.HideJr();
+            NPCmanager.ShowMessage();
         }
     }
 
