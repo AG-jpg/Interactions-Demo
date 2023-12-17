@@ -66,6 +66,7 @@ public class QuestManager : Singleton<QuestManager>
             AddProgress("Fix You", 1);
             ClaimReward();
             NPCmanager.VMFInal();
+            NPCmanager.HideZimanGuard();
         }
 
         LookigForWater();
