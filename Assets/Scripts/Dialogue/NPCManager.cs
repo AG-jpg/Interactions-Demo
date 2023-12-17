@@ -32,7 +32,13 @@ public class NPCManager : MonoBehaviour
 
     [Header("Red Doors")]
     [SerializeField] public GameObject redDoors;
+    [Header("Messages")]
+    [SerializeField] public GameObject messages;
 
+    private void Awake()
+    {
+        messages.SetActive(false);
+    }
     public void HideElla()
     {
         Ella01.SetActive(false);
@@ -74,14 +80,19 @@ public class NPCManager : MonoBehaviour
         redDoors.SetActive(false);
     }
 
-//Final Dialogues
+    public void ShowMessage()
+    {
+        messages.SetActive(true);
+    }
+
+    //Final Dialogues
     public void VMFInal()
     {
         VM02.SetActive(false);
         VM03.SetActive(true);
     }
 
-        public void FinalGuard()
+    public void FinalGuard()
     {
         Guard02.SetActive(false);
         Guard03.SetActive(true);
