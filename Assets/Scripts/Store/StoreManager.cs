@@ -13,39 +13,45 @@ public class StoreManager : MonoBehaviour
 
     [SerializeField] private ItemVenta[] itemsAvailable;
 
-    [HideInInspector] private bool inStore = false;
+    private bool ReadyforStore;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && inStore == false)
+        if (itemsAvailable.Length <= 0)
+        {
+            ReadyforStore = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && ReadyforStore == true)
         {
             GetItems();
+            ReadyforStore = false;
             LoadItemsinStore();
         }
     }
 
     private void GetItems()
     {
-        for(int i = 0; i < itemsforSale.Length; i++)
+        for (int i = 0; i < itemsforSale.Length; i++)
         {
-            if(itemsforSale[i].storeActive == true)
+            if (itemsforSale[i].storeActive == true && ReadyforStore == true)
             {
                 itemsAvailable = itemsforSale[i].storeItems;
-                inStore = true;
-            }
-            else if(itemsforSale[i].storeActive == false)
-            {
-                itemsAvailable = new ItemVenta[0];
-                inStore = false;
             }
         }
     }
+
     private void LoadItemsinStore()
     {
-        for(int i = 0; i < itemsAvailable.Length; i++)
+        for (int i = 0; i < itemsAvailable.Length; i++)
         {
             Store iteminStore = Instantiate(itemPrefab, panelContainer);
             iteminStore.ConfigureItemSale(itemsAvailable[i]);
         }
+    }
+
+    public void FlushStore()
+    {
+        itemsAvailable = new ItemVenta[0];
     }
 }
