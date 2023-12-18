@@ -9,12 +9,13 @@ public class StoreManager : MonoBehaviour
     [SerializeField] private Transform panelContainer;
 
     [Header("Items")]
-    [SerializeField] private StoreSale[] itemsInStore;
+    [SerializeField] private StoreContainer[] itemsInStore;
 
     [SerializeField] private ItemVenta[] itemsAvailable;
-    
-    private void Start()
+
+    private void Update()
     {
+        GetItems();
         LoadItemsinStore();
     }
 
@@ -22,15 +23,18 @@ public class StoreManager : MonoBehaviour
     {
         for(int i = 0; i < itemsInStore.Length; i++)
         {
-            if(itemsInStore[i] != null)
+            if(itemsInStore[i].storeActive == true)
             {
                 itemsAvailable = itemsInStore[i].storeItems;
+            }
+            else if(itemsInStore[i].storeActive == false)
+            {
+                itemsAvailable = new ItemVenta[0];
             }
         }
     }
     private void LoadItemsinStore()
     {
-
         for(int i = 0; i < itemsAvailable.Length; i++)
         {
             Store iteminStore = Instantiate(itemPrefab, panelContainer);
