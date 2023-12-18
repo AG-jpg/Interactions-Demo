@@ -52,19 +52,19 @@ public class NPCManager : MonoBehaviour
     }
     public void HideElla()
     {
-        Ella01.SetActive(false);
+        Destroy(Ella01);
         Ella02.SetActive(true);
     }
 
     public void HideJohny()
     {
-        Johny01.SetActive(false);
+        Destroy(Johny01);
         Johny02.SetActive(true);
     }
 
     public void HideGuard()
     {
-        Guard01.SetActive(false);
+        Destroy(Guard01);
         Guard02.SetActive(true);
     }
 
@@ -76,30 +76,30 @@ public class NPCManager : MonoBehaviour
 
     public void HideVM()
     {
-        VM01.SetActive(false);
+        Destroy(VM01);
         VM02.SetActive(true);
     }
 
     public void HideJr()
     {
-        Jr01.SetActive(false);
+        Destroy(Jr01);
         Jr02.SetActive(true);
     }
 
     public void HideKatai()
     {
-        Katai01.SetActive(false);
+        Destroy(Katai01);
         Katai02.SetActive(true);
     }
 
     public void HideRedDoors()
     {
-        redDoors.SetActive(false);
+        Destroy(redDoors);
     }
 
     public void HideAnimals()
     {
-        animals.SetActive(false);
+        Destroy(animals);
     }
 
     public void ShowMessage()
@@ -110,19 +110,19 @@ public class NPCManager : MonoBehaviour
     //Final Dialogues
     public void VMFInal()
     {
-        VM02.SetActive(false);
+        Destroy(VM02);
         VM03.SetActive(true);
     }
 
     public void VMAfter()
     {
-        VM03.SetActive(false);
+        Destroy(VM03);
         VM04.SetActive(true);
     }
 
     public void FinalGuard()
     {
-        Guard02.SetActive(false);
+        Destroy(Guard02);
         Guard03.SetActive(true);
     }
 }
