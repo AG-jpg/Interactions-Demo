@@ -21,4 +21,9 @@ public class PuzzleVM : MonoBehaviour
             puzzleInitiated = true;
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        puzzleInitiated = false;
+    }
 }
