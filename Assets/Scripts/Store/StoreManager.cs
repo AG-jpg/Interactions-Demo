@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoreManager : MonoBehaviour
+public class StoreManager : Singleton<StoreManager>
 {
     [Header("Configuration")]
     [SerializeField] private Store itemPrefab;
@@ -13,7 +13,8 @@ public class StoreManager : MonoBehaviour
 
     [SerializeField] private ItemVenta[] itemsAvailable;
 
-    private bool ReadyforStore;
+    public bool ReadyforStore;
+    public bool cleanPanel;
 
     private void Update()
     {
@@ -53,5 +54,6 @@ public class StoreManager : MonoBehaviour
     public void FlushStore()
     {
         itemsAvailable = new ItemVenta[0];
+        cleanPanel = true;
     }
 }

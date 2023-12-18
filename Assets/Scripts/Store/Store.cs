@@ -21,6 +21,8 @@ public class Store : MonoBehaviour
     {
         cantidad.text = cantidadCompra.ToString();
         itemCost.text = actualCost.ToString();
+
+        CleanPanel();
     }
 
     public void ConfigureItemSale(ItemVenta itemVenta)
@@ -65,6 +67,16 @@ public class Store : MonoBehaviour
 
         cantidadCompra--;
         actualCost = initialCost * cantidadCompra;
+    }
+
+    public void CleanPanel()
+    {
+        if(StoreManager.Instance.cleanPanel == true)
+        {
+            Destroy(this.gameObject);
+        }
+
+        StoreManager.Instance.cleanPanel = false;
     }
 
 }
