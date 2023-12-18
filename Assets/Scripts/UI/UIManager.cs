@@ -6,6 +6,7 @@ public class UIManager : Singleton<UIManager>
 {
     public QuestManager questManager;
     public SoundManager soundManager;
+    public StoreManager storeManager;
 
     [Header("Object")]
     [SerializeField] private Stats Stats;
@@ -217,6 +218,12 @@ public class UIManager : Singleton<UIManager>
     {
         CloseAllPanels();
         panelStore.SetActive(!panelStore.activeSelf);
+    }
+
+    public void FlushStore()
+    {
+        OpenPanelStore();
+        storeManager.FlushStore();
     }
 
     public void CloseAllPanels()
