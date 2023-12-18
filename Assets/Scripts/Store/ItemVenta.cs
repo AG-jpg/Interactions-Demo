@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-[Serializable]
+ [Serializable]
 public class ItemVenta
 {
     public string Name;

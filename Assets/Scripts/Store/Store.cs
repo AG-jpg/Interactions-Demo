@@ -12,7 +12,7 @@ public class Store : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemCost;
     [SerializeField] private TextMeshProUGUI cantidad;
 
-    public ItemVenta itemLoaded { get; set; }
+    public ItemVenta itemLoaded { get; private set; }
 
     private int cantidadCompra;
     private int initialCost;
@@ -32,6 +32,39 @@ public class Store : MonoBehaviour
         cantidadCompra = 1;
         initialCost = itemVenta.Cost;
         actualCost = itemVenta.Cost;
+    }
+
+    public void BuyItem()
+    {
+        if(MoneyManager.Instance.TotalCredits >= actualCost)
+        {
+            Inventory.Instance.AddItem(itemLoaded.Item, cantidadCompra);
+            MoneyManager.Instance.RemoveCredits(actualCost);
+            cantidadCompra = 1;
+            actualCost = initialCost;
+            UIManager.Instance.ShowPurchase();
+        }
+    }
+
+    public void AddItemtoBuy()
+    {
+        int purchaseCost = initialCost * (cantidadCompra + 1);
+        if(MoneyManager.Instance.TotalCredits >= purchaseCost)
+        {
+            cantidadCompra++;
+            actualCost = initialCost * cantidadCompra;
+        }
+    }
+
+    public void SubstractItemtoBuy()
+    {
+        if(cantidadCompra == 1)
+        {
+            return;
+        }
+
+        cantidadCompra--;
+        actualCost = initialCost * cantidadCompra;
     }
 
 }
