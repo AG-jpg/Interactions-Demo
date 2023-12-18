@@ -13,9 +13,11 @@ public class StoreManager : MonoBehaviour
 
     [SerializeField] private ItemVenta[] itemsAvailable;
 
+    [HideInInspector] private bool inStore = false;
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && inStore == false)
         {
             GetItems();
             LoadItemsinStore();
@@ -29,10 +31,12 @@ public class StoreManager : MonoBehaviour
             if(itemsforSale[i].storeActive == true)
             {
                 itemsAvailable = itemsforSale[i].storeItems;
+                inStore = true;
             }
             else if(itemsforSale[i].storeActive == false)
             {
                 itemsAvailable = new ItemVenta[0];
+                inStore = false;
             }
         }
     }
