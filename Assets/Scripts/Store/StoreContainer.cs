@@ -7,7 +7,7 @@ public class StoreContainer : MonoBehaviour
     [Header("Items")]
     [SerializeField] public ItemVenta[] storeItems;
 
-    public bool storeActive;
+    [HideInInspector] public bool storeActive;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
