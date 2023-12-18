@@ -25,6 +25,7 @@ public class NPCManager : MonoBehaviour
     [SerializeField] public GameObject VM01;
     [SerializeField] public GameObject VM02;
     [SerializeField] public GameObject VM03;
+    [SerializeField] public GameObject VM04;
 
     [Header("Jr. Scientist")]
     [SerializeField] public GameObject Jr01;
@@ -111,6 +112,12 @@ public class NPCManager : MonoBehaviour
     {
         VM02.SetActive(false);
         VM03.SetActive(true);
+    }
+
+    public void VMAfter()
+    {
+        VM03.SetActive(false);
+        VM04.SetActive(true);
     }
 
     public void FinalGuard()
