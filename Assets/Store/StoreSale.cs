@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class StoreSale : ScriptableObject
 {
-    [SerializeField] private ItemVenta[] storeItems;
+    [SerializeField] public ItemVenta[] storeItems;
 }
