@@ -10,6 +10,7 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Object")]
     [SerializeField] private Stats Stats;
+
     [Header("Paneles")]
     [SerializeField] private GameObject panelID;
     [SerializeField] private GameObject panelWallet;
@@ -23,6 +24,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelMusic;
 
     [SerializeField] private GameObject panelStore;
+
+    [SerializeField] private GameObject panelMessage;
 
 
 
@@ -61,7 +64,11 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public Popup purchase;
     [SerializeField] public Popup doors;
 
+    [Header("Booleans")]
     public bool QuestStarted;
+
+    [Header("Other")]
+    public int messagesRead = 0;
 
     private void Update()
     {
@@ -218,6 +225,12 @@ public class UIManager : Singleton<UIManager>
     {
         CloseAllPanels();
         panelStore.SetActive(!panelStore.activeSelf);
+    }
+
+    public void OpenPanelMessage()
+    {
+        CloseAllPanels();
+        panelMessage.SetActive(!panelMessage.activeSelf);
     }
 
     public void FlushStore()
