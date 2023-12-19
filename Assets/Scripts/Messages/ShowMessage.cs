@@ -6,7 +6,6 @@ public class ShowMessage : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI title;
     [SerializeField] public TextMeshProUGUI subtitle;
-
     [SerializeField] public TextMeshProUGUI content;
 
     public Message loadMessage  { get; set; }

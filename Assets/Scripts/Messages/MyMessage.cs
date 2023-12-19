@@ -18,6 +18,12 @@ public class MyMessage : ShowMessage
         }
     }
 
+    public void DestroyMessage()
+    {
+        Destroy(this.gameObject);
+        UIManager.Instance.OpenPanelMessage();
+    }
+
     public override void ConfigureMessage(Message message)
     {
         base.ConfigureMessage(message);
