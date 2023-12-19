@@ -10,7 +10,6 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Object")]
     [SerializeField] private Stats Stats;
-
     [SerializeField] private GameObject bg;
 
     [Header("Paneles")]
@@ -24,12 +23,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelStats;
     [SerializeField] private GameObject panelPC;
     [SerializeField] private GameObject panelMusic;
-
     [SerializeField] private GameObject panelStore;
-
-    [SerializeField] private GameObject panelMessage;
-
-
 
     [Header("Barra")]
     [SerializeField] private Image expPlayer;
@@ -68,11 +62,6 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Booleans")]
     public bool QuestStarted;
-
-    public bool messageClosed;
-
-    [Header("Other")]
-    public int messagesRead = 0;
 
     private void Update()
     {
@@ -229,21 +218,6 @@ public class UIManager : Singleton<UIManager>
     {
         CloseAllPanels();
         panelStore.SetActive(!panelStore.activeSelf);
-    }
-
-    public void OpenPanelMessage()
-    {        
-        CloseAllPanels();
-        panelMessage.SetActive(true);
-        messageClosed = false;
-        bg.SetActive(true);
-    }
-
-    public void ClosePanelMessage()
-    {        
-        CloseAllPanels();
-        panelMessage.SetActive(false);
-        messageClosed = true;
     }
 
     public void FlushStore()
