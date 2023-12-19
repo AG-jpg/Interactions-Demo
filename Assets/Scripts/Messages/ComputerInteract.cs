@@ -19,6 +19,12 @@ public class ComputerInteract : MonoBehaviour
             ShowMessage newMessage = Instantiate(messagePrefab, messageContainer);
             newMessage.ConfigureMessage(message);
             messagesRead++;
+            readingMessage = false;
+        }
+
+        if(UIManager.Instance.messageClosed == true)
+        {
+            Destroy(this.gameObject);
         }
     }
 
