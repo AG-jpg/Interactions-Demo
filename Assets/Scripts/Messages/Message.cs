@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class Message : ScriptableObject
 {
     [Header("Info")]
-    public Image icon;
     public string Title;
     public string Subtitle;
-    [TextAreaAttribute] public string Text;
+    [TextAreaAttribute] public string Content;
 }
