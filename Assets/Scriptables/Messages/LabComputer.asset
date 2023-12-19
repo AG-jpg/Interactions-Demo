@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: 'From: General Direction'
   Subtitle: 'To: All Employees'
-  Content: 'We are aware of the gang roaming outside our facilities. Our Director,
+  Content: 'We are aware of the gang roaming outside our facilities.
+
+
+    Our Director,
     Dr. Katai, is taking care of it. Top security has been allocated 24/7 and a high-end
     security system.
 
 
     Focus on the success of our project.
 
-    TerraLabs: Changing
-    the future a drop at a time.'
+
+    TerraLabs:
+    Changing the future a drop at a time.'
