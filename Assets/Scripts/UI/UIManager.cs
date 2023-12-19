@@ -67,6 +67,8 @@ public class UIManager : Singleton<UIManager>
     [Header("Booleans")]
     public bool QuestStarted;
 
+    public bool messageClosed;
+
     [Header("Other")]
     public int messagesRead = 0;
 
@@ -228,9 +230,17 @@ public class UIManager : Singleton<UIManager>
     }
 
     public void OpenPanelMessage()
-    {
+    {        
         CloseAllPanels();
-        panelMessage.SetActive(!panelMessage.activeSelf);
+        panelMessage.SetActive(true);
+        messageClosed = false;
+    }
+
+    public void ClosePanelMessage()
+    {        
+        CloseAllPanels();
+        panelMessage.SetActive(false);
+        messageClosed = true;
     }
 
     public void FlushStore()
