@@ -8,8 +8,13 @@ public class ComputerInteract : MonoBehaviour
     [SerializeField] private MyMessage messagePrefab;
     [SerializeField] private Transform messageContainer;
     [SerializeField] private Message message;
-    public int messagesRead = 0;
+    public bool messagesRead;
     private bool readingMessage;
+
+    private void Awake()
+    {
+        messagesRead = false;
+    }
 
     private void Update()
     {
@@ -18,12 +23,13 @@ public class ComputerInteract : MonoBehaviour
             UIManager.Instance.OpenPanelMessage();
             ShowMessage newMessage = Instantiate(messagePrefab, messageContainer);
             newMessage.ConfigureMessage(message);
-            messagesRead++;
+            messagesRead = true;
             readingMessage = false;
         }
 
-        if(UIManager.Instance.messageClosed == true)
+        if (UIManager.Instance.messageClosed == true && messagesRead == true)
         {
+            messagesRead = false;
             Destroy(this.gameObject);
         }
     }
@@ -34,5 +40,10 @@ public class ComputerInteract : MonoBehaviour
         {
             readingMessage = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        readingMessage = false;
     }
 }
