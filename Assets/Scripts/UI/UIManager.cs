@@ -11,6 +11,8 @@ public class UIManager : Singleton<UIManager>
     [Header("Object")]
     [SerializeField] private Stats Stats;
 
+    [SerializeField] private GameObject bg;
+
     [Header("Paneles")]
     [SerializeField] private GameObject panelID;
     [SerializeField] private GameObject panelWallet;
@@ -234,6 +236,7 @@ public class UIManager : Singleton<UIManager>
         CloseAllPanels();
         panelMessage.SetActive(true);
         messageClosed = false;
+        bg.SetActive(true);
     }
 
     public void ClosePanelMessage()
