@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
     public AudioSource audioSource;
 
-    [Header ("Music")]
-    [SerializeField] public AudioClip main;
-
-    [Header ("Sound FX")]
+    [Header("Sound FX")]
     [SerializeField] public AudioClip notification;
     [SerializeField] public AudioClip error;
     [SerializeField] public AudioClip success;
@@ -18,8 +15,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] public AudioClip openDoors;
 
-
-
+#region Sound Effects
     public void Notify()
     {
         audioSource.PlayOneShot(notification);
@@ -44,4 +40,6 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.PlayOneShot(openDoors);
     }
+
+#endregion
 }
