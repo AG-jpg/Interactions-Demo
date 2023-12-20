@@ -36,6 +36,7 @@ public class QuestManager : Singleton<QuestManager>
     //Bools
     private bool ReadyforQuest;
     public bool QuestAccepted;
+    public bool messagesRead;
 
     public bool QuestClaim;
 
@@ -69,8 +70,6 @@ public class QuestManager : Singleton<QuestManager>
             NPCmanager.HideZimanGuard();
         }
 
-        LookigForWater();
-
         if (Input.GetKeyDown(KeyCode.Y))
         {
             AddProgress("Rock the Casbah", 1);
@@ -87,6 +86,10 @@ public class QuestManager : Singleton<QuestManager>
             UIManager.Instance.DoorsNotification();
             ClaimReward();
         }
+
+        //Quest List
+        LookigForWater();
+        SomebodyToldMe();
     }
 
     private void LoadQuestInspector()
@@ -224,6 +227,8 @@ public class QuestManager : Singleton<QuestManager>
         Quest.EventQuestCompleted -= QuestCompletedRespond;
     }
 
+    #region Quests
+
     private void LookigForWater()
     {
         if (InventoryUI.Instance.itemID == "Bottled Water")
@@ -233,7 +238,7 @@ public class QuestManager : Singleton<QuestManager>
                 AddProgress("Looking For Water", 1);
                 ClaimReward();
                 NPCmanager.FinalGuard();
-                NPCmanager.FinalGuard();
+                NPCmanager.VMAfter();
                 UIManager.Instance.CloseAllPanels();
                 InventoryUI.Instance.itemGiven = false;
             }
@@ -243,4 +248,16 @@ public class QuestManager : Singleton<QuestManager>
             InventoryUI.Instance.itemGiven = false;
         }
     }
+
+    private void SomebodyToldMe()
+    {
+        if (messagesRead)
+        {
+            AddProgress("Somebody Told Me", 1);
+            ClaimReward();
+            messagesRead = false;
+        }
+    }
+
+    #endregion
 }
