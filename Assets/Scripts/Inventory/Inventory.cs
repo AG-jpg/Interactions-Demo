@@ -180,7 +180,7 @@ public class Inventory : Singleton<Inventory>
         return null;
     }
 
-    private InventoryData savedData;
+    public InventoryData savedData;
     private void SaveInventory()
     {
         savedData = new InventoryData();
@@ -204,11 +204,12 @@ public class Inventory : Singleton<Inventory>
         SaveGame.Save(INVENTORY_KEY, savedData);
     }
 
+    public InventoryData dataLoaded;
     private void LoadInventory()
     {
         if (SaveGame.Exists(INVENTORY_KEY))
         {
-            InventoryData dataLoaded = SaveGame.Load<InventoryData>(INVENTORY_KEY);
+            dataLoaded = SaveGame.Load<InventoryData>(INVENTORY_KEY);
             for (int i = 0; i < numeroSlots; i++)
             {
                 if (dataLoaded.ItemsData[i] != null)
@@ -218,7 +219,6 @@ public class Inventory : Singleton<Inventory>
                     {
                         itemsInventario[i] = itemStored.CopyItem();
                         itemsInventario[i].Cantidad = dataLoaded.ItemsCantidad[i];
-
                     }
                 }
                 else
