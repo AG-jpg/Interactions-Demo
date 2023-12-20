@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComputerInteract : MonoBehaviour
+public class ComputerInteract : Singleton<ComputerInteract>
 {
     [Header("Messages")]
     [SerializeField] private GameObject panelMessage;
     [SerializeField] private GameObject bg;
-    public int messagesRead = 0;
-    private bool readingMessage;
+    public bool readingMessage;
 
     private void Update()
     {
@@ -16,16 +15,16 @@ public class ComputerInteract : MonoBehaviour
         {
             panelMessage.SetActive(true);
             bg.SetActive(true);
-            messagesRead++;
+            QuestManager.Instance.messagesRead = true;
             readingMessage = false;
         }
     }
 
     public void ClosePanel()
     {
-        panelMessage.SetActive(true);
-        bg.SetActive(true);
+        bg.SetActive(false);
         Destroy(this.gameObject);
+        Destroy(panelMessage);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
