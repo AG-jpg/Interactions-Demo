@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : Singleton<Inventory>
 {
-    private SoundManager soundManager;
+    public SoundManager soundManager;
 
     [Header("Items")]
     [SerializeField] private Storage storage;
@@ -21,6 +21,7 @@ public class Inventory : Singleton<Inventory>
     private void Start()
     {
         itemsInventario = new Item[numeroSlots];
+        LoadInventory();
     }
 
     public void AddItem(Item itemtoAdd, int cantidad)
@@ -166,9 +167,23 @@ public class Inventory : Singleton<Inventory>
 
     #region Saving
 
+    private Item ItemExistsinSaved(string ID)
+    {
+        for (int i = 0; i < storage.Items.Length; i++)
+        {
+            if (storage.Items[i].ID == ID)
+            {
+                return storage.Items[i];
+            }
+        }
+
+        return null;
+    }
+
+    private InventoryData savedData;
     private void SaveInventory()
     {
-        InventoryData savedData = new InventoryData();
+        savedData = new InventoryData();
         savedData.ItemsData = new string[numeroSlots];
         savedData.ItemsCantidad = new int[numeroSlots];
 
@@ -191,7 +206,27 @@ public class Inventory : Singleton<Inventory>
 
     private void LoadInventory()
     {
+        if (SaveGame.Exists(INVENTORY_KEY))
+        {
+            InventoryData dataLoaded = SaveGame.Load<InventoryData>(INVENTORY_KEY);
+            for (int i = 0; i < numeroSlots; i++)
+            {
+                if (dataLoaded.ItemsData[i] != null)
+                {
+                    Item itemStored = ItemExistsinSaved(dataLoaded.ItemsData[i]);
+                    if(itemStored != null)
+                    {
+                        itemsInventario[i] = itemStored.CopyItem();
+                        itemsInventario[i].Cantidad = dataLoaded.ItemsCantidad[i];
 
+                    }
+                }
+                else
+                {
+                    itemsInventario[i] = null;
+                }
+            }
+        }
     }
 
     #endregion
