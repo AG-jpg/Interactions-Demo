@@ -607,7 +607,6 @@ MonoBehaviour:
   _edgePrefab: {fileID: 8626844148253612821, guid: 92f763e39925c4cee8ecd73b0fed63b7, type: 3}
   puzzleContainer: {fileID: 1761981606}
   hasGameFinished: 0
-  sceneID: 0
 --- !u!4 &499756695
 Transform:
   m_ObjectHideFlags: 0
@@ -824,7 +823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062978398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.40298694, y: 11.494315, z: -422.8721}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1244,6 +1243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4c84ee1fdeb46bdb04181a53eaaffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
+  sceneID: 0
+  easySolved: 0
 --- !u!4 &1861540333
 Transform:
   m_ObjectHideFlags: 0
@@ -1252,7 +1254,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861540331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.471329, y: -2.700978, z: -423.0164}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
