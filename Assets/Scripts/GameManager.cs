@@ -28,5 +28,15 @@ public class GameManager : Singleton<GameManager>
             player.transform.position = VMmachine.transform.position;
             puzzle.easySolved = false;
         }
+        else if(puzzle.midSolved == true)
+        {
+            player.transform.position = securitySystem.transform.position;
+            puzzle.midSolved = false;
+        }
+        else if(puzzle.hardSolved == true)
+        {
+            player.transform.position = cageSystem.transform.position;
+            puzzle.hardSolved = false;
+        }
     }
 }
