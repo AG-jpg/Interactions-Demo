@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PuzzleGen : MonoBehaviour
 {
@@ -14,7 +13,6 @@ public class PuzzleGen : MonoBehaviour
     [SerializeField] private Transform puzzleContainer;
 
     public bool hasGameFinished;
-    public int sceneID;
 
     private Cell[,] cells;
     private List<Vector2Int> filledPoints;
@@ -243,13 +241,5 @@ public class PuzzleGen : MonoBehaviour
         }
 
         hasGameFinished = true;
-        StartCoroutine(GameFinished());
     }
-
-    private IEnumerator GameFinished()
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(sceneID);
-    }
-
 }
