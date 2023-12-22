@@ -62,34 +62,11 @@ public class QuestManager : Singleton<QuestManager>
 
         ManageNPC();
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            AddProgress("Fix You", 1);
-            ClaimReward();
-            NPCmanager.VMFInal();
-            NPCmanager.HideZimanGuard();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            AddProgress("Rock the Casbah", 1);
-            NPCmanager.HideRedDoors();
-            UIManager.Instance.DoorsNotification();
-            ClaimReward();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            AddProgress("Rock the Casbah", 1);
-            NPCmanager.HideAnimals();
-            NPCmanager.HideKatai();
-            UIManager.Instance.DoorsNotification();
-            ClaimReward();
-        }
-
         //Quest List
+        FixYou();
         LookigForWater();
         SomebodyToldMe();
+        RockCasbah();
     }
 
     private void LoadQuestInspector()
@@ -229,6 +206,40 @@ public class QuestManager : Singleton<QuestManager>
 
     #region Quests
 
+    private void RockCasbah()
+    {
+        if (GameManager.Instance.puzzleSecurity)
+        {
+            AddProgress("Rock the Casbah", 1);
+            NPCmanager.HideRedDoors();
+            UIManager.Instance.DoorsNotification();
+            ClaimReward();
+            GameManager.Instance.puzzleSecurity = false;
+        }
+
+        if (GameManager.Instance.puzzleCage)
+        {
+            AddProgress("Rock the Casbah", 1);
+            NPCmanager.HideAnimals();
+            NPCmanager.HideKatai();
+            UIManager.Instance.DoorsNotification();
+            ClaimReward();
+            GameManager.Instance.puzzleCage = false;
+        }
+    }
+
+    private void FixYou()
+    {
+        if (GameManager.Instance.puzzleVM)
+        {
+            AddProgress("Fix You", 1);
+            ClaimReward();
+            NPCmanager.VMFInal();
+            NPCmanager.HideZimanGuard();
+            GameManager.Instance.puzzleVM = false;
+        }
+    }
+
     private void LookigForWater()
     {
         if (InventoryUI.Instance.itemID == "Bottled Water")
@@ -260,4 +271,20 @@ public class QuestManager : Singleton<QuestManager>
     }
 
     #endregion
+
+    public void SaveQuestData(QuestManager questID)
+    {
+        for (int i = 0; i < questTaken.Length; i++)
+        {
+           if(questTaken[i] != null)
+           {
+                PlayerPrefs.SetInt("QuestName" + questTaken[i].Name, 1);
+           }
+        }
+    }
+
+    public void LoadQuestData()
+    {
+
+    }
 }
