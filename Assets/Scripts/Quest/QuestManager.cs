@@ -1,5 +1,6 @@
 using System.Linq;
 using TMPro;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,19 +30,22 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] private NPCManager NPCmanager;
 
     private Quest newquest;
-    public string questName;
+    [HideInInspector] public string questName;
 
     public Quest questtoClaim { get; private set; }
 
-    //Bools
-    private bool ReadyforQuest;
-    public bool QuestAccepted;
-    public bool messagesRead;
+    [Header("Bools")]
+    [HideInInspector] private bool ReadyforQuest;
+    [HideInInspector] public bool QuestAccepted;
+    [HideInInspector] public bool messagesRead;
+    [HideInInspector] public bool QuestClaim;
 
-    public bool QuestClaim;
+    [Header("Key")]
+    private readonly string QUEST_KEY = "Quest105020";
 
     private void Start()
     {
+        //SaveGame.DeleteAll(); //Erase Saved Data
         questDisponibles = new Quest[questDisponibles.Length];
         QuestAccepted = false;
     }
@@ -158,6 +162,7 @@ public class QuestManager : Singleton<QuestManager>
     {
         AddQuesttoComplete(questToComplete);
         questTaken = questTaken.Append(questToComplete).ToArray();
+        SaveQuestData();
     }
 
     public void AddProgress(string questID, int cantidad)
@@ -272,19 +277,17 @@ public class QuestManager : Singleton<QuestManager>
 
     #endregion
 
-    public void SaveQuestData(QuestManager questID)
+    public QuestData savedData;
+    public void SaveQuestData()
     {
-        for (int i = 0; i < questTaken.Length; i++)
-        {
-           if(questTaken[i] != null)
-           {
-                PlayerPrefs.SetInt("QuestName" + questTaken[i].Name, 1);
-           }
-        }
+        savedData = new QuestData();
+        savedData.questStored = questTaken;
+
+        SaveGame.Save(QUEST_KEY, savedData);
     }
 
     public void LoadQuestData()
     {
-
+        //AddQuesttoComplete();
     }
 }
