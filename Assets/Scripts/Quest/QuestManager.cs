@@ -134,6 +134,7 @@ public class QuestManager : Singleton<QuestManager>
         newQuest.ConfigureQuestUI(questToComplete);
         questDisponibles = new Quest[0];
         QuestAccepted = true;
+        questToComplete.questTaken = true;
         EraseQuestNPC();
     }
 
@@ -164,14 +165,14 @@ public class QuestManager : Singleton<QuestManager>
     {
         AddQuesttoComplete(questToComplete);
         questTaken = questTaken.Append(questToComplete).ToArray();
-        //SaveQuestData();
+        SaveQuestData();
     }
 
     public void AddProgress(string questID, int cantidad)
     {
         Quest questtoUpdate = QuestExist(questID);
         questtoUpdate.AddProgress(cantidad);
-        //SaveQuestData();
+        SaveQuestData();
     }
 
     //This Needs to be fixed! Array gets emptied after accepting!
@@ -297,9 +298,25 @@ public class QuestManager : Singleton<QuestManager>
     public void SaveQuestData()
     {
         savedData = new QuestData();
-        savedData.idData = new string[0];
-        savedData.cantidadData = new int[0];
-        savedData.cantidadActualData = new int[0];
+        savedData.idData = new string[questTaken.Length];
+        savedData.cantidadObjetivoData = new int[questTaken.Length];
+        savedData.cantidadActualData = new int[questTaken.Length];
+
+        for (int i = 0; i < questTaken.Length; i++)
+        {
+            if (questTaken[i] == null || string.IsNullOrEmpty(questTaken[i].ID))
+            {
+                savedData.idData[i] = null;
+                savedData.cantidadObjetivoData[i] = 0;
+                savedData.cantidadActualData[i] = 0;
+            }
+            else
+            {
+                savedData.idData[i] = questTaken[i].ID;
+                savedData.cantidadObjetivoData[i] = questTaken[i].CantidadObjetivo;
+                savedData.cantidadActualData[i] = questTaken[i].cantidadActual;
+            }
+        }
 
         SaveGame.Save(QUEST_KEY, savedData);
     }

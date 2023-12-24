@@ -5,6 +5,6 @@ using UnityEngine;
 public class QuestData
 {
     public string[] idData;
-    public int[] cantidadData;
+    public int[] cantidadObjetivoData;
     public int[] cantidadActualData;
 }
