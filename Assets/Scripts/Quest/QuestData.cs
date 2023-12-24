@@ -4,5 +4,7 @@ using UnityEngine;
 [Serializable]
 public class QuestData
 {
-    public Quest[] questStored;
+    public string[] idData;
+    public int[] cantidadData;
+    public int[] cantidadActualData;
 }

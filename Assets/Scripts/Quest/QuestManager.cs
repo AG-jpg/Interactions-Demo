@@ -12,6 +12,7 @@ public class QuestManager : Singleton<QuestManager>
 
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
+    [SerializeField] private QuestStorage storage;
 
     [SerializeField] private Quest[] questTaken;
 
@@ -45,10 +46,10 @@ public class QuestManager : Singleton<QuestManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         questDisponibles = new Quest[questDisponibles.Length];
         QuestAccepted = false;
-        LoadQuestData();
+        //LoadQuestData();
     }
 
     private void Update()
@@ -163,13 +164,14 @@ public class QuestManager : Singleton<QuestManager>
     {
         AddQuesttoComplete(questToComplete);
         questTaken = questTaken.Append(questToComplete).ToArray();
-        SaveQuestData();
+        //SaveQuestData();
     }
 
     public void AddProgress(string questID, int cantidad)
     {
         Quest questtoUpdate = QuestExist(questID);
         questtoUpdate.AddProgress(cantidad);
+        //SaveQuestData();
     }
 
     //This Needs to be fixed! Array gets emptied after accepting!
@@ -278,28 +280,27 @@ public class QuestManager : Singleton<QuestManager>
 
     #endregion
 
+    private Quest QuestExistsinSaved(string ID)
+    {
+        for (int i = 0; i < storage.Quests.Length; i++)
+        {
+            if (storage.Quests[i].ID == ID)
+            {
+                return storage.Quests[i];
+            }
+        }
+
+        return null;
+    }
+
     public QuestData savedData;
     public void SaveQuestData()
     {
         savedData = new QuestData();
-        savedData.questStored = questTaken;
+        savedData.idData = new string[0];
+        savedData.cantidadData = new int[0];
+        savedData.cantidadActualData = new int[0];
 
         SaveGame.Save(QUEST_KEY, savedData);
-    }
-
-    public QuestData dataLoaded;
-    public void LoadQuestData()
-    {
-         if (SaveGame.Exists(QUEST_KEY))
-         {
-            dataLoaded = SaveGame.Load<QuestData>(QUEST_KEY);
-            for (int i = 0; i < dataLoaded.questStored.Length; i++)
-            {
-                if(dataLoaded.questStored[i].QuestCompletedCheck == false)
-                {
-                    AddQuesttoComplete(dataLoaded.questStored[i]);
-                }
-            }
-         }
     }
 }
