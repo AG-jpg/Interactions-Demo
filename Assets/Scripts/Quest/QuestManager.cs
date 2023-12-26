@@ -49,7 +49,7 @@ public class QuestManager : Singleton<QuestManager>
         //SaveGame.DeleteAll(); //Erase Saved Data
         questDisponibles = new Quest[questDisponibles.Length];
         QuestAccepted = false;
-        //LoadQuestData();
+        LoadQuestData();
     }
 
     private void Update()
@@ -132,6 +132,8 @@ public class QuestManager : Singleton<QuestManager>
     {
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
+        questTaken = questTaken.Append(questToComplete).ToArray();
+        SaveQuestData();
         questDisponibles = new Quest[0];
         QuestAccepted = true;
         questToComplete.questTaken = true;
@@ -164,7 +166,7 @@ public class QuestManager : Singleton<QuestManager>
     public void AddQuest(Quest questToComplete)
     {
         AddQuesttoComplete(questToComplete);
-        questTaken = questTaken.Append(questToComplete).ToArray();
+        //questTaken = questTaken.Append(questToComplete).ToArray();
         SaveQuestData();
     }
 
@@ -281,6 +283,8 @@ public class QuestManager : Singleton<QuestManager>
 
     #endregion
 
+    #region Saving
+
     private Quest QuestExistsinSaved(string ID)
     {
         for (int i = 0; i < storage.Quests.Length; i++)
@@ -298,6 +302,7 @@ public class QuestManager : Singleton<QuestManager>
     public void SaveQuestData()
     {
         savedData = new QuestData();
+        savedData.questsData = new Quest[questTaken.Length];
         savedData.idData = new string[questTaken.Length];
         savedData.cantidadObjetivoData = new int[questTaken.Length];
         savedData.cantidadActualData = new int[questTaken.Length];
@@ -312,6 +317,7 @@ public class QuestManager : Singleton<QuestManager>
             }
             else
             {
+                savedData.questsData = questTaken;
                 savedData.idData[i] = questTaken[i].ID;
                 savedData.cantidadObjetivoData[i] = questTaken[i].CantidadObjetivo;
                 savedData.cantidadActualData[i] = questTaken[i].cantidadActual;
@@ -320,4 +326,32 @@ public class QuestManager : Singleton<QuestManager>
 
         SaveGame.Save(QUEST_KEY, savedData);
     }
+
+    public QuestData dataLoaded;
+    private void LoadQuestData()
+    {
+        if (SaveGame.Exists(QUEST_KEY))
+        {
+            dataLoaded = SaveGame.Load<QuestData>(QUEST_KEY);
+            for (int i = 0; i < questTaken.Length; i++)
+            {
+                if (dataLoaded.idData[i] != null)
+                {
+                    Quest questStored = QuestExistsinSaved(dataLoaded.idData[i]);
+                    if (questStored != null)
+                    {
+                        questTaken = dataLoaded.questsData;
+                        AddQuesttoComplete(questTaken[i]);
+                        AddProgress(questTaken[i].ID, questTaken[i].cantidadActual);
+                    }
+                }
+                else
+                {
+                    questTaken[i] = null;
+                }
+            }
+        }
+    }
+
+    #endregion
 }
