@@ -46,7 +46,7 @@ public class QuestManager : Singleton<QuestManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         questDisponibles = new Quest[questDisponibles.Length];
         QuestAccepted = false;
         LoadQuestData();
@@ -133,9 +133,9 @@ public class QuestManager : Singleton<QuestManager>
         PlayerQuest newQuest = Instantiate(playerQuestPrefab, playerQuestContainer);
         newQuest.ConfigureQuestUI(questToComplete);
         questTaken = questTaken.Append(questToComplete).ToArray();
+        QuestAccepted = true;
         SaveQuestData();
         questDisponibles = new Quest[0];
-        QuestAccepted = true;
         questToComplete.questTaken = true;
         EraseQuestNPC();
     }
@@ -343,6 +343,8 @@ public class QuestManager : Singleton<QuestManager>
                         questTaken = dataLoaded.questsData;
                         AddQuesttoComplete(dataLoaded.questsData[i]);
                         AddProgress(dataLoaded.questsData[i].ID, dataLoaded.questsData[i].cantidadActual);
+                        questName = dataLoaded.questsData[i].ID;
+                        ManageNPC();
                     }
                 }
                 else
