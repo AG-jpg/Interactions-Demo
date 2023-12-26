@@ -13105,7 +13105,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 588742243}
-  - component: {fileID: 588742242}
   m_Layer: 0
   m_Name: SecurityMachine
   m_TagString: Untagged
@@ -13113,22 +13112,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &588742242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588742241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b67fafa2bf884991b67c29be5f5941f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 71019241}
-  VMmachine: {fileID: 0}
-  securitySystem: {fileID: 0}
-  cageSystem: {fileID: 0}
 --- !u!4 &588742243
 Transform:
   m_ObjectHideFlags: 0
@@ -14691,7 +14674,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746073389}
-  - component: {fileID: 746073390}
   m_Layer: 0
   m_Name: VMmachine
   m_TagString: Untagged
@@ -14714,22 +14696,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &746073390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746073388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b67fafa2bf884991b67c29be5f5941f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 71019241}
-  VMmachine: {fileID: 0}
-  securitySystem: {fileID: 0}
-  cageSystem: {fileID: 0}
 --- !u!1 &746590874
 GameObject:
   m_ObjectHideFlags: 0
@@ -19172,6 +19138,9 @@ MonoBehaviour:
   VMmachine: {fileID: 746073388}
   securitySystem: {fileID: 588742241}
   cageSystem: {fileID: 1215337326}
+  puzzleVM: 0
+  puzzleSecurity: 0
+  puzzleCage: 0
 --- !u!1 &1056877777
 GameObject:
   m_ObjectHideFlags: 0
@@ -21482,7 +21451,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215337328}
-  - component: {fileID: 1215337327}
   m_Layer: 0
   m_Name: Cage System
   m_TagString: Untagged
@@ -21490,22 +21458,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1215337327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215337326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b67fafa2bf884991b67c29be5f5941f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 71019241}
-  VMmachine: {fileID: 0}
-  securitySystem: {fileID: 0}
-  cageSystem: {fileID: 0}
 --- !u!4 &1215337328
 Transform:
   m_ObjectHideFlags: 0
@@ -25267,6 +25219,7 @@ MonoBehaviour:
   player: {fileID: 71019241}
   menu: {fileID: 1615515612}
   questDisponibles: []
+  storage: {fileID: 11400000, guid: 1af5c027584b3464eb32accb67394ddc, type: 2}
   questTaken: []
   inspectorQuestPrefab: {fileID: 2024550114275584428, guid: 310cb3abcda7f4fb9a0f56dbc272e4c6, type: 3}
   InpsectorQuestContainer: {fileID: 523488954}
@@ -25282,6 +25235,16 @@ MonoBehaviour:
   QuestAccepted: 0
   messagesRead: 0
   QuestClaim: 0
+  savedData:
+    questsData: []
+    idData: []
+    cantidadObjetivoData: 
+    cantidadActualData: 
+  dataLoaded:
+    questsData: []
+    idData: []
+    cantidadObjetivoData: 
+    cantidadActualData: 
 --- !u!4 &1585138174
 Transform:
   m_ObjectHideFlags: 0
