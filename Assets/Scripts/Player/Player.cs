@@ -2,20 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     public SoundManager soundManager;
     public Stats stats;
+    public Vector3 location;
     public Energy Energy { get; private set; }
     public Experience Experience { get; private set; }
 
     public static Player instance;
-
-    private void Awake()
-    {
-        Energy = GetComponent<Energy>();
-        Experience = GetComponent<Experience>();
-    }
 
     private void Start()
     {
@@ -27,6 +22,14 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Energy = GetComponent<Energy>();
+        Experience = GetComponent<Experience>();
+    }
+
+    private void Update()
+    {
+        location = Player.instance.transform.position;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
