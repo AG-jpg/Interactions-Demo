@@ -16,6 +16,7 @@ public class Energy : MonoBehaviour
     void Start()
     {
         energyActual = energyInitial;
+        LoadEnergy();
         UpdateEnergyBar();
 
         InvokeRepeating(nameof(GetEnergy), 1, 1);
@@ -28,6 +29,7 @@ public class Energy : MonoBehaviour
             Useenergy(5f);
         }
     }
+
     public void Useenergy(float cantidad)
     {
         if(energyActual >= cantidad)
@@ -75,6 +77,16 @@ public class Energy : MonoBehaviour
         savedData.energyData = energyActual;
 
         SaveGame.Save(ENERGY_KEY, savedData);
+    }
+
+    public EnergyData dataLoaded;
+    public void LoadEnergy()
+    {
+        if (SaveGame.Exists(ENERGY_KEY))
+        {
+            dataLoaded = SaveGame.Load<EnergyData>(ENERGY_KEY);
+            RestoreEnergy(dataLoaded.energyData);
+        }
     }
 
     #endregion
