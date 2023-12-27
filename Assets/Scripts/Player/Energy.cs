@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 
 public class Energy : MonoBehaviour
@@ -10,6 +11,8 @@ public class Energy : MonoBehaviour
 
     public float energyActual { get; private set; }
     public bool CanRestore => energyActual < energyMax;
+    private readonly string ENERGY_KEY = "Energy105020";
+
     void Start()
     {
         energyActual = energyInitial;
@@ -31,6 +34,7 @@ public class Energy : MonoBehaviour
         {
             energyActual -= cantidad;
             UpdateEnergyBar();
+            SaveEnergy();
         }
     }
 
@@ -48,6 +52,7 @@ public class Energy : MonoBehaviour
         }
 
         UIManager.Instance.UpdateEnergyPlayer(energyActual, energyMax);
+        SaveEnergy();
     }
 
     private void GetEnergy()
@@ -60,4 +65,17 @@ public class Energy : MonoBehaviour
     {
         UIManager.Instance.UpdateEnergyPlayer(energyActual, energyMax);
     }
+
+    #region Saving
+
+    public EnergyData savedData;
+    private void SaveEnergy()
+    {
+        savedData = new EnergyData();
+        savedData.energyData = energyActual;
+
+        SaveGame.Save(ENERGY_KEY, savedData);
+    }
+
+    #endregion
 }
