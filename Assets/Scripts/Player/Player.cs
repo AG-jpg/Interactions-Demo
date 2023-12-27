@@ -7,7 +7,6 @@ public class Player : Singleton<Player>
 {
     public SoundManager soundManager;
     public Stats stats;
-    public Vector3 location;
     public Energy Energy { get; private set; }
     public Experience Experience { get; private set; }
 
@@ -27,11 +26,8 @@ public class Player : Singleton<Player>
 
         Energy = GetComponent<Energy>();
         Experience = GetComponent<Experience>();
-    }
-
-    private void Update()
-    {
-        location = Player.instance.transform.position;
+        //SaveGame.DeleteAll(); //Erase Saved Data
+        LoadLocation();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -89,10 +85,19 @@ public class Player : Singleton<Player>
     private void SaveLocation()
     {
         savedData = new PlayerData();
-        savedData.locationData = new Vector3();
-        savedData.locationData = location;
+        savedData.locationData = Player.instance.transform.position;
 
         SaveGame.Save(PLAYER_KEY, savedData);
+    }
+
+    public PlayerData dataLoaded;
+    public void LoadLocation()
+    {
+        if (SaveGame.Exists(PLAYER_KEY))
+        {
+            dataLoaded = SaveGame.Load<PlayerData>(PLAYER_KEY);
+            Player.instance.transform.position = dataLoaded.locationData;
+        }
     }
 
     #endregion
