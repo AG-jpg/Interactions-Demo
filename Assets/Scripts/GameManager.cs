@@ -5,38 +5,44 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [Header("References")]
-    [SerializeField] private Player player;
     private GameObject puzzleManager;
     private PuzzleManager puzzle;
 
-    [Header("Positions")]
-    [SerializeField] public GameObject VMmachine;
-    [SerializeField] public GameObject securitySystem;
-    [SerializeField] public GameObject cageSystem;
+    [Header("Quest bools")]
+    public bool puzzleVM;
+    public bool puzzleSecurity;
+    public bool puzzleCage;
 
     private void Update()
     {
         puzzleManager = GameObject.Find("Puzzle Manager");
         puzzle = puzzleManager.GetComponent<PuzzleManager>();
-        CheckPosition();
+
+        if (puzzle != null)
+        {
+            CheckPuzzle();
+        }
     }
 
-    public void CheckPosition()
+    public void CheckPuzzle()
     {
-        if(puzzle.easySolved == true)
+        if (puzzle.easySolved == true)
         {
-            player.transform.position = VMmachine.transform.position;
+            Player.Instance.LoadLocation();
             puzzle.easySolved = false;
+            puzzleVM = true;
         }
-        else if(puzzle.midSolved == true)
+        else if (puzzle.midSolved == true)
         {
-            player.transform.position = securitySystem.transform.position;
+            Player.Instance.LoadLocation();
             puzzle.midSolved = false;
+            puzzleSecurity = true;
         }
-        else if(puzzle.hardSolved == true)
+        else if (puzzle.hardSolved == true)
         {
-            player.transform.position = cageSystem.transform.position;
+            Player.Instance.LoadLocation();
             puzzle.hardSolved = false;
+            puzzleCage = true;
         }
     }
 }
