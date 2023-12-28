@@ -57,6 +57,7 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] public Popup infoAccepted;
     [SerializeField] public Popup succeed;
+    [SerializeField] public Popup saving;
     [SerializeField] public Popup purchase;
     [SerializeField] public Popup doors;
 
@@ -135,6 +136,13 @@ public class UIManager : Singleton<UIManager>
         Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
         newNotification.ConfigureNotificationUI(purchase);
         soundManager.Purchase();
+    }
+
+    public void SavedNotification()
+    {
+        Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
+        newNotification.ConfigureNotificationUI(saving);
+        soundManager.Success();
     }
 
     public void ShowSuccesNotification()
