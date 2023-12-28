@@ -21,7 +21,6 @@ public class Inventory : Singleton<Inventory>
     private void Start()
     {
         itemsInventario = new Item[numeroSlots];
-        LoadInventory();
     }
 
     public void AddItem(Item itemtoAdd, int cantidad)
@@ -181,7 +180,7 @@ public class Inventory : Singleton<Inventory>
     }
 
     public InventoryData savedData;
-    private void SaveInventory()
+    public void SaveInventory()
     {
         savedData = new InventoryData();
         savedData.ItemsData = new string[numeroSlots];
@@ -205,7 +204,7 @@ public class Inventory : Singleton<Inventory>
     }
 
     public InventoryData dataLoaded;
-    private void LoadInventory()
+    public void LoadInventory()
     {
         if (SaveGame.Exists(INVENTORY_KEY))
         {
@@ -219,6 +218,7 @@ public class Inventory : Singleton<Inventory>
                     {
                         itemsInventario[i] = itemStored.CopyItem();
                         itemsInventario[i].Cantidad = dataLoaded.ItemsCantidad[i];
+                        InventoryUI.Instance.DrawItemInventory(itemsInventario[i], itemsInventario[i].Cantidad, i);
                     }
                 }
                 else
