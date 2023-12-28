@@ -10,11 +10,11 @@ public class MoneyManager : Singleton<MoneyManager>
 
     private void Start()
     {
-        PlayerPrefs.DeleteKey(KEY_CREDITS);
+        //PlayerPrefs.DeleteKey(KEY_CREDITS);
         LoadCredits();
     }
 
-    private void LoadCredits()
+    public void LoadCredits()
     {
         TotalCredits = PlayerPrefs.GetInt(KEY_CREDITS, startCredits);
     }
