@@ -46,10 +46,8 @@ public class QuestManager : Singleton<QuestManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
         questDisponibles = new Quest[questDisponibles.Length];
         QuestAccepted = false;
-        LoadQuestData();
     }
 
     private void Update()
@@ -328,7 +326,7 @@ public class QuestManager : Singleton<QuestManager>
     }
 
     public QuestData dataLoaded;
-    private void LoadQuestData()
+    public void LoadQuestData()
     {
         if (SaveGame.Exists(QUEST_KEY))
         {
