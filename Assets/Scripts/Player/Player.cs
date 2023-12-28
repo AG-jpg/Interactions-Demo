@@ -26,8 +26,6 @@ public class Player : Singleton<Player>
 
         Energy = GetComponent<Energy>();
         Experience = GetComponent<Experience>();
-        //SaveGame.DeleteAll(); //Erase Saved Data
-        LoadLocation();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,7 +80,7 @@ public class Player : Singleton<Player>
     #region Saving
 
     public PlayerData savedData;
-    private void SaveLocation()
+    public void SaveLocation()
     {
         savedData = new PlayerData();
         savedData.locationData = Player.instance.transform.position;
