@@ -24,9 +24,9 @@ public class Menu : MonoBehaviour
         if (gameIsPaused)
         {
             Time.timeScale = 0;
-            pausePanel.SetActive(true);
-            bg.SetActive(true);
-            AppPanel.SetActive(true);
+            pausePanel.SetActive(!pausePanel.activeSelf);
+            bg.SetActive(!bg.activeSelf);
+            AppPanel.SetActive(!AppPanel.activeSelf);
         }
         else
         {
@@ -37,8 +37,8 @@ public class Menu : MonoBehaviour
     public void ExitPanels()
     {
         Time.timeScale = 1;
-        pausePanel.SetActive(false);
-        bg.SetActive(false);
-        AppPanel.SetActive(false);
+        pausePanel.SetActive(!pausePanel.activeSelf);
+        bg.SetActive(!bg.activeSelf);
+        AppPanel.SetActive(!AppPanel.activeSelf);
     }
 }
