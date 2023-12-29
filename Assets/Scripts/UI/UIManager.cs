@@ -266,6 +266,13 @@ public class UIManager : Singleton<UIManager>
         storeManager.FlushStore();
     }
 
+    public void GiveAway()
+    {
+        panelInventario.SetActive(!panelInventario.activeSelf);
+        UIBox.SetActive(!UIBox.activeSelf);
+        bg.SetActive(!bg.activeSelf);
+    }
+
     public void CloseAllPanels()
     {
         panelID.SetActive(false);
@@ -292,9 +299,7 @@ public class UIManager : Singleton<UIManager>
             case InteractionExtraNPC.Crafting:
                 break;
             case InteractionExtraNPC.Gift:
-                panelInventario.SetActive(!panelInventario.activeSelf);
-                UIBox.SetActive(!UIBox.activeSelf);
-                bg.SetActive(!bg.activeSelf);
+                GiveAway();
                 break;
         }
     }
