@@ -11,6 +11,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Object")]
     [SerializeField] private Stats Stats;
     [SerializeField] private GameObject bg;
+    [SerializeField] public GameObject UIBox;
 
     [Header("Paneles")]
     [SerializeField] private GameObject panelID;
@@ -63,12 +64,42 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Booleans")]
     public bool QuestStarted;
+    public static bool gameIsPaused;
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            gameIsPaused = !gameIsPaused;
+            PauseGame();
+        }
+
         UpdateUIPlayer();
         UpdatePanelStats();
         ShowNotification();
+    }
+
+    public void PauseGame()
+    {
+        if (gameIsPaused)
+        {
+            Time.timeScale = 0;
+            UIBox.SetActive(!UIBox.activeSelf);
+            panelID.SetActive(!panelID.activeSelf);
+            bg.SetActive(!bg.activeSelf);
+        }
+        else
+        {
+            ExitPanels();
+        }
+    }
+
+    public void ExitPanels()
+    {
+        Time.timeScale = 1;
+        UIBox.SetActive(!UIBox.activeSelf);
+        CloseAllPanels();
+        bg.SetActive(!bg.activeSelf);
     }
 
     private void UpdatePanelStats()
@@ -226,6 +257,7 @@ public class UIManager : Singleton<UIManager>
     {
         CloseAllPanels();
         panelStore.SetActive(!panelStore.activeSelf);
+        bg.SetActive(!bg.activeSelf);
     }
 
     public void FlushStore()
@@ -258,6 +290,11 @@ public class UIManager : Singleton<UIManager>
                 OpenPanelStore();
                 break;
             case InteractionExtraNPC.Crafting:
+                break;
+            case InteractionExtraNPC.Gift:
+                panelInventario.SetActive(!panelInventario.activeSelf);
+                UIBox.SetActive(!UIBox.activeSelf);
+                bg.SetActive(!bg.activeSelf);
                 break;
         }
     }
