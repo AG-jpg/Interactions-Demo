@@ -65,13 +65,21 @@ public class UIManager : Singleton<UIManager>
     [Header("Booleans")]
     public bool QuestStarted;
     public static bool gameIsPaused;
+    private bool giveAway;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            gameIsPaused = !gameIsPaused;
-            PauseGame();
+            if (!giveAway)
+            {
+                gameIsPaused = !gameIsPaused;
+                PauseGame();
+            }
+            else if (giveAway)
+            {
+                CloseGiveAway();
+            }
         }
 
         UpdateUIPlayer();
@@ -97,8 +105,8 @@ public class UIManager : Singleton<UIManager>
     public void ExitPanels()
     {
         Time.timeScale = 1;
-        UIBox.SetActive(!UIBox.activeSelf);
         CloseAllPanels();
+        UIBox.SetActive(!UIBox.activeSelf);
         bg.SetActive(!bg.activeSelf);
     }
 
@@ -268,7 +276,16 @@ public class UIManager : Singleton<UIManager>
 
     public void GiveAway()
     {
+        giveAway = true;
         panelInventario.SetActive(!panelInventario.activeSelf);
+        UIBox.SetActive(!UIBox.activeSelf);
+        bg.SetActive(!bg.activeSelf);
+    }
+
+    private void CloseGiveAway()
+    {
+        giveAway = false;
+        CloseAllPanels();
         UIBox.SetActive(!UIBox.activeSelf);
         bg.SetActive(!bg.activeSelf);
     }
