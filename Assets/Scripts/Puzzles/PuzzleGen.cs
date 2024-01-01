@@ -23,8 +23,9 @@ public class PuzzleGen : MonoBehaviour
         Vector2Int.up, Vector2Int.down,Vector2Int.left,Vector2Int.right
     };
 
-    private void Awake()
+    private void Start()
     {
+        hasGameFinished = false;
         filledPoints = new List<Vector2Int>();
         cells = new Cell[_row, _col];
         edges = new List<Transform>();

@@ -9,33 +9,37 @@ public class PuzzleManager : MonoBehaviour
     public static PuzzleManager instance;
 
     [Header("Puzzle Generator")]
-    private GameObject puzzle;
-    private PuzzleGen puzzleGen;
+    public GameObject puzzle;
+    public PuzzleGen puzzleGen;
     private Scene scene;
     public string sceneName;
     public int sceneID;
 
     [Header("Bool")]
+    public bool hasGameFinished;
     public bool easySolved;
     public bool midSolved;
     public bool hardSolved;
 
     private void Start()
     {
-        if (instance == null)
+        /*if (instance == null)
         {
             instance = this;
         }
         else
         {
             Destroy(gameObject);
-        }
+        }*/
 
-        DontDestroyOnLoad(this.gameObject);
         puzzle = GameObject.FindGameObjectWithTag("Puzzle");
         puzzleGen = puzzle.GetComponent<PuzzleGen>();
+        hasGameFinished = puzzleGen.hasGameFinished;
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
+
+        DontDestroyOnLoad(this.gameObject);
+
     }
 
     private void Update()
