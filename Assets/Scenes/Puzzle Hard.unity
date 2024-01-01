@@ -481,9 +481,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4c84ee1fdeb46bdb04181a53eaaffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzle: {fileID: 0}
+  puzzleGen: {fileID: 0}
   sceneName: 
   sceneID: 0
+  hasGameFinished: 0
   easySolved: 0
+  midSolved: 0
+  hardSolved: 0
 --- !u!4 &348304857
 Transform:
   m_ObjectHideFlags: 0
@@ -630,7 +635,7 @@ GameObject:
   - component: {fileID: 499756694}
   m_Layer: 0
   m_Name: Puzzle Generator
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

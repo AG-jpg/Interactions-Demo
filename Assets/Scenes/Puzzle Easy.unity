@@ -606,6 +606,7 @@ MonoBehaviour:
   _cellPrefab: {fileID: 1746047627222367463, guid: 9f8afa385c88a43698f04ea36b73ce43, type: 3}
   _edgePrefab: {fileID: 8626844148253612821, guid: 92f763e39925c4cee8ecd73b0fed63b7, type: 3}
   puzzleContainer: {fileID: 1761981606}
+  sceneID: 0
   hasGameFinished: 0
 --- !u!4 &499756695
 Transform:
@@ -1244,8 +1245,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
-  sceneID: 0
-  easySolved: 0
+  puzzleVM: 0
+  puzzleSecurity: 0
+  puzzleCage: 0
+  hasGameFinished: 0
+  savedData:
+    sceneData: 
+    finishedData: 0
+  dataLoaded:
+    sceneData: 
+    finishedData: 0
 --- !u!4 &1861540333
 Transform:
   m_ObjectHideFlags: 0
