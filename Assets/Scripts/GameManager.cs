@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
     }
 
@@ -36,20 +36,23 @@ public class GameManager : Singleton<GameManager>
         if (puzzle.easySolved == true)
         {
             Player.Instance.LoadLocation();
-            puzzle.easySolved = false;
             puzzleVM = true;
+            puzzle.easySolved = false;
+            Destroy(puzzleManager);
         }
         else if (puzzle.midSolved == true)
         {
             Player.Instance.LoadLocation();
-            puzzle.midSolved = false;
             puzzleSecurity = true;
+            puzzle.midSolved = false;
+            Destroy(puzzleManager);
         }
         else if (puzzle.hardSolved == true)
         {
             Player.Instance.LoadLocation();
-            puzzle.hardSolved = false;
             puzzleCage = true;
+            puzzle.hardSolved = false;
+            Destroy(puzzleManager);
         }
     }
 
