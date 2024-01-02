@@ -9,6 +9,10 @@ public class GameManager : Singleton<GameManager>
     private GameObject puzzleManager;
     private PuzzleManager puzzle;
 
+    [Header("Puzzle Computers")]
+    [SerializeField] public GameObject Pzzl01;
+    [SerializeField] public GameObject Pzzl02;
+
     [Header("Quest bools")]
     public bool puzzleVM;
     public bool puzzleSecurity;
@@ -16,7 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
     }
 
@@ -39,6 +43,8 @@ public class GameManager : Singleton<GameManager>
             puzzleVM = true;
             puzzle.easySolved = false;
             Destroy(puzzleManager);
+            NPCManager.Instance.VMFInal();
+            NPCManager.Instance.HideZimanGuard();
         }
         else if (puzzle.midSolved == true)
         {
@@ -46,6 +52,10 @@ public class GameManager : Singleton<GameManager>
             puzzleSecurity = true;
             puzzle.midSolved = false;
             Destroy(puzzleManager);
+            NPCManager.Instance.HideRedDoors();
+            NPCManager.Instance.FinalGuard();
+            NPCManager.Instance.VMAfter();
+            Destroy(Pzzl01);
         }
         else if (puzzle.hardSolved == true)
         {
@@ -53,6 +63,9 @@ public class GameManager : Singleton<GameManager>
             puzzleCage = true;
             puzzle.hardSolved = false;
             Destroy(puzzleManager);
+            NPCManager.Instance.HideAnimals();
+            NPCManager.Instance.HideKatai();
+            Destroy(Pzzl02);
         }
     }
 
