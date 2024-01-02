@@ -157,6 +157,7 @@ public class QuestManager : Singleton<QuestManager>
         player.Experience.AddExp(questtoClaim.Experience);
         questtoClaim = null;
         GameManager.Instance.SaveMyGame();
+        SaveQuestData();
     }
 
     public void AddQuest(Quest questToComplete)
@@ -221,6 +222,7 @@ public class QuestManager : Singleton<QuestManager>
             UIManager.Instance.DoorsNotification();
             ClaimReward();
             GameManager.Instance.puzzleSecurity = false;
+            GameManager.Instance.SaveMyGame();
         }
 
         if (GameManager.Instance.puzzleCage)
@@ -229,6 +231,7 @@ public class QuestManager : Singleton<QuestManager>
             UIManager.Instance.DoorsNotification();
             ClaimReward();
             GameManager.Instance.puzzleCage = false;
+            GameManager.Instance.SaveMyGame();
         }
     }
 
@@ -239,6 +242,7 @@ public class QuestManager : Singleton<QuestManager>
             AddProgress("Fix You", 1);
             ClaimReward();
             GameManager.Instance.puzzleVM = false;
+            GameManager.Instance.SaveMyGame();
         }
     }
 
@@ -252,8 +256,9 @@ public class QuestManager : Singleton<QuestManager>
                 ClaimReward();
                 NPCManager.Instance.FinalGuard();
                 NPCManager.Instance.VMAfter();
-                UIManager.Instance.CloseAllPanels();
+                UIManager.Instance.CloseGiveAway();
                 InventoryUI.Instance.itemGiven = false;
+                GameManager.Instance.SaveMyGame();
             }
         }
         else
@@ -266,9 +271,9 @@ public class QuestManager : Singleton<QuestManager>
     {
         if (messagesRead)
         {
+            messagesRead = false;
             AddProgress("Somebody Told Me", 1);
             ClaimReward();
-            messagesRead = false;
         }
     }
 
