@@ -77,6 +77,7 @@ public class GameManager : Singleton<GameManager>
         Energy.Instance.SaveEnergy();
         UIManager.Instance.SavedNotification();
         MoneyManager.Instance.SaveMoney();
+
     }
 
     public void LoadSavedGame()
@@ -86,5 +87,6 @@ public class GameManager : Singleton<GameManager>
         Inventory.Instance.LoadInventory();
         Energy.Instance.LoadEnergy();
         MoneyManager.Instance.LoadMoney();
+        Experience.Instance.SaveStats();
     }
 }
