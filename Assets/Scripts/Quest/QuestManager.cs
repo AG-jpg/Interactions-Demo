@@ -8,7 +8,6 @@ public class QuestManager : Singleton<QuestManager>
 {
     [Header("Player")]
     [SerializeField] private Player player;
-    [SerializeField] private Menu menu;
 
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
@@ -27,8 +26,6 @@ public class QuestManager : Singleton<QuestManager>
 
     [Header("NPC Quests")]
     [SerializeField] private QuestContainer[] NPCquest;
-
-    [SerializeField] private NPCManager NPCmanager;
 
     private Quest newquest;
     [HideInInspector] public string questName;
@@ -99,21 +96,21 @@ public class QuestManager : Singleton<QuestManager>
     {
         if (QuestAccepted && questName == "Fix You")
         {
-            NPCmanager.HideElla();
-            NPCmanager.HideVM();
+            NPCManager.Instance.HideElla();
+            NPCManager.Instance.HideVM();
         }
         else if (QuestAccepted && questName == "Rock the Casbah")
         {
-            NPCmanager.HideJohny();
+            NPCManager.Instance.HideJohny();
         }
         else if (QuestAccepted && questName == "Looking For Water")
         {
-            NPCmanager.HideGuard();
+            NPCManager.Instance.HideGuard();
         }
         else if (QuestAccepted && questName == "Somebody Told Me")
         {
-            NPCmanager.HideJr();
-            NPCmanager.ShowMessage();
+            NPCManager.Instance.HideJr();
+            NPCManager.Instance.ShowMessage();
         }
     }
 
@@ -159,6 +156,7 @@ public class QuestManager : Singleton<QuestManager>
         MoneyManager.Instance.AddCredits(questtoClaim.Credits);
         player.Experience.AddExp(questtoClaim.Experience);
         questtoClaim = null;
+        GameManager.Instance.SaveMyGame();
     }
 
     public void AddQuest(Quest questToComplete)
@@ -220,7 +218,6 @@ public class QuestManager : Singleton<QuestManager>
         if (GameManager.Instance.puzzleSecurity)
         {
             AddProgress("Rock the Casbah", 1);
-            NPCmanager.HideRedDoors();
             UIManager.Instance.DoorsNotification();
             ClaimReward();
             GameManager.Instance.puzzleSecurity = false;
@@ -229,8 +226,6 @@ public class QuestManager : Singleton<QuestManager>
         if (GameManager.Instance.puzzleCage)
         {
             AddProgress("Rock the Casbah", 1);
-            NPCmanager.HideAnimals();
-            NPCmanager.HideKatai();
             UIManager.Instance.DoorsNotification();
             ClaimReward();
             GameManager.Instance.puzzleCage = false;
@@ -243,8 +238,6 @@ public class QuestManager : Singleton<QuestManager>
         {
             AddProgress("Fix You", 1);
             ClaimReward();
-            NPCmanager.VMFInal();
-            NPCmanager.HideZimanGuard();
             GameManager.Instance.puzzleVM = false;
         }
     }
@@ -257,8 +250,8 @@ public class QuestManager : Singleton<QuestManager>
             {
                 AddProgress("Looking For Water", 1);
                 ClaimReward();
-                NPCmanager.FinalGuard();
-                NPCmanager.VMAfter();
+                NPCManager.Instance.FinalGuard();
+                NPCManager.Instance.VMAfter();
                 UIManager.Instance.CloseAllPanels();
                 InventoryUI.Instance.itemGiven = false;
             }
