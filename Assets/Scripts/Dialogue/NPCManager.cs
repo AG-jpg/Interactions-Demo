@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCManager : MonoBehaviour
+public class NPCManager : Singleton<NPCManager>
 {
     public SoundManager soundManager;
 
@@ -46,7 +46,7 @@ public class NPCManager : MonoBehaviour
     [Header("Animals")]
     [SerializeField] public GameObject animals;
 
-    private void Awake()
+    private void Start()
     {
         messages.SetActive(false);
     }
