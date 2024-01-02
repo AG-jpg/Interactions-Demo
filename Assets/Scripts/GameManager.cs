@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
     }
 
@@ -76,6 +76,7 @@ public class GameManager : Singleton<GameManager>
         Inventory.Instance.SaveInventory();
         Energy.Instance.SaveEnergy();
         UIManager.Instance.SavedNotification();
+        MoneyManager.Instance.SaveMoney();
     }
 
     public void LoadSavedGame()
@@ -83,7 +84,7 @@ public class GameManager : Singleton<GameManager>
         Player.Instance.LoadLocation();
         QuestManager.Instance.LoadQuestData();
         Inventory.Instance.LoadInventory();
-        MoneyManager.Instance.LoadCredits();
         Energy.Instance.LoadEnergy();
+        MoneyManager.Instance.LoadMoney();
     }
 }
