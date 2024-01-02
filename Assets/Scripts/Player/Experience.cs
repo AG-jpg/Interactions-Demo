@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 
-public class Experience : MonoBehaviour
+public class Experience : Singleton<Experience>
 {
     [Header("Stats")]
     [SerializeField] private Stats stats;
@@ -11,6 +12,8 @@ public class Experience : MonoBehaviour
     [SerializeField] private int levelMax;
     [SerializeField] private int expBase;
     [SerializeField] private int valorIncremental;
+
+    private readonly string STATS_KEY = "Stats105020";
 
     private float ActualExperience;
     private float ExpActualTemporal;
@@ -50,6 +53,7 @@ public class Experience : MonoBehaviour
 
         stats.Experience = ActualExperience;
         UpdateExpBar();
+        SaveStats();
     }
 
     private void UpdateLevel()
@@ -61,6 +65,7 @@ public class Experience : MonoBehaviour
             ReqExpNextlevel *= valorIncremental;
             stats.ExpNextLevel = ReqExpNextlevel;
             stats.PuntosDisponibles +=1;
+            SaveStats();
         }
     }
 
@@ -68,4 +73,22 @@ public class Experience : MonoBehaviour
     {
         UIManager.Instance.UpdateExpPlayer(ExpActualTemporal, ReqExpNextlevel);
     }
+
+    #region Saving
+
+    public StatsData savedData;
+    public void SaveStats()
+    {
+        savedData = new StatsData();
+        savedData.levelData = stats.Level;
+        savedData.experienceData = stats.Experience;
+        savedData.jawscriptData = stats.Jawscript;
+        savedData.timerData = stats.Timer;
+        savedData.minerData = stats.Miner;
+
+        SaveGame.Save(STATS_KEY, savedData);
+    }
+
+    #endregion
+
 }
