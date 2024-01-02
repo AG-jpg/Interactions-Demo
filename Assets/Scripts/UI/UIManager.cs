@@ -282,7 +282,7 @@ public class UIManager : Singleton<UIManager>
         bg.SetActive(!bg.activeSelf);
     }
 
-    private void CloseGiveAway()
+    public void CloseGiveAway()
     {
         giveAway = false;
         CloseAllPanels();
