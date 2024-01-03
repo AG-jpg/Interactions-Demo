@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Looking For Water
   m_EditorClassIdentifier: 
   Name: Looking For Water
-  ID: Looking for Water
+  ID: Looking For Water
   CantidadObjetivo: 1
   Description: Get some water for the guard
   Credits: 20
