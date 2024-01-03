@@ -19,7 +19,6 @@ public class Experience : Singleton<Experience>
     private float ExpActualTemporal;
     private float ReqExpNextlevel;
 
-    // Start is called before the first frame update
     void Start()
     {
         stats.Level = 1;
@@ -81,12 +80,29 @@ public class Experience : Singleton<Experience>
     {
         savedData = new StatsData();
         savedData.levelData = stats.Level;
-        savedData.experienceData = stats.Experience;
+        savedData.experienceData = ExpActualTemporal;
         savedData.jawscriptData = stats.Jawscript;
         savedData.timerData = stats.Timer;
         savedData.minerData = stats.Miner;
 
         SaveGame.Save(STATS_KEY, savedData);
+    }
+
+    public StatsData dataLoaded;
+    public void LoadStats()
+    {
+        if (SaveGame.Exists(STATS_KEY))
+        {
+            dataLoaded = SaveGame.Load<StatsData>(STATS_KEY);
+            stats.Level = dataLoaded.levelData;
+            //ExpActualTemporal = dataLoaded.experienceData;
+            
+            AddExp(dataLoaded.experienceData);
+
+            stats.Jawscript = dataLoaded.jawscriptData;
+            stats.Timer = dataLoaded.timerData;
+            stats.Miner = dataLoaded.minerData;
+        }
     }
 
     #endregion
