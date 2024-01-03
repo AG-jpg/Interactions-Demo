@@ -63,6 +63,8 @@ public class GameManager : Singleton<GameManager>
             puzzleCage = true;
             puzzle.hardSolved = false;
             Destroy(puzzleManager);
+            NPCManager.Instance.FinalGuard();
+            NPCManager.Instance.VMAfter();
             NPCManager.Instance.HideAnimals();
             NPCManager.Instance.HideKatai();
             Destroy(Pzzl02);
@@ -77,6 +79,7 @@ public class GameManager : Singleton<GameManager>
         Energy.Instance.SaveEnergy();
         UIManager.Instance.SavedNotification();
         MoneyManager.Instance.SaveMoney();
+        Experience.Instance.SaveStats();
 
     }
 
@@ -87,6 +90,6 @@ public class GameManager : Singleton<GameManager>
         Inventory.Instance.LoadInventory();
         Energy.Instance.LoadEnergy();
         MoneyManager.Instance.LoadMoney();
-        Experience.Instance.SaveStats();
+        Experience.Instance.LoadStats();
     }
 }
