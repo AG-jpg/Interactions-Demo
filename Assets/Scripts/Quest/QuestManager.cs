@@ -271,8 +271,8 @@ public class QuestManager : Singleton<QuestManager>
     {
         if (messagesRead)
         {
-            messagesRead = false;
             AddProgress("Somebody Told Me", 1);
+            messagesRead = false;
             ClaimReward();
         }
     }
