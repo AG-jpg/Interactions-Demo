@@ -1385,6 +1385,18 @@ MonoBehaviour:
   levelMax: 20
   expBase: 200
   valorIncremental: 2
+  savedData:
+    levelData: 0
+    experienceData: 0
+    jawscriptData: 0
+    timerData: 0
+    minerData: 0
+  dataLoaded:
+    levelData: 0
+    experienceData: 0
+    jawscriptData: 0
+    timerData: 0
+    minerData: 0
 --- !u!114 &71019241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19088,6 +19100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b67fafa2bf884991b67c29be5f5941f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pzzl01: {fileID: 1289721943}
+  Pzzl02: {fileID: 658777040}
   puzzleVM: 0
   puzzleSecurity: 0
   puzzleCage: 0
@@ -24578,6 +24592,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startCredits: 20
+  savedData:
+    creditsData: 0
+  dataLoaded:
+    creditsData: 0
 --- !u!1 &1568747565
 GameObject:
   m_ObjectHideFlags: 0
@@ -25149,7 +25167,6 @@ MonoBehaviour:
   - {fileID: 1238209728}
   - {fileID: 1070665550}
   - {fileID: 887431948}
-  NPCmanager: {fileID: 1116884599}
   questName: 
   QuestAccepted: 0
   messagesRead: 0
@@ -28136,7 +28153,6 @@ GameObject:
   - component: {fileID: 1781474705}
   - component: {fileID: 1781474704}
   - component: {fileID: 1781474703}
-  - component: {fileID: 1781474709}
   - component: {fileID: 1781474706}
   - component: {fileID: 1781474708}
   - component: {fileID: 1781474707}
@@ -28325,18 +28341,6 @@ MonoBehaviour:
   audioSource: {fileID: 1781474707}
   prevLevel: {fileID: 1600879135}
   levelMusic: {fileID: 8300000, guid: 225a46b5330e14aecb9b4ecc0c4b6ae7, type: 3}
---- !u!114 &1781474709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781474702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1402d8d3ea558410bbf5ce0fbc11df8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1796350868
 GameObject:
   m_ObjectHideFlags: 0
