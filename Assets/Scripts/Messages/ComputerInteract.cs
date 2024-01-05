@@ -25,6 +25,7 @@ public class ComputerInteract : Singleton<ComputerInteract>
         bg.SetActive(false);
         Destroy(this.gameObject);
         Destroy(panelMessage);
+        QuestManager.Instance.messagesRead = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
