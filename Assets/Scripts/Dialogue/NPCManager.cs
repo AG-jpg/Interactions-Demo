@@ -46,10 +46,6 @@ public class NPCManager : Singleton<NPCManager>
     [Header("Animals")]
     [SerializeField] public GameObject animals;
 
-    private void Start()
-    {
-        messages.SetActive(false);
-    }
     public void HideElla()
     {
         Destroy(Ella01);
