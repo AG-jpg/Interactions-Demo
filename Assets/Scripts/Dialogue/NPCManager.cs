@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 
 public class NPCManager : Singleton<NPCManager>
 {
     public SoundManager soundManager;
+    private readonly string NPC_KEY = "NPC105020";
     public GameObject[] Objects;
 
     [Header("Ella")]
@@ -101,15 +103,15 @@ public class NPCManager : Singleton<NPCManager>
 
     public void ShowMessage()
     {
-        /*for (int i = 0; i < Objects.Length; i++)
+        messages.SetActive(true);
+
+        for (int i = 0; i < Objects.Length; i++)
         {
             if(Objects[i] != null)
             {
                 Objects[i].SetActive(true);
             }
-        }*/
-
-        messages.SetActive(true);
+        }
     }
 
     //Final Dialogues
@@ -130,4 +132,17 @@ public class NPCManager : Singleton<NPCManager>
         Destroy(Guard02);
         Guard03.SetActive(true);
     }
+
+    #region Saving
+
+    public NPCData savedData;
+    public void SaveNPCs()
+    {
+        savedData = new NPCData();
+        savedData.objectsData = Objects;
+
+        SaveGame.Save(NPC_KEY, savedData);
+    }
+
+    #endregion
 }
