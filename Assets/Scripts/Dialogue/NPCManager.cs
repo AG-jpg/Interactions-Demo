@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCManager : Singleton<NPCManager>
 {
     public SoundManager soundManager;
+    public GameObject[] Objects;
 
     [Header("Ella")]
     [SerializeField] public GameObject Ella01;
@@ -40,11 +41,11 @@ public class NPCManager : Singleton<NPCManager>
     [Header("Red Doors")]
     [SerializeField] public GameObject redDoors;
 
-    [Header("Messages")]
-    [SerializeField] public GameObject messages;
-
     [Header("Animals")]
     [SerializeField] public GameObject animals;
+
+    [Header("Messages")]
+    [SerializeField] public GameObject messages;
 
     public void HideElla()
     {
@@ -100,6 +101,14 @@ public class NPCManager : Singleton<NPCManager>
 
     public void ShowMessage()
     {
+        /*for (int i = 0; i < Objects.Length; i++)
+        {
+            if(Objects[i] != null)
+            {
+                Objects[i].SetActive(true);
+            }
+        }*/
+
         messages.SetActive(true);
     }
 
