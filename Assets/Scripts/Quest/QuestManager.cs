@@ -45,6 +45,7 @@ public class QuestManager : Singleton<QuestManager>
     {
         questDisponibles = new Quest[questDisponibles.Length];
         QuestAccepted = false;
+        messagesRead = false;
     }
 
     private void Update()
@@ -241,6 +242,8 @@ public class QuestManager : Singleton<QuestManager>
         {
             AddProgress("Fix You", 1);
             ClaimReward();
+            NPCManager.Instance.VMFInal();
+            NPCManager.Instance.HideZimanGuard();
             GameManager.Instance.puzzleVM = false;
             GameManager.Instance.SaveMyGame();
         }
@@ -273,6 +276,7 @@ public class QuestManager : Singleton<QuestManager>
         {
             AddProgress("Somebody Told Me", 1);
             messagesRead = false;
+            ComputerInteract.Instance.readingMessage = false;
             ClaimReward();
         }
     }
