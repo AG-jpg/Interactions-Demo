@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Somebody Told Me
   m_EditorClassIdentifier: 
   Name: Somebody Told Me
-  ID: 
+  ID: Somebody Told Me
   CantidadObjetivo: 3
-  Description: 
+  Description: Read Dr. Fehlerland's emails
   Credits: 30
   Experience: 30
   cantidadActual: 0
   QuestCompletedCheck: 0
+  questTaken: 1
