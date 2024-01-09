@@ -12,8 +12,8 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] public AudioClip success;
     [SerializeField] public AudioClip purchase;
     [SerializeField] public AudioClip useitem;
-
     [SerializeField] public AudioClip openDoors;
+    [SerializeField] public AudioClip readMessage;
 
 #region Sound Effects
     public void Notify()
@@ -39,6 +39,11 @@ public class SoundManager : Singleton<SoundManager>
     public void OpenDoors()
     {
         audioSource.PlayOneShot(openDoors);
+    }
+
+    public void ReadMessage()
+    {
+        audioSource.PlayOneShot(readMessage);
     }
 
 #endregion
