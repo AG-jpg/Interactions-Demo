@@ -9,6 +9,11 @@ public class ComputerInteract : Singleton<ComputerInteract>
     [SerializeField] private GameObject bg;
     public bool readingMessage;
 
+    private void Start()
+    {
+        readingMessage = false;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) && readingMessage == true)
@@ -16,6 +21,7 @@ public class ComputerInteract : Singleton<ComputerInteract>
             panelMessage.SetActive(true);
             bg.SetActive(true);
             QuestManager.Instance.messagesRead = true;
+            SoundManager.Instance.ReadMessage();
             readingMessage = false;
         }
     }
@@ -23,9 +29,9 @@ public class ComputerInteract : Singleton<ComputerInteract>
     public void ClosePanel()
     {
         bg.SetActive(false);
+        readingMessage = false;
         Destroy(this.gameObject);
         Destroy(panelMessage);
-        QuestManager.Instance.messagesRead = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
