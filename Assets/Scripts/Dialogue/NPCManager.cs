@@ -84,7 +84,6 @@ public class NPCManager : Singleton<NPCManager>
 
     public void HideKatai()
     {
-        Destroy(Katai01);
         Katai02.SetActive(true);
     }
 
