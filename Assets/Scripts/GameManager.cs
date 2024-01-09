@@ -67,6 +67,7 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.VMAfter();
             NPCManager.Instance.HideAnimals();
             NPCManager.Instance.HideKatai();
+            NPCManager.Instance.DestroyMessages();
             Destroy(Pzzl02);
         }
     }
@@ -80,7 +81,6 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.SavedNotification();
         MoneyManager.Instance.SaveMoney();
         Experience.Instance.SaveStats();
-
     }
 
     public void LoadSavedGame()
