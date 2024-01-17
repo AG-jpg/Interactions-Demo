@@ -363,7 +363,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.037493706, y: 1.1118314}
+  m_Offset: {x: -0.037493706, y: 0.9556954}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -374,7 +374,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.5240917, y: 4.363665}
+  m_Size: {x: 7.5240917, y: 4.051392}
   m_EdgeRadius: 0
 --- !u!212 &29192438
 SpriteRenderer:
@@ -15124,7 +15124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.037493706, y: 1.1118314}
+  m_Offset: {x: -0.037493706, y: 0.9528459}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15135,7 +15135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.5240917, y: 4.363665}
+  m_Size: {x: 7.5240917, y: 4.0456944}
   m_EdgeRadius: 0
 --- !u!212 &840989687
 SpriteRenderer:
@@ -24360,6 +24360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526891597}
   - component: {fileID: 1526891598}
+  - component: {fileID: 1526891599}
   m_Layer: 0
   m_Name: building2
   m_TagString: Untagged
@@ -24434,6 +24435,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1526891599
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526891596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 5.5}
+    newSize: {x: 1.28, y: 1.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4, y: 5.5}
+  m_EdgeRadius: 0
 --- !u!1 &1535514241
 GameObject:
   m_ObjectHideFlags: 0
