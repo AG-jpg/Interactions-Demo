@@ -36,6 +36,7 @@ public class NPCManager : Singleton<NPCManager>
     [Header("Dr. Katai")]
     [SerializeField] public GameObject Katai01;
     [SerializeField] public GameObject Katai02;
+    [SerializeField] public GameObject Katai03;
 
     //Objects
 
@@ -47,6 +48,9 @@ public class NPCManager : Singleton<NPCManager>
 
     [Header("Messages")]
     [SerializeField] public GameObject messages;
+
+    [Header("Smoke")]
+    [SerializeField] public GameObject smoke;    
 
     public void StartMainQuest()
     {
@@ -134,5 +138,13 @@ public class NPCManager : Singleton<NPCManager>
     public void DestroyMessages()
     {
         Destroy(messages);
+    }
+
+    public void FinalMission()
+    {
+        Destroy(Katai01);
+        Destroy(Katai02);
+        Katai03.SetActive(true);
+        smoke.SetActive(true);
     }
 }
