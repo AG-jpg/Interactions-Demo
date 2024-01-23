@@ -10,6 +10,7 @@ public class DialogueBattle : Singleton<DialogueBattle>
     [SerializeField] private Text DialogueText;
     [SerializeField] private Image npcIcon;
     [SerializeField] private NPCDialogue dialogue;
+    [SerializeField] public GameObject generator;
 
     private Queue<string> sequence;
     private bool AnimatedDialogue;
@@ -34,6 +35,7 @@ public class DialogueBattle : Singleton<DialogueBattle>
                 }
 
                 OpenPanel(false);
+                generator.SetActive(true);
                 ShowGoodbye = false;
                 return;
             }
