@@ -292,6 +292,12 @@ public class UIManager : Singleton<UIManager>
         bg.SetActive(!bg.activeSelf);
     }
 
+    public void Battle()
+    {
+        Player.Instance.SaveLocation();
+        SceneManager.LoadScene(sceneID);
+    }
+
     public void CloseAllPanels()
     {
         panelID.SetActive(false);
@@ -321,7 +327,7 @@ public class UIManager : Singleton<UIManager>
                 GiveAway();
                 break;
             case InteractionExtraNPC.Battle:
-                SceneManager.LoadScene(sceneID);
+                Battle();
                 break;
         }
     }
