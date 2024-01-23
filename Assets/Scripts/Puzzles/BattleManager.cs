@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class BattleManager : MonoBehaviour
+public class BattleManager : Singleton<BattleManager>
 {
     [Header("Puzzles")]
     [SerializeField] public GameObject puzzle01;
@@ -17,8 +16,7 @@ public class BattleManager : MonoBehaviour
 
     [Header("Containers")]
     [SerializeField] public GameObject container01;
-
-    [SerializeField] private int sceneID;
+    public bool battleWin;
 
     void Update()
     {
@@ -28,17 +26,17 @@ public class BattleManager : MonoBehaviour
             Destroy(container01);
             Destroy(dialogue01);
             StartCoroutine(WaitingTime());
+            dialogue02.SetActive(true);
         }
 
         if (signal02.hasGameFinished)
         {
-            SceneManager.LoadScene(sceneID);
+            battleWin = true;
         }
     }
 
     private IEnumerator WaitingTime()
     {
         yield return new WaitForSeconds(1f);
-        dialogue02.SetActive(true);
     }
 }

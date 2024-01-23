@@ -67,6 +67,10 @@ public class PuzzleManager : MonoBehaviour
                 StartCoroutine(GameFinished());
                 puzzleGen.hasGameFinished = false;
             }
+            else if (BattleManager.Instance.battleWin)
+            {
+                StartCoroutine(GameFinished());
+            }
     }
 
     private IEnumerator GameFinished()
