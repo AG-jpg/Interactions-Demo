@@ -23,7 +23,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
     }
 
@@ -73,6 +73,12 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.DestroyMessages();
             Destroy(Pzzl02);
             battleDialogue.SetActive(true);
+        }
+        else if (puzzle.battleFinished == true)
+        {
+            Player.Instance.LoadLocation();
+            puzzle.battleFinished = false;
+            NPCManager.Instance.FinalMission();
         }
     }
 
