@@ -103,6 +103,7 @@ public class QuestManager : Singleton<QuestManager>
         else if (QuestAccepted && questName == "Rock the Casbah")
         {
             NPCManager.Instance.HideJohny();
+            NPCManager.Instance.StartMainQuest();
         }
         else if (QuestAccepted && questName == "Looking For Water")
         {
