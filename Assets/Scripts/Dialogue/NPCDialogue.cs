@@ -6,7 +6,9 @@ public enum InteractionExtraNPC
 {
     Quests,
     Tienda,
-    Crafting
+    Crafting,
+    Gift,
+    Battle
 }
 
 [CreateAssetMenu]
