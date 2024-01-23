@@ -26,7 +26,6 @@ public class BattleManager : Singleton<BattleManager>
             Destroy(container01);
             Destroy(dialogue01);
             StartCoroutine(WaitingTime());
-            dialogue02.SetActive(true);
         }
 
         if (signal02.hasGameFinished)
@@ -38,5 +37,6 @@ public class BattleManager : Singleton<BattleManager>
     private IEnumerator WaitingTime()
     {
         yield return new WaitForSeconds(1f);
+        dialogue02.SetActive(true);
     }
 }
