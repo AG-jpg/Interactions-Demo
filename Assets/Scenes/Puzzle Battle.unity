@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &499756694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,6 +1472,7 @@ MonoBehaviour:
   DialogueText: {fileID: 448547454}
   npcIcon: {fileID: 1879438714}
   dialogue: {fileID: 11400000, guid: ab4a5dc5382c04c2585a19950bb1f265, type: 2}
+  generator: {fileID: 499756693}
 --- !u!4 &1831232161
 Transform:
   m_ObjectHideFlags: 0
