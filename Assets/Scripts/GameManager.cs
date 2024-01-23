@@ -18,6 +18,9 @@ public class GameManager : Singleton<GameManager>
     public bool puzzleSecurity;
     public bool puzzleCage;
 
+    [Header("Quest bools")]
+    [SerializeField] public GameObject battleDialogue;
+
     private void Start()
     {
         SaveGame.DeleteAll(); //Erase Saved Data
@@ -69,6 +72,7 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.HideKatai();
             NPCManager.Instance.DestroyMessages();
             Destroy(Pzzl02);
+            battleDialogue.SetActive(true);
         }
     }
 
