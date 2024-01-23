@@ -7,6 +7,7 @@ public class NPCManager : Singleton<NPCManager>
     public SoundManager soundManager;
 
     [Header("Ella")]
+    [SerializeField] public GameObject Ella00;
     [SerializeField] public GameObject Ella01;
     [SerializeField] public GameObject Ella02;
 
@@ -15,6 +16,7 @@ public class NPCManager : Singleton<NPCManager>
     [SerializeField] public GameObject Johny02;
 
     [Header("Guard")]
+    [SerializeField] public GameObject Guard00;
     [SerializeField] public GameObject Guard01;
     [SerializeField] public GameObject Guard02;
     [SerializeField] public GameObject Guard03;
@@ -45,6 +47,14 @@ public class NPCManager : Singleton<NPCManager>
 
     [Header("Messages")]
     [SerializeField] public GameObject messages;
+
+    public void StartMainQuest()
+    {
+        Destroy(Ella00);
+        Destroy(Guard00);
+        Ella01.SetActive(true);
+        Guard01.SetActive(true);
+    }
 
     public void HideElla()
     {
