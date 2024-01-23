@@ -6605,9 +6605,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 7
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 36
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -25113,9 +25113,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 7
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 36
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -28560,7 +28560,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 225a46b5330e14aecb9b4ecc0c4b6ae7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 22aa8d7f28d8b49a8b316fea62fbf51b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -31452,8 +31452,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: -38}
-  m_SizeDelta: {x: 1120, y: 567}
+  m_AnchoredPosition: {x: -2, y: -39.276268}
+  m_SizeDelta: {x: 1120, y: 593.5903}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2002172095
 MonoBehaviour:
@@ -33222,7 +33222,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "We are aware of the gang roaming outside our facilities.\n\nOur Director,
     Dr. Katai, is taking care of it. Top security has been allocated 24/7 and a strong
-    security system.\n\nFocus on the success of our project.\n\nTerraLabs:\n Changing
+    security system.\n\nFocus on the success of our project.\n\nIgnoLabs:\n Changing
     the future a drop at a time."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65e3f5f0aafba44e2a2ce0bc447d3d71, type: 2}
@@ -33260,9 +33260,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 7
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 10
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -33309,7 +33309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.13766, y: -76.652}
+  m_AnchoredPosition: {x: -0.13766, y: -74}
   m_SizeDelta: {x: 1080.3, y: 452.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5914133217390381647
