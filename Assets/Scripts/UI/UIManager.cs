@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -39,6 +40,7 @@ public class UIManager : Singleton<UIManager>
     private float expRequiredNewLevel;
     private float energyActual;
     private float energyMax;
+    public int sceneID;
 
     [Header("Stats")]
     [SerializeField] private TextMeshProUGUI Level;
@@ -317,6 +319,9 @@ public class UIManager : Singleton<UIManager>
                 break;
             case InteractionExtraNPC.Gift:
                 GiveAway();
+                break;
+            case InteractionExtraNPC.Battle:
+                SceneManager.LoadScene(sceneID);
                 break;
         }
     }
