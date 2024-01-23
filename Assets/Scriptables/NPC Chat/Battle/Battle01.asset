@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: df7aa2bbea3be42b0a4520076c0f0153, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: I won't let you scape
-  Conversation: []
-  Out: You'll pay for this!
+  Entrance: That's the device you're using to hack us?
+  Conversation:
+  - Sentence: You made that from scrap in a basement
+  Out: It's no match for my algorithms!
