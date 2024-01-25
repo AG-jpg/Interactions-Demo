@@ -22,20 +22,6 @@ public class PuzzleManager : MonoBehaviour
     public bool hardSolved;
     public bool battleFinished;
 
-    private void Start()
-    {
-        /*if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }*/
-
-        
-    }
-
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -48,7 +34,7 @@ public class PuzzleManager : MonoBehaviour
         hasGameFinished = puzzleGen.hasGameFinished;
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
-        
+
         CheckPuzzle();
     }
 
