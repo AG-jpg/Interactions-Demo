@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NPCManager : Singleton<NPCManager>
 {
-    public SoundManager soundManager;
-
     [Header("Ella")]
     [SerializeField] public GameObject Ella00;
     [SerializeField] public GameObject Ella01;
@@ -36,7 +34,10 @@ public class NPCManager : Singleton<NPCManager>
     [Header("Dr. Katai")]
     [SerializeField] public GameObject Katai01;
     [SerializeField] public GameObject Katai02;
-    [SerializeField] public GameObject Katai03;
+
+    [Header("Lab NPCs")]
+    [SerializeField] public GameObject labniks;
+    [SerializeField] public GameObject allGuards;
 
     //Objects
 
@@ -119,12 +120,15 @@ public class NPCManager : Singleton<NPCManager>
     //Final Dialogues
     public void VMFInal()
     {
+        Destroy(VM01);
         Destroy(VM02);
         VM03.SetActive(true);
     }
 
     public void VMAfter()
     {
+        Destroy(VM01);
+        Destroy(VM02);
         Destroy(VM03);
         VM04.SetActive(true);
     }
@@ -142,9 +146,12 @@ public class NPCManager : Singleton<NPCManager>
 
     public void FinalMission()
     {
-        Destroy(Katai01);
-        Destroy(Katai02);
-        Katai03.SetActive(true);
+        Destroy(animals);
+        Destroy(labniks);
+        Destroy(allGuards);
+        Destroy(redDoors);
+        Destroy(messages);
+        VMAfter();
         smoke.SetActive(true);
     }
 }
