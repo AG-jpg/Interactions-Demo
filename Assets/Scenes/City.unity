@@ -18279,6 +18279,7 @@ MonoBehaviour:
   useitem: {fileID: 8300000, guid: 4747331b7920d48be966fd13a4e6a0e2, type: 3}
   openDoors: {fileID: 8300000, guid: a365916b70dab4b40a492fb396bdcf82, type: 3}
   readMessage: {fileID: 8300000, guid: b0610148ef7664e4495e890b53e83add, type: 3}
+  saving: {fileID: 8300000, guid: c24eeea0e0d5547128856ab222e48e72, type: 3}
 --- !u!1 &996750225
 GameObject:
   m_ObjectHideFlags: 0
