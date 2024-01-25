@@ -183,14 +183,14 @@ public class UIManager : Singleton<UIManager>
     {
         Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
         newNotification.ConfigureNotificationUI(saving);
-        soundManager.Success();
+        soundManager.Saving();
     }
 
     public void ShowSuccesNotification()
     {
         Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
         newNotification.ConfigureNotificationUI(succeed);
-        soundManager.Saving();
+        soundManager.Success();
     }
 
     public void DoorsNotification()
