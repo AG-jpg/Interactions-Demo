@@ -17,8 +17,7 @@ public class GameManager : Singleton<GameManager>
     public bool puzzleVM;
     public bool puzzleSecurity;
     public bool puzzleCage;
-
-    [Header("Quest bools")]
+    
     [SerializeField] public GameObject battleDialogue;
 
     private void Start()
@@ -71,14 +70,19 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.HideAnimals();
             NPCManager.Instance.HideKatai();
             NPCManager.Instance.DestroyMessages();
+            Destroy(Pzzl01);
             Destroy(Pzzl02);
             battleDialogue.SetActive(true);
         }
         else if (puzzle.battleFinished == true)
         {
+            SaveMyGame();
+            Destroy(puzzleManager);
             Player.Instance.LoadLocation();
-            puzzle.battleFinished = false;
             NPCManager.Instance.FinalMission();
+            Destroy(Pzzl01);
+            Destroy(Pzzl02);
+            puzzle.battleFinished = false;
         }
     }
 
@@ -88,9 +92,9 @@ public class GameManager : Singleton<GameManager>
         QuestManager.Instance.SaveQuestData();
         Inventory.Instance.SaveInventory();
         Energy.Instance.SaveEnergy();
-        UIManager.Instance.SavedNotification();
         MoneyManager.Instance.SaveMoney();
         Experience.Instance.SaveStats();
+        StartCoroutine(WaitingTime());
     }
 
     public void LoadSavedGame()
@@ -101,5 +105,11 @@ public class GameManager : Singleton<GameManager>
         Energy.Instance.LoadEnergy();
         MoneyManager.Instance.LoadMoney();
         Experience.Instance.LoadStats();
+    }
+
+    private IEnumerator WaitingTime()
+    {
+        yield return new WaitForSeconds(4f);
+        UIManager.Instance.SavedNotification();
     }
 }
