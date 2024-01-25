@@ -230,7 +230,6 @@ public class QuestManager : Singleton<QuestManager>
         if (GameManager.Instance.puzzleCage)
         {
             AddProgress("Rock the Casbah", 1);
-            UIManager.Instance.DoorsNotification();
             ClaimReward();
             GameManager.Instance.puzzleCage = false;
             GameManager.Instance.SaveMyGame();
