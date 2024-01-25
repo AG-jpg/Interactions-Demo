@@ -16,7 +16,7 @@ public class BattleManager : Singleton<BattleManager>
 
     [Header("Containers")]
     [SerializeField] public GameObject container01;
-    public bool battleWin;
+    [SerializeField] public GameObject puzzleManager;
 
     void Update()
     {
@@ -27,16 +27,12 @@ public class BattleManager : Singleton<BattleManager>
             Destroy(dialogue01);
             StartCoroutine(WaitingTime());
         }
-
-        if (signal02.hasGameFinished)
-        {
-            battleWin = true;
-        }
     }
 
     private IEnumerator WaitingTime()
     {
         yield return new WaitForSeconds(1f);
         dialogue02.SetActive(true);
+        puzzleManager.SetActive(true);
     }
 }

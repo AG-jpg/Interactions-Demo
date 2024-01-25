@@ -20,6 +20,7 @@ public class PuzzleManager : MonoBehaviour
     public bool easySolved;
     public bool midSolved;
     public bool hardSolved;
+    public bool battleFinished;
 
     private void Start()
     {
@@ -32,18 +33,22 @@ public class PuzzleManager : MonoBehaviour
             Destroy(gameObject);
         }*/
 
+        
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void Update()
+    {
         puzzle = GameObject.FindGameObjectWithTag("Puzzle");
         puzzleGen = puzzle.GetComponent<PuzzleGen>();
         hasGameFinished = puzzleGen.hasGameFinished;
         scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
-
-        DontDestroyOnLoad(this.gameObject);
-
-    }
-
-    private void Update()
-    {
+        
         CheckPuzzle();
     }
 
@@ -67,8 +72,9 @@ public class PuzzleManager : MonoBehaviour
                 StartCoroutine(GameFinished());
                 puzzleGen.hasGameFinished = false;
             }
-            else if (BattleManager.Instance.battleWin)
+            else if (sceneName == "Puzzle Battle" && puzzleGen.hasGameFinished)
             {
+                battleFinished = true;
                 StartCoroutine(GameFinished());
             }
     }
