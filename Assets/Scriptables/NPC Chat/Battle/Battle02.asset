@@ -18,8 +18,9 @@ MonoBehaviour:
   InteraccionExtra: 0
   Entrance: You won't understand our purpose
   Conversation:
-  - Sentence: Science, progress, transcendence
-  - Sentence: What is the life of this useless animals?
+  - Sentence: Science, progress, transcendence.
+  - Sentence: What is the life of this dumb animals?
+  - Sentence: If it wasn't for us...
   - Sentence: What good will they bring to humanity?
   - Sentence: Your cause, instead
   Out: Is useless...
