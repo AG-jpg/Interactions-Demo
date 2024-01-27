@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
     }
 
@@ -50,6 +50,7 @@ public class GameManager : Singleton<GameManager>
         }
         else if (puzzle.midSolved == true)
         {
+            SaveMyGame();
             Player.Instance.LoadLocation();
             puzzleSecurity = true;
             puzzle.midSolved = false;
