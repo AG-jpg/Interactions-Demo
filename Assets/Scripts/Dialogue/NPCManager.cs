@@ -53,6 +53,10 @@ public class NPCManager : Singleton<NPCManager>
     [Header("Smoke")]
     [SerializeField] public GameObject smoke;    
 
+    [Header("Ending")]
+    [SerializeField] public GameObject Labexit;
+    [SerializeField] public GameObject beachWay;
+
     public void StartMainQuest()
     {
         Destroy(Ella00);
@@ -153,5 +157,11 @@ public class NPCManager : Singleton<NPCManager>
         Destroy(messages);
         VMAfter();
         smoke.SetActive(true);
+    }
+
+    public void ToEnding()
+    {
+        Destroy(Labexit);
+        beachWay.SetActive(true);
     }
 }
