@@ -278,6 +278,7 @@ public class QuestManager : Singleton<QuestManager>
             messagesRead = false;
             ComputerInteract.Instance.readingMessage = false;
             ClaimReward();
+            GameManager.Instance.SaveMyGame();
         }
     }
 
