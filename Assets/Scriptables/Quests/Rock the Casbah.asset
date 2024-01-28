@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Rock the Casbah
   ID: Rock the Casbah
-  CantidadObjetivo: 3
+  CantidadObjetivo: 2
   Description: Breach the systems to liberate the animals
   Credits: 200
   Experience: 50
-  RewardItem:
-    Item: {fileID: 11400000, guid: 452fae18f23cd450982a0451002f4dba, type: 2}
-    cantidad: 1
   cantidadActual: 0
+  QuestCompletedCheck: 0
