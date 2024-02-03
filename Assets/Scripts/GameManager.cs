@@ -17,13 +17,13 @@ public class GameManager : Singleton<GameManager>
     public bool puzzleVM;
     public bool puzzleSecurity;
     public bool puzzleCage;
-    public bool puzzleBattle;
     
     [SerializeField] public GameObject battleDialogue;
+    private readonly string GAME_KEY = "Game105020";
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
     }
 
@@ -32,10 +32,7 @@ public class GameManager : Singleton<GameManager>
         puzzleManager = GameObject.Find("Puzzle Manager");
         puzzle = puzzleManager.GetComponent<PuzzleManager>();
 
-        if (puzzle != null)
-        {
-            CheckPuzzle();
-        }
+        CheckPuzzle();
     }
 
     public void CheckPuzzle()
@@ -44,6 +41,7 @@ public class GameManager : Singleton<GameManager>
         {
             Player.Instance.LoadLocation();
             puzzleVM = true;
+            SaveBools();
             //puzzle.easySolved = false;
             Destroy(puzzleManager);
             NPCManager.Instance.VMFInal();
@@ -53,6 +51,7 @@ public class GameManager : Singleton<GameManager>
         {
             Player.Instance.LoadLocation();
             puzzleSecurity = true;
+            SaveBools();
             //puzzle.midSolved = false;
             Destroy(puzzleManager);
             NPCManager.Instance.HideRedDoors();
@@ -64,6 +63,7 @@ public class GameManager : Singleton<GameManager>
         {
             Player.Instance.LoadLocation();
             puzzleCage = true;
+            SaveBools();
             //puzzle.hardSolved = false;
             Destroy(puzzleManager);
             NPCManager.Instance.FinalGuard();
@@ -79,12 +79,12 @@ public class GameManager : Singleton<GameManager>
         else if (puzzle.battleFinished == true)
         {
             Player.Instance.LoadLocation();
-            puzzleBattle = true;
             //puzzle.battleFinished = false;
             Destroy(puzzleManager);
             Destroy(Pzzl01);
             Destroy(Pzzl02);
             NPCManager.Instance.FinalMission();
+            NPCManager.Instance.ToEnding();
             SaveMyGame();
         }
     }
@@ -97,12 +97,13 @@ public class GameManager : Singleton<GameManager>
         Energy.Instance.SaveEnergy();
         MoneyManager.Instance.SaveMoney();
         Experience.Instance.SaveStats();
+        SaveBools();
         StartCoroutine(WaitingTime());
     }
 
     public void LoadSavedGame()
     {
-        //Player.Instance.LoadLocation();
+        Player.Instance.LoadLocation();
         QuestManager.Instance.LoadQuestData();
         Inventory.Instance.LoadInventory();
         Energy.Instance.LoadEnergy();
@@ -115,4 +116,31 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(4f);
         UIManager.Instance.SavedNotification();
     }
+
+    #region Saving
+
+    public GameData savedData;
+    public void SaveBools()
+    {
+        savedData = new GameData();
+        savedData.vmData = puzzleVM;
+        savedData.securityData = puzzleSecurity;
+        savedData.cageData = puzzleCage;
+
+        SaveGame.Save(GAME_KEY, savedData);
+    }
+
+    public GameData dataLoaded;
+    public void LoadLocation()
+    {
+        if (SaveGame.Exists(GAME_KEY))
+        {
+            dataLoaded = SaveGame.Load<GameData>(GAME_KEY);
+            puzzleVM = dataLoaded.vmData;
+            puzzleSecurity = dataLoaded.securityData;
+            puzzleCage = dataLoaded.cageData;
+        }
+    }
+
+    #endregion
 }
