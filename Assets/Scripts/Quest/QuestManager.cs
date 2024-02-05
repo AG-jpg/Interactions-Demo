@@ -68,7 +68,7 @@ public class QuestManager : Singleton<QuestManager>
         FixYou();
         LookigForWater();
         SomebodyToldMe();
-        RockCasbah();
+        BreakFree();
     }
 
     private void LoadQuestInspector()
@@ -100,7 +100,7 @@ public class QuestManager : Singleton<QuestManager>
             NPCManager.Instance.HideElla();
             NPCManager.Instance.HideVM();
         }
-        else if (QuestAccepted && questName == "Rock the Casbah")
+        else if (QuestAccepted && questName == "I Want To Break Free")
         {
             NPCManager.Instance.HideJohny();
             NPCManager.Instance.StartMainQuest();
@@ -216,11 +216,11 @@ public class QuestManager : Singleton<QuestManager>
 
     #region Quests
 
-    private void RockCasbah()
+    private void BreakFree()
     {
         if (GameManager.Instance.puzzleSecurity)
         {
-            AddProgress("Rock the Casbah", 1);
+            AddProgress("I Want To Break Free", 1);
             UIManager.Instance.DoorsNotification();
             ClaimReward();
             GameManager.Instance.puzzleSecurity = false;
@@ -229,9 +229,17 @@ public class QuestManager : Singleton<QuestManager>
 
         if (GameManager.Instance.puzzleCage)
         {
-            AddProgress("Rock the Casbah", 1);
+            AddProgress("I Want To Break Free", 1);
             ClaimReward();
             GameManager.Instance.puzzleCage = false;
+            GameManager.Instance.SaveMyGame();
+        }
+
+        if (GameManager.Instance.puzzleBattle)
+        {
+            AddProgress("I Want To Break Free", 1);
+            ClaimReward();
+            GameManager.Instance.puzzleBattle = false;
             GameManager.Instance.SaveMyGame();
         }
     }
