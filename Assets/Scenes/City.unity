@@ -20561,7 +20561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41824825b4d8346738885698d860464d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneID: 1
+  sceneID: 2
   puzzleInitiated: 0
 --- !u!1 &512485285
 GameObject:

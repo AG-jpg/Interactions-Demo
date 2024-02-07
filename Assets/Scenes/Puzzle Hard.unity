@@ -484,11 +484,12 @@ MonoBehaviour:
   puzzle: {fileID: 0}
   puzzleGen: {fileID: 0}
   sceneName: 
-  sceneID: 0
+  sceneID: 1
   hasGameFinished: 0
   easySolved: 0
   midSolved: 0
   hardSolved: 0
+  battleFinished: 0
 --- !u!4 &348304857
 Transform:
   m_ObjectHideFlags: 0
