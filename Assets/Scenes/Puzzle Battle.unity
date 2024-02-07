@@ -504,7 +504,7 @@ MonoBehaviour:
   dialogue01: {fileID: 1831232159}
   dialogue02: {fileID: 852314296}
   container01: {fileID: 1761981601}
-  battleWin: 0
+  puzzleManager: {fileID: 873010882}
 --- !u!1 &391318187
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,9 +534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1a56a0163934daf95d19c6ab836aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _row: 6
-  _col: 6
-  _level: {fileID: 11400000, guid: c29560c6f575443f684f3d9143fd8014, type: 2}
+  _row: 4
+  _col: 4
+  _level: {fileID: 11400000, guid: 7f2b10085be234c648107d93b65f2aa8, type: 2}
   _cellPrefab: {fileID: 1746047627222367463, guid: 9f8afa385c88a43698f04ea36b73ce43, type: 3}
   _edgePrefab: {fileID: 8626844148253612821, guid: 92f763e39925c4cee8ecd73b0fed63b7, type: 3}
   puzzleContainer: {fileID: 1635935524}
@@ -990,7 +990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &873010883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,11 +1006,12 @@ MonoBehaviour:
   puzzle: {fileID: 0}
   puzzleGen: {fileID: 0}
   sceneName: 
-  sceneID: 0
+  sceneID: 1
   hasGameFinished: 0
   easySolved: 0
   midSolved: 0
   hardSolved: 0
+  battleFinished: 0
 --- !u!4 &873010884
 Transform:
   m_ObjectHideFlags: 0

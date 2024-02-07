@@ -18235,7 +18235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &378007749
 Transform:
   m_ObjectHideFlags: 0
@@ -22580,7 +22580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41824825b4d8346738885698d860464d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneID: 3
+  sceneID: 4
   puzzleInitiated: 0
 --- !u!61 &658777043
 BoxCollider2D:
@@ -31371,7 +31371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41824825b4d8346738885698d860464d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneID: 2
+  sceneID: 3
   puzzleInitiated: 0
 --- !u!61 &1289721946
 BoxCollider2D:
@@ -35082,7 +35082,7 @@ MonoBehaviour:
   expTMP: {fileID: 208769935}
   energyTMP: {fileID: 1107676476}
   creditsTMP: {fileID: 244691186}
-  sceneID: 4
+  sceneID: 5
   Level: {fileID: 83579937}
   JawscriptStat: {fileID: 126701215}
   TimerStat: {fileID: 576771878}
@@ -35672,7 +35672,7 @@ GameObject:
   - component: {fileID: 1633814035}
   - component: {fileID: 1633814039}
   m_Layer: 0
-  m_Name: Dr Katai (1)
+  m_Name: FInal Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35764,8 +35764,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633814034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.177, y: 15.774, z: 0}
-  m_LocalScale: {x: 0.9501757, y: 0.65058404, z: 0.9}
+  m_LocalPosition: {x: 22.256002, y: 15.774, z: 0}
+  m_LocalScale: {x: 0.97393006, y: 0.65058404, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1710475595}
