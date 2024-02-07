@@ -17,7 +17,8 @@ public class GameManager : Singleton<GameManager>
     public bool puzzleVM;
     public bool puzzleSecurity;
     public bool puzzleCage;
-    
+    public bool puzzleBattle;
+
     [SerializeField] public GameObject battleDialogue;
     private readonly string GAME_KEY = "Game105020";
 
@@ -47,7 +48,8 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.VMFInal();
             NPCManager.Instance.HideZimanGuard();
         }
-        else if (puzzle.midSolved == true)
+
+        if (puzzle.midSolved == true)
         {
             Player.Instance.LoadLocation();
             puzzleSecurity = true;
@@ -59,7 +61,8 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.VMAfter();
             Destroy(Pzzl01);
         }
-        else if (puzzle.hardSolved == true)
+
+        if (puzzle.hardSolved == true)
         {
             Player.Instance.LoadLocation();
             puzzleCage = true;
@@ -76,17 +79,22 @@ public class GameManager : Singleton<GameManager>
             Destroy(Pzzl02);
             battleDialogue.SetActive(true);
         }
-        else if (puzzle.battleFinished == true)
+
+        if (puzzle.battleFinished == true)
         {
             Player.Instance.LoadLocation();
-            //puzzle.battleFinished = false;
-            Destroy(puzzleManager);
-            Destroy(Pzzl01);
-            Destroy(Pzzl02);
-            NPCManager.Instance.FinalMission();
-            NPCManager.Instance.ToEnding();
-            SaveMyGame();
+            puzzleBattle = true;
+            SaveBools();
         }
+    }
+
+    public void AfterBattle()
+    {
+        Destroy(Pzzl01);
+        Destroy(Pzzl02);
+        NPCManager.Instance.FinalMission();
+        NPCManager.Instance.ToEnding();
+        Destroy(puzzleManager);
     }
 
     public void SaveMyGame()
@@ -109,6 +117,7 @@ public class GameManager : Singleton<GameManager>
         Energy.Instance.LoadEnergy();
         MoneyManager.Instance.LoadMoney();
         Experience.Instance.LoadStats();
+        LoadBools();
     }
 
     private IEnumerator WaitingTime()
@@ -126,12 +135,13 @@ public class GameManager : Singleton<GameManager>
         savedData.vmData = puzzleVM;
         savedData.securityData = puzzleSecurity;
         savedData.cageData = puzzleCage;
+        savedData.battleData = puzzleBattle;
 
         SaveGame.Save(GAME_KEY, savedData);
     }
 
     public GameData dataLoaded;
-    public void LoadLocation()
+    public void LoadBools()
     {
         if (SaveGame.Exists(GAME_KEY))
         {
@@ -139,6 +149,7 @@ public class GameManager : Singleton<GameManager>
             puzzleVM = dataLoaded.vmData;
             puzzleSecurity = dataLoaded.securityData;
             puzzleCage = dataLoaded.cageData;
+            puzzleBattle = dataLoaded.battleData;
         }
     }
 
