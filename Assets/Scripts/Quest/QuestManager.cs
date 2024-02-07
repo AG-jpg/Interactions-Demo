@@ -234,14 +234,6 @@ public class QuestManager : Singleton<QuestManager>
             GameManager.Instance.puzzleCage = false;
             GameManager.Instance.SaveMyGame();
         }
-
-        if (GameManager.Instance.puzzleBattle)
-        {
-            AddProgress("I Want To Break Free", 1);
-            ClaimReward();
-            GameManager.Instance.puzzleBattle = false;
-            GameManager.Instance.SaveMyGame();
-        }
     }
 
     private void FixYou()
