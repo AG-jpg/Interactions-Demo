@@ -114,6 +114,10 @@ public class QuestManager : Singleton<QuestManager>
             NPCManager.Instance.HideJr();
             NPCManager.Instance.ShowMessage();
         }
+        else if(GameManager.Instance.puzzleBattle)
+        {
+            GameManager.Instance.AfterBattle();
+        }
     }
 
     //This rejects the quest in inspector
