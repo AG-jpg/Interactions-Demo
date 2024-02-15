@@ -398,7 +398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchoredPosition: {x: 0, y: -279}
   m_SizeDelta: {x: 260, y: 58.6703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &374651142
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   openDoors: {fileID: 8300000, guid: a365916b70dab4b40a492fb396bdcf82, type: 3}
   readMessage: {fileID: 8300000, guid: b0610148ef7664e4495e890b53e83add, type: 3}
   saving: {fileID: 8300000, guid: c24eeea0e0d5547128856ab222e48e72, type: 3}
-  button: {fileID: 8300000, guid: b0610148ef7664e4495e890b53e83add, type: 3}
+  button: {fileID: 8300000, guid: 4ba61c6f2b9134ebd969d0db4807ca8a, type: 3}
 --- !u!4 &1638309859
 Transform:
   m_ObjectHideFlags: 0
