@@ -5,6 +5,6 @@ public class ChangeScene : MonoBehaviour
 {
     public void PressButton(int sceneID)
     {
-        SceneManager.LoadScene(sceneID);
+        SoundManager.Instance.ButtonSound();
     }
 }
