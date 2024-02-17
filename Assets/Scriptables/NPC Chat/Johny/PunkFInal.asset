@@ -19,7 +19,7 @@ MonoBehaviour:
   Entrance: Look at them...
   Conversation:
   - Sentence: Free and untamable
-  - Sentence: You faced the corpos today
-  - Sentence: To give them a chance of freedom
+  - Sentence: You faced the corps today
+  - Sentence: To give them a chance of freedom.
   - Sentence: Now the question is....
   Out: Will you keep on fighting?
