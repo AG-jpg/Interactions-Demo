@@ -17,6 +17,7 @@ public class PuzzleManager : MonoBehaviour
 
     [Header("Bool")]
     public bool hasGameFinished;
+    public bool introSolved;
     public bool easySolved;
     public bool midSolved;
     public bool hardSolved;
@@ -61,6 +62,11 @@ public class PuzzleManager : MonoBehaviour
             else if (sceneName == "Puzzle Battle" && puzzleGen.hasGameFinished)
             {
                 battleFinished = true;
+                StartCoroutine(GameFinished());
+            }
+            else if (sceneName == "Puzzle Intro" && puzzleGen.hasGameFinished)
+            {
+                introSolved = true;
                 StartCoroutine(GameFinished());
             }
     }
