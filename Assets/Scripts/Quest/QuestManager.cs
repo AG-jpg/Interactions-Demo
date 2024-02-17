@@ -118,6 +118,10 @@ public class QuestManager : Singleton<QuestManager>
         {
             GameManager.Instance.AfterBattle();
         }
+        else if(GameManager.Instance.puzzleIntro)
+        {
+            GameManager.Instance.AfterIntro();
+        }
     }
 
     //This rejects the quest in inspector
