@@ -27,6 +27,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject panelMusic;
     [SerializeField] private GameObject panelStore;
 
+    [SerializeField] private GameObject panelEmail;
+
     [Header("Barra")]
     [SerializeField] private Image expPlayer;
     [SerializeField] private Image energyPlayer;
@@ -203,6 +205,12 @@ public class UIManager : Singleton<UIManager>
     #endregion
 
     #region Panels
+
+    public void CloseEmail()
+    {
+        Destroy(panelEmail);
+        bg.SetActive(false);
+    }
 
     public void OpenPanelID()
     {
