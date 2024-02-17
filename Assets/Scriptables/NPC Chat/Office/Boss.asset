@@ -16,6 +16,6 @@ MonoBehaviour:
   Icon: {fileID: 0}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: 
+  Entrance: 'business was hit hard by budget cuts and layoffs. '
   Conversation: []
-  Out: 
+  Out: I'm sorry we had to let you go...
