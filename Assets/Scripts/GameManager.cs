@@ -106,6 +106,7 @@ public class GameManager : Singleton<GameManager>
     public void AfterIntro()
     {
         UIManager.Instance.CloseEmail();
+        UIManager.Instance.DoorsNotification();
         Destroy(Pzzl00);
     }
     public void AfterBattle()
