@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
   m_Name: Coworker
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
+  Name: Lydia Martins
+  Icon: {fileID: 21300000, guid: 60141876aa0854ed3b541d311d3cce16, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: 
-  Conversation: []
-  Out: 
+  Entrance: CEO accepts the blame
+  Conversation:
+  - Sentence: but is not the one getting canned.
+  - Sentence: Layoffs suck
+  Out: But it's not the end
