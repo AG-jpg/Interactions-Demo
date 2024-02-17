@@ -10,10 +10,12 @@ public class GameManager : Singleton<GameManager>
     private PuzzleManager puzzle;
 
     [Header("Puzzle Computers")]
+    [SerializeField] public GameObject Pzzl00;
     [SerializeField] public GameObject Pzzl01;
     [SerializeField] public GameObject Pzzl02;
 
     [Header("Quest bools")]
+    public bool puzzleIntro;
     public bool puzzleVM;
     public bool puzzleSecurity;
     public bool puzzleCage;
@@ -24,8 +26,9 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
+        Player.Instance.SaveLocation();
     }
 
     private void Update()
@@ -38,9 +41,18 @@ public class GameManager : Singleton<GameManager>
 
     public void CheckPuzzle()
     {
+        if (puzzle.introSolved == true)
+        {
+            puzzleIntro = true;
+            SaveBools();
+            Player.Instance.LoadLocation();
+            Destroy(puzzleManager);
+        }
+
         if (puzzle.easySolved == true)
         {
             Player.Instance.LoadLocation();
+            UIManager.Instance.CloseEmail();
             puzzleVM = true;
             SaveBools();
             //puzzle.easySolved = false;
@@ -52,6 +64,7 @@ public class GameManager : Singleton<GameManager>
         if (puzzle.midSolved == true)
         {
             Player.Instance.LoadLocation();
+            UIManager.Instance.CloseEmail();
             puzzleSecurity = true;
             SaveBools();
             //puzzle.midSolved = false;
@@ -65,6 +78,7 @@ public class GameManager : Singleton<GameManager>
         if (puzzle.hardSolved == true)
         {
             Player.Instance.LoadLocation();
+            UIManager.Instance.CloseEmail();
             puzzleCage = true;
             SaveBools();
             //puzzle.hardSolved = false;
@@ -83,11 +97,17 @@ public class GameManager : Singleton<GameManager>
         if (puzzle.battleFinished == true)
         {
             Player.Instance.LoadLocation();
+            UIManager.Instance.CloseEmail();
             puzzleBattle = true;
             SaveBools();
         }
     }
 
+    public void AfterIntro()
+    {
+        UIManager.Instance.CloseEmail();
+        Destroy(Pzzl00);
+    }
     public void AfterBattle()
     {
         Destroy(Pzzl01);
@@ -136,6 +156,7 @@ public class GameManager : Singleton<GameManager>
         savedData.securityData = puzzleSecurity;
         savedData.cageData = puzzleCage;
         savedData.battleData = puzzleBattle;
+        savedData.introData = puzzleIntro;
 
         SaveGame.Save(GAME_KEY, savedData);
     }
@@ -150,6 +171,7 @@ public class GameManager : Singleton<GameManager>
             puzzleSecurity = dataLoaded.securityData;
             puzzleCage = dataLoaded.cageData;
             puzzleBattle = dataLoaded.battleData;
+            puzzleIntro = dataLoaded.introData;
         }
     }
 
