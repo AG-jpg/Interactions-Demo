@@ -13,12 +13,16 @@ MonoBehaviour:
   m_Name: Val
   m_EditorClassIdentifier: 
   Name: Val
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 65f0780f6e9fd48f2b2f5601d7177c96, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: Hey! You are the guy from the train!
   Conversation:
   - Sentence: How was your first day in the big city?
+  - Sentence: Are you in the mood for some fun?
   - Sentence: I'm playing a DJ set later tonight
-  - Sentence: You should join and stay for the after party
+  - Sentence: 'Join me! '
+  - Sentence: We'll catch up in the after party!
+  - Sentence: Celebrate your new life!
+  - Sentence: What do you say?
   Out: Wanna exchange contacts?
