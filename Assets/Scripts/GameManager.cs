@@ -26,7 +26,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
     }
@@ -106,7 +106,8 @@ public class GameManager : Singleton<GameManager>
     public void AfterIntro()
     {
         UIManager.Instance.CloseEmail();
-        UIManager.Instance.DoorsNotification();
+        NPCManager.Instance.HideBoss();
+
         Destroy(Pzzl00);
     }
     public void AfterBattle()
