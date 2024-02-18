@@ -39,6 +39,12 @@ public class NPCManager : Singleton<NPCManager>
     [SerializeField] public GameObject labniks;
     [SerializeField] public GameObject allGuards;
 
+    [Header("Office NPCs")]
+    [SerializeField] public GameObject officeDoor;
+    [SerializeField] public GameObject officeWay;
+    [SerializeField] public GameObject boss01;
+    [SerializeField] public GameObject boss02;
+
     //Objects
 
     [Header("Red Doors")]
@@ -63,6 +69,7 @@ public class NPCManager : Singleton<NPCManager>
         Destroy(Guard00);
         Ella01.SetActive(true);
         Guard01.SetActive(true);
+        HideJohny();
     }
 
     public void HideElla()
@@ -122,6 +129,19 @@ public class NPCManager : Singleton<NPCManager>
     }
 
     //Final Dialogues
+
+    public void HideBoss()
+    {
+        Destroy(boss01);
+        boss02.SetActive(true);
+    }
+
+    public void OutofOffice()
+    {
+        Destroy(officeDoor);
+        officeWay.SetActive(true);
+    }
+
     public void VMFInal()
     {
         Destroy(VM01);
