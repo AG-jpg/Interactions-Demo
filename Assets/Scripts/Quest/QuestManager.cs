@@ -100,6 +100,10 @@ public class QuestManager : Singleton<QuestManager>
             NPCManager.Instance.HideElla();
             NPCManager.Instance.HideVM();
         }
+        else if (QuestAccepted && questName == "Ticket To Ride")
+        {
+            NPCManager.Instance.HideVal();
+        }
         else if (QuestAccepted && questName == "I Want To Break Free")
         {
             NPCManager.Instance.HideJohny();
