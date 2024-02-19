@@ -45,6 +45,12 @@ public class NPCManager : Singleton<NPCManager>
     [SerializeField] public GameObject boss01;
     [SerializeField] public GameObject boss02;
 
+    [Header("Train Station")]
+    [SerializeField] public GameObject Val01;
+    [SerializeField] public GameObject Val02;
+    [SerializeField] public GameObject tickets01;
+    [SerializeField] public GameObject tickets02;
+
     //Objects
 
     [Header("Red Doors")]
@@ -140,6 +146,19 @@ public class NPCManager : Singleton<NPCManager>
     {
         Destroy(officeDoor);
         officeWay.SetActive(true);
+    }
+
+    public void HideVal()
+    {
+        Destroy(Val01);
+        Val02.SetActive(true);
+        Destroy(tickets01);
+        tickets02.SetActive(true);
+    }
+
+    public void TicketsFinal()
+    {
+        Destroy(tickets02);
     }
 
     public void VMFInal()
