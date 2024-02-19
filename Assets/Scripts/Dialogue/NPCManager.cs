@@ -152,13 +152,13 @@ public class NPCManager : Singleton<NPCManager>
     {
         Destroy(Val01);
         Val02.SetActive(true);
-        Destroy(tickets01);
         tickets02.SetActive(true);
     }
 
     public void TicketsFinal()
     {
         Destroy(tickets02);
+        tickets01.SetActive(true);
     }
 
     public void VMFInal()
