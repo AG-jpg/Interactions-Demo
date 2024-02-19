@@ -9,4 +9,5 @@ public class GameData
     public bool cageData;
     public bool battleData;
     public bool introData;
+    public bool trainData;
 }

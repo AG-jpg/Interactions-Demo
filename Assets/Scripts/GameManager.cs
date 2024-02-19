@@ -16,17 +16,19 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Quest bools")]
     public bool puzzleIntro;
+    public bool puzzleTrain;
     public bool puzzleVM;
     public bool puzzleSecurity;
     public bool puzzleCage;
     public bool puzzleBattle;
+    public bool endTrip;
 
     [SerializeField] public GameObject battleDialogue;
     private readonly string GAME_KEY = "Game105020";
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
     }
@@ -46,7 +48,17 @@ public class GameManager : Singleton<GameManager>
             puzzleIntro = true;
             SaveBools();
             Player.Instance.LoadLocation();
+            UIManager.Instance.CloseEmail();
             Destroy(puzzleManager);
+        }
+
+        if (puzzle.trainSolved == true)
+        {
+            puzzleTrain = true;
+            SaveBools();
+            Player.Instance.LoadLocation();
+            Destroy(puzzleManager);
+            NPCManager.Instance.TicketsFinal();
         }
 
         if (puzzle.easySolved == true)
@@ -107,7 +119,7 @@ public class GameManager : Singleton<GameManager>
     {
         UIManager.Instance.CloseEmail();
         NPCManager.Instance.HideBoss();
-
+        NPCManager.Instance.OutofOffice();
         Destroy(Pzzl00);
     }
     public void AfterBattle()
@@ -159,6 +171,7 @@ public class GameManager : Singleton<GameManager>
         savedData.cageData = puzzleCage;
         savedData.battleData = puzzleBattle;
         savedData.introData = puzzleIntro;
+        savedData.trainData = puzzleTrain;
 
         SaveGame.Save(GAME_KEY, savedData);
     }
@@ -174,6 +187,7 @@ public class GameManager : Singleton<GameManager>
             puzzleCage = dataLoaded.cageData;
             puzzleBattle = dataLoaded.battleData;
             puzzleIntro = dataLoaded.introData;
+            puzzleTrain = dataLoaded.trainData;
         }
     }
 
