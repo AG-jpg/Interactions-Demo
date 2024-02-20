@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     [Header("References")]
     private GameObject puzzleManager;
     private PuzzleManager puzzle;
+    [SerializeField] public GameObject spot;
 
     [Header("Puzzle Computers")]
     [SerializeField] public GameObject Pzzl00;
@@ -31,6 +32,11 @@ public class GameManager : Singleton<GameManager>
         //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
+
+        if(puzzleTrain)
+        {
+            Player.instance.transform.position = spot.transform.position;
+        }
     }
 
     private void Update()
@@ -56,9 +62,9 @@ public class GameManager : Singleton<GameManager>
         {
             puzzleTrain = true;
             SaveBools();
+            NPCManager.Instance.TicketsFinal();
             Player.Instance.LoadLocation();
             Destroy(puzzleManager);
-            NPCManager.Instance.TicketsFinal();
         }
 
         if (puzzle.easySolved == true)
