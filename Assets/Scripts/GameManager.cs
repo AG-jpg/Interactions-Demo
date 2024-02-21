@@ -29,12 +29,13 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
 
         if(puzzleTrain)
         {
+            NPCManager.Instance.ShowTrainRide();
             Player.instance.transform.position = spot.transform.position;
         }
     }
