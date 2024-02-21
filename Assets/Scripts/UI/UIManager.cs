@@ -59,7 +59,6 @@ public class UIManager : Singleton<UIManager>
     [Header("Notifications")]
     [SerializeField] private Notify notificationsPrefab;
     [SerializeField] private Transform notificationsContainer;
-
     [SerializeField] public Popup infoAccepted;
     [SerializeField] public Popup succeed;
     [SerializeField] public Popup saving;
@@ -333,6 +332,9 @@ public class UIManager : Singleton<UIManager>
                 break;
             case InteractionExtraNPC.Gift:
                 GiveAway();
+                break;
+                case InteractionExtraNPC.Ride:
+                NPCManager.Instance.FinishRide();
                 break;
             case InteractionExtraNPC.Battle:
                 Battle();
