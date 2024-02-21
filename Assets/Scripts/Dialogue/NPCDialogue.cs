@@ -8,6 +8,7 @@ public enum InteractionExtraNPC
     Tienda,
     Crafting,
     Gift,
+    Ride,
     Battle
 }
 
