@@ -50,6 +50,7 @@ public class NPCManager : Singleton<NPCManager>
     [SerializeField] public GameObject Val02;
     [SerializeField] public GameObject tickets01;
     [SerializeField] public GameObject tickets02;
+    [SerializeField] public GameObject trainRide;
 
     //Objects
 
@@ -159,6 +160,16 @@ public class NPCManager : Singleton<NPCManager>
     {
         Destroy(tickets02);
         tickets01.SetActive(true);
+    }
+
+    public void ShowTrainRide()
+    {
+        trainRide.SetActive(true);
+    }
+
+    public void FinishRide()
+    {
+        Destroy(trainRide);
     }
 
     public void VMFInal()
