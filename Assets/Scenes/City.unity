@@ -22025,7 +22025,7 @@ MonoBehaviour:
   NameText: {fileID: 524079558}
   DialogueText: {fileID: 1103419281}
   npcIcon: {fileID: 1569882520}
-  dialogue: {fileID: 11400000, guid: 4660f520f79f943db8645a7fd8a09a00, type: 2}
+  dialogue: {fileID: 11400000, guid: 6c5e604fb3f4143f0a09d4afcb60d25a, type: 2}
 --- !u!1 &464827146
 GameObject:
   m_ObjectHideFlags: 0
