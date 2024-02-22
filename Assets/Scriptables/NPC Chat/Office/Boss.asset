@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  Name: 
-  Icon: {fileID: 0}
+  Name: Mr. Kalaghan
+  Icon: {fileID: 21300000, guid: 0bc275e0433804b8eae8c4ecc9d2e2c5, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: 'business was hit hard by budget cuts and layoffs. '
-  Conversation: []
+  Entrance: Business was hit hard by budget cuts
+  Conversation:
+  - Sentence: I know It's disappointing.
+  - Sentence: To be laid off because of our failures.
+  - Sentence: Even with your lack of experience
+  - Sentence: You are a very skilled computer scientist
   Out: I'm sorry we had to let you go...
