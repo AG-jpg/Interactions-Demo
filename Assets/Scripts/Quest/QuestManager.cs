@@ -69,6 +69,7 @@ public class QuestManager : Singleton<QuestManager>
         LookigForWater();
         SomebodyToldMe();
         BreakFree();
+        TicketToRide();
     }
 
     private void LoadQuestInspector()
@@ -291,6 +292,17 @@ public class QuestManager : Singleton<QuestManager>
             ComputerInteract.Instance.readingMessage = false;
             ClaimReward();
             GameManager.Instance.SaveMyGame();
+        }
+    }
+
+    private void TicketToRide()
+    {
+        if (GameManager.Instance.endTrip)
+        {
+            AddProgress("Ticket To Ride", 1);
+            ClaimReward();
+            GameManager.Instance.SaveMyGame();
+            GameManager.Instance.endTrip = false;
         }
     }
 
