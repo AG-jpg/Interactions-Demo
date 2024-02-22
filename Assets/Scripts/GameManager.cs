@@ -37,6 +37,8 @@ public class GameManager : Singleton<GameManager>
         {
             NPCManager.Instance.ShowTrainRide();
             Player.instance.transform.position = spot.transform.position;
+            endTrip = true;
+            SaveMyGame();
         }
     }
 
