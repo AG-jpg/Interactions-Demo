@@ -19,9 +19,11 @@ MonoBehaviour:
   Entrance: Thanks for your help back there.
   Conversation:
   - Sentence: Names Val
-  - Sentence: Sorry about your job...
-  - Sentence: Moving to the big city, it's a bold move
+  - Sentence: So, you are moving to city?
+  - Sentence: '"The Big Orange"'
+  - Sentence: That's a bold move
   - Sentence: But tech geeks like you will cash out well.
-  - Sentence: Me? I'm an aspiring DJ. City born and raised.
+  - Sentence: 'Me? White City born and raised. '
+  - Sentence: I'm an aspiring DJ.
   - Sentence: Anyway, next station is your stop...
   Out: Good luck out there
