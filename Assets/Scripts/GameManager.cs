@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
 
@@ -37,7 +37,9 @@ public class GameManager : Singleton<GameManager>
         {
             NPCManager.Instance.ShowTrainRide();
             Player.instance.transform.position = spot.transform.position;
+            SoundManager.Instance.PlayCity();
             endTrip = true;
+            puzzleTrain = false;
             SaveMyGame();
         }
     }
@@ -68,6 +70,7 @@ public class GameManager : Singleton<GameManager>
             NPCManager.Instance.TicketsFinal();
             Player.Instance.LoadLocation();
             Destroy(puzzleManager);
+            puzzleTrain = false;
         }
 
         if (puzzle.easySolved == true)
@@ -75,6 +78,7 @@ public class GameManager : Singleton<GameManager>
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
             puzzleVM = true;
+            puzzleTrain = false;
             SaveBools();
             //puzzle.easySolved = false;
             Destroy(puzzleManager);
@@ -87,6 +91,7 @@ public class GameManager : Singleton<GameManager>
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
             puzzleSecurity = true;
+            puzzleTrain = false;
             SaveBools();
             //puzzle.midSolved = false;
             Destroy(puzzleManager);
@@ -101,6 +106,7 @@ public class GameManager : Singleton<GameManager>
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
             puzzleCage = true;
+            puzzleTrain = false;
             SaveBools();
             //puzzle.hardSolved = false;
             Destroy(puzzleManager);
@@ -120,6 +126,7 @@ public class GameManager : Singleton<GameManager>
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
             puzzleBattle = true;
+            puzzleTrain = false;
             SaveBools();
         }
     }
@@ -135,6 +142,7 @@ public class GameManager : Singleton<GameManager>
     {
         Destroy(Pzzl01);
         Destroy(Pzzl02);
+        UIManager.Instance.CloseEmail();
         NPCManager.Instance.FinalMission();
         NPCManager.Instance.ToEnding();
         Destroy(puzzleManager);
