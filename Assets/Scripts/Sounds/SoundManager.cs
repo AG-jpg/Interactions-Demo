@@ -17,7 +17,15 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] public AudioClip saving;
     [SerializeField] public AudioClip button;
 
-#region Sound Effects
+    [Header("Music")]
+    [SerializeField] public AudioClip neonGaming;
+
+    #region Sound Effects
+    public void PlayCity()
+    {
+        audioSource.PlayOneShot(neonGaming);
+    }
+
     public void Notify()
     {
         audioSource.PlayOneShot(notification);
@@ -57,6 +65,5 @@ public class SoundManager : Singleton<SoundManager>
     {
         audioSource.PlayOneShot(button);
     }
-
-#endregion
+    #endregion
 }
