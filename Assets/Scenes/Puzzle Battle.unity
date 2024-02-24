@@ -1008,6 +1008,8 @@ MonoBehaviour:
   sceneName: 
   sceneID: 1
   hasGameFinished: 0
+  introSolved: 0
+  trainSolved: 0
   easySolved: 0
   midSolved: 0
   hardSolved: 0
@@ -2011,7 +2013,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 225a46b5330e14aecb9b4ecc0c4b6ae7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
