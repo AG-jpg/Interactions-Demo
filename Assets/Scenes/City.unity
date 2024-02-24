@@ -20965,7 +20965,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e02ed21c2d3734ed7b554e8c251c5b80, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6be53d7964744f26bfeba1f3bbd18f1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -22524,15 +22524,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 194cefef215ba48f4b7706b3aa444e75, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 852fe21b3ce2043de8069862273dfd10, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 0.7
+  m_Volume: 0.8
+  m_Pitch: 0
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -23717,7 +23717,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6c30372dce60b44d4a7e3a1b8344eaa0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -23814,7 +23814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 496665609}
-  prevLevel: {fileID: 0}
+  prevLevel: {fileID: 1413046560}
+  mainSource: {fileID: 989821192}
   levelMusic: {fileID: 8300000, guid: 6c30372dce60b44d4a7e3a1b8344eaa0, type: 3}
 --- !u!82 &496665611
 AudioSource:
@@ -23926,6 +23927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 496665611}
   prevLevel: {fileID: 1781474707}
+  mainSource: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 368da8be34b014527b6ba5f40af28ce4, type: 3}
 --- !u!1 &502342217
 GameObject:
@@ -38737,7 +38739,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 238badf1d457a4638a4a2e2fbe6d9a84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afd75dfea76104a47ab530fa5d5d0bfd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -40011,6 +40013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1413046560}
   prevLevel: {fileID: 0}
+  mainSource: {fileID: 0}
   levelMusic: {fileID: 8300000, guid: 8ba339d5dcf3d4f4493f2a8c8bcc3c65, type: 3}
 --- !u!1 &1416197708
 GameObject:
@@ -41257,7 +41260,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 1
+  Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -41345,6 +41348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1482485830}
   prevLevel: {fileID: 1413046560}
+  mainSource: {fileID: 1413046560}
   levelMusic: {fileID: 8300000, guid: 8ba339d5dcf3d4f4493f2a8c8bcc3c65, type: 3}
 --- !u!114 &1482485832
 MonoBehaviour:
@@ -47233,6 +47237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1781474707}
   prevLevel: {fileID: 1413046560}
+  mainSource: {fileID: 989821192}
   levelMusic: {fileID: 8300000, guid: 22aa8d7f28d8b49a8b316fea62fbf51b, type: 3}
 --- !u!1 &1796350868
 GameObject:
