@@ -23,6 +23,11 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] public AudioClip labMusic;
 
     #region Sound Effects
+    public void ShutMain()
+    {
+        mainMusic.Stop();
+    }
+
     public void PlayCity()
     {
         mainMusic.Stop();

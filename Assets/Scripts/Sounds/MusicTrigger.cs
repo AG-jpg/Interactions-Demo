@@ -13,6 +13,7 @@ public class MusicTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        SoundManager.Instance.ShutMain();
         prevLevel.Stop();
         audioSource.PlayOneShot(levelMusic);
     }
