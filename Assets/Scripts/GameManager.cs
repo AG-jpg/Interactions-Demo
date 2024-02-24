@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //SaveGame.DeleteAll(); //Erase Saved Data
+        SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
 
@@ -69,6 +69,7 @@ public class GameManager : Singleton<GameManager>
             SaveBools();
             NPCManager.Instance.TicketsFinal();
             Player.Instance.LoadLocation();
+            SoundManager.Instance.PlayCity();
             Destroy(puzzleManager);
             puzzleTrain = false;
         }
@@ -77,6 +78,7 @@ public class GameManager : Singleton<GameManager>
         {
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
+            SoundManager.Instance.PlayCity();
             puzzleVM = true;
             puzzleTrain = false;
             SaveBools();
@@ -90,6 +92,7 @@ public class GameManager : Singleton<GameManager>
         {
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
+            SoundManager.Instance.PlayLab();
             puzzleSecurity = true;
             puzzleTrain = false;
             SaveBools();
@@ -105,6 +108,7 @@ public class GameManager : Singleton<GameManager>
         {
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
+            SoundManager.Instance.PlayLab();
             puzzleCage = true;
             puzzleTrain = false;
             SaveBools();
