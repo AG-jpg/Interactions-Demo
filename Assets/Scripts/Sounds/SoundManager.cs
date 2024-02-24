@@ -18,12 +18,21 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] public AudioClip button;
 
     [Header("Music")]
+    [SerializeField] public AudioSource mainMusic;
     [SerializeField] public AudioClip neonGaming;
+    [SerializeField] public AudioClip labMusic;
 
     #region Sound Effects
     public void PlayCity()
     {
+        mainMusic.Stop();
         audioSource.PlayOneShot(neonGaming);
+    }
+
+    public void PlayLab()
+    {
+        mainMusic.Stop();
+        audioSource.PlayOneShot(labMusic);
     }
 
     public void Notify()
