@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Coworker
   m_EditorClassIdentifier: 
   Name: Lydia Martins
-  Icon: {fileID: 21300000, guid: 2ae0391ee8ef64a5f8b628923b99a2d6, type: 3}
+  Icon: {fileID: 21300000, guid: 8dbea1aa850b3417bbef5d076a9985c5, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: CEO accepts the blame

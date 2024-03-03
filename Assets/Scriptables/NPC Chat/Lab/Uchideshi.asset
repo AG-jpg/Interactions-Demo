@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Uchideshi
   m_EditorClassIdentifier: 
   Name: Jr. Uchideshi
-  Icon: {fileID: 21300000, guid: d2827a364b28f4ab19f053bb3474cbce, type: 3}
+  Icon: {fileID: 21300000, guid: 03fd6de5c98094077b5cc6f606b38c22, type: 3}
   hasExtra: 1
   InteraccionExtra: 0
   Entrance: 'Dr. Fehlerland is the head of the project. '
