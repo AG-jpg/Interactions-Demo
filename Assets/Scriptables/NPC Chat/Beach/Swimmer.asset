@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Swimmer
   m_EditorClassIdentifier: 
   Name: Carlos Pranger
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 9ef0486d14732415ea35694772c4fde2, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: I'm training hard
-  Conversation: []
-  Out: for a 10K swimming marathon
+  Entrance: See those animals in the shore?
+  Conversation:
+  - Sentence: I heard a kid flew right into a lab
+  - Sentence: and blasted their experiments
+  Out: with his laser vision

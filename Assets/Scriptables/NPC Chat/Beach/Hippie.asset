@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
   m_Name: Hippie
   m_EditorClassIdentifier: 
-  Name: Nia
-  Icon: {fileID: 0}
+  Name: Aurora Flowers
+  Icon: {fileID: 21300000, guid: 9ef0486d14732415ea35694772c4fde2, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: Just listen to humming of the sea...
