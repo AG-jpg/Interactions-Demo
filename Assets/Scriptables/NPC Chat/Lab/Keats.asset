@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Keats
   m_EditorClassIdentifier: 
   Name: Dr. Keats
-  Icon: {fileID: 21300000, guid: 50af35143005142e9b05684ed521639c, type: 3}
+  Icon: {fileID: 21300000, guid: 6a95c3101b9cd42308f2dca8199cc893, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: ... In addition, Pb2+ to the Zn2+-TFIIIA-DNA adduct

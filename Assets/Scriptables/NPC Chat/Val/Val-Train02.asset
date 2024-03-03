@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Val-Train02
   m_EditorClassIdentifier: 
   Name: Val
-  Icon: {fileID: 21300000, guid: c8ca76ceffeef4f2cb5930d5341e2d52, type: 3}
+  Icon: {fileID: 21300000, guid: b3ebd8dad248d4ae085784705b912077, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: Will you help?

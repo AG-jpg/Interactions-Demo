@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hippie
   m_EditorClassIdentifier: 
   Name: Aurora Flowers
-  Icon: {fileID: 21300000, guid: 9ef0486d14732415ea35694772c4fde2, type: 3}
+  Icon: {fileID: 21300000, guid: 8370f9b4c97ae407586dc2f67238283b, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: Just listen to humming of the sea...

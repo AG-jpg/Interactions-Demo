@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: KataiWarning
   m_EditorClassIdentifier: 
   Name: Dr. Katai
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: f6ebe78c6ba264199ab18210167ea42d, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: .....
   Conversation: []
-  Out: Looks like he is connected to the encrypted world
+  Out: He seems to be connected to some device

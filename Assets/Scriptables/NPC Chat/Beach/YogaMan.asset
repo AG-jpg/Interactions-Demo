@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: YogaMan
   m_EditorClassIdentifier: 
   Name: Prani Yogi
-  Icon: {fileID: 21300000, guid: 9ef0486d14732415ea35694772c4fde2, type: 3}
+  Icon: {fileID: 21300000, guid: 53c970337635941c2b6d4de9e6f68a76, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: Deep breath...

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fehlerland
   m_EditorClassIdentifier: 
   Name: Dr. Fehlerland
-  Icon: {fileID: 21300000, guid: 16d281e79c32146e1a07d1485084a2be, type: 3}
+  Icon: {fileID: 21300000, guid: 48e37a3c72cff4a5dba30f939de72b01, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: What are we doing in this lab?

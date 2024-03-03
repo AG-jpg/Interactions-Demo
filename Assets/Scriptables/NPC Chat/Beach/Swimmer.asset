@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Swimmer
   m_EditorClassIdentifier: 
   Name: Carlos Pranger
-  Icon: {fileID: 21300000, guid: 9ef0486d14732415ea35694772c4fde2, type: 3}
+  Icon: {fileID: 21300000, guid: 986e1ee0d318d4db3922326589414210, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: See those animals in the shore?

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MrK
   m_EditorClassIdentifier: 
   Name: Mr. Kalaghan
-  Icon: {fileID: 21300000, guid: 0bc275e0433804b8eae8c4ecc9d2e2c5, type: 3}
+  Icon: {fileID: 21300000, guid: ffb5072bc838f4b52a8546b0dfa6d3b5, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: What are you doing in my office?
+  Entrance: I'm sorry
   Conversation: []
   Out: You should leave now...

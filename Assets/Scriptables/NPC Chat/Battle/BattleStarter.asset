@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: BattleStarter
   m_EditorClassIdentifier: 
   Name: Dr. Katai
-  Icon: {fileID: 21300000, guid: df7aa2bbea3be42b0a4520076c0f0153, type: 3}
+  Icon: {fileID: 21300000, guid: f6ebe78c6ba264199ab18210167ea42d, type: 3}
   hasExtra: 1
-  InteraccionExtra: 4
-  Entrance: I've been observing you since you entered...
-  Conversation:
-  - Sentence: I know what you pretend...
+  InteraccionExtra: 5
+  Entrance: ... ... ...
+  Conversation: []
   Out: You punks won't destroy my research!

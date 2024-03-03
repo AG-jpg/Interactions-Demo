@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PunkFInal
   m_EditorClassIdentifier: 
   Name: Johny Strummer
-  Icon: {fileID: 21300000, guid: a1e80120f602a4a8e83b729ae22e9c5d, type: 3}
+  Icon: {fileID: 21300000, guid: 1d59491088ace4c2d98407c595433a64, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: Look at them...

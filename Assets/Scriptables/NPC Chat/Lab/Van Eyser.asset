@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Van Eyser
   m_EditorClassIdentifier: 
   Name: Dr. Van Eyser
-  Icon: {fileID: 21300000, guid: f7933636c80d141c1a7b9a6b6b60a8ef, type: 3}
+  Icon: {fileID: 21300000, guid: a190370e4e2154e32a7b7965f43018d7, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: You are the new IT guy? Hmm...

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Guard02
   m_EditorClassIdentifier: 
   Name: Guard
-  Icon: {fileID: 21300000, guid: ba4e860b6d1274960bff04284afb8d5a, type: 3}
-  hasExtra: 0
-  InteraccionExtra: 0
-  Entrance: Sorry
-  Conversation: []
+  Icon: {fileID: 21300000, guid: f06e9f477b42d46dd853d5a3e1dab5a4, type: 3}
+  hasExtra: 1
+  InteraccionExtra: 3
+  Entrance: Uff! I'm parched!
+  Conversation:
+  - Sentence: Sorry...
   Out: I can't let you in.
