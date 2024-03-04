@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Paul Cinammon
   m_EditorClassIdentifier: 
   Name: Paul Cinammon
-  Icon: {fileID: 21300000, guid: 1d59491088ace4c2d98407c595433a64, type: 3}
+  Icon: {fileID: 21300000, guid: f415fae6e8b164e1fb0fd6f01a99915c, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
   Entrance: I don't really like anarchy that much
