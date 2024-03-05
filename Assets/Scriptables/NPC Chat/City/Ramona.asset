@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
-  m_Name: Kiril
+  m_Name: Ramona
   m_EditorClassIdentifier: 
-  Name: Mr. Fedorov
-  Icon: {fileID: 21300000, guid: f55ea7021c35a4987ada559004e12738, type: 3}
+  Name: Inga Perrin
+  Icon: {fileID: 21300000, guid: fc48a8a53f59548718503e6584946366, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: I'm on an important business trip
-  Conversation: []
-  Out: I work closely with Mr. Winkelman's tops
+  Entrance: What exactly is the point in having a right
+  Conversation:
+  - Sentence: if it can't be protected?
+  Out: Asking fro a friend.
