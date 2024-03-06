@@ -208,7 +208,14 @@ public class UIManager : Singleton<UIManager>
     public void CloseEmail()
     {
         Destroy(panelEmail);
+        NPCManager.Instance.DestroyStartAI();
         bg.SetActive(false);
+    }
+
+    public void OpenEmail()
+    {
+        panelEmail.SetActive(true);
+        bg.SetActive(true);
     }
 
     public void OpenPanelID()
@@ -333,11 +340,14 @@ public class UIManager : Singleton<UIManager>
             case InteractionExtraNPC.Gift:
                 GiveAway();
                 break;
-                case InteractionExtraNPC.Ride:
+            case InteractionExtraNPC.Ride:
                 NPCManager.Instance.FinishRide();
                 break;
             case InteractionExtraNPC.Battle:
                 Battle();
+                break;
+            case InteractionExtraNPC.Mail:
+                OpenEmail();
                 break;
         }
     }
