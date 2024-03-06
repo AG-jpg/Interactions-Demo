@@ -9,7 +9,8 @@ public enum InteractionExtraNPC
     Crafting,
     Gift,
     Ride,
-    Battle
+    Battle,
+    Mail
 }
 
 [CreateAssetMenu]

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NPCManager : Singleton<NPCManager>
 {
+    [Header("Dasher")]
+    [SerializeField] public GameObject dasherStart;
+
     [Header("Ella")]
     [SerializeField] public GameObject Ella00;
     [SerializeField] public GameObject Ella01;
@@ -69,6 +72,11 @@ public class NPCManager : Singleton<NPCManager>
     [Header("Ending")]
     [SerializeField] public GameObject Labexit;
     [SerializeField] public GameObject beachWay;
+
+    public void DestroyStartAI()
+    {
+        Destroy(dasherStart);
+    }
 
     public void StartMainQuest()
     {
