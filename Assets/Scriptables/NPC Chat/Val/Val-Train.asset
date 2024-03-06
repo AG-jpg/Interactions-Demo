@@ -18,6 +18,6 @@ MonoBehaviour:
   InteraccionExtra: 0
   Entrance: Hey! You are one of those tech geeks?
   Conversation:
-  - Sentence: The ticket scanner is broken
+  - Sentence: I'm out of digicoins to pay my ticket
   - Sentence: and I'm late for boarding my train
   Out: Can you help me?
