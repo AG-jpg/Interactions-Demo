@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 311ebda7270f64b2bbb9bf336840d458, type: 3}
-  m_Name: Hint Puzzle
+  m_Name: TalkHint
   m_EditorClassIdentifier: 
   Name: Dasher
   Icon: {fileID: 21300000, guid: 25e1df30bcabf415b9de31490042e5f6, type: 3}
   hasExtra: 0
   InteraccionExtra: 0
-  Entrance: Connect the nods to solve the puzzle.
-  Conversation:
-  - Sentence: You can connect vertically or horizontally
-  - Sentence: and start the sequence from any node.
-  - Sentence: It finishes when they are all connected.
-  Out: There is more than one way to solve it.
+  Entrance: Press Enter to talk with others
+  Conversation: []
+  Out: and interact with marked objects.
