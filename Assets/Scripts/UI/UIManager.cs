@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +15,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Stats Stats;
     [SerializeField] private GameObject bg;
     [SerializeField] public GameObject UIBox;
+    [SerializeField] public GameObject fade;
 
     [Header("Paneles")]
     [SerializeField] private GameObject panelID;
@@ -69,6 +72,11 @@ public class UIManager : Singleton<UIManager>
     public bool QuestStarted;
     public static bool gameIsPaused;
     private bool giveAway;
+
+    private void Start()
+    {
+        StartCoroutine(Fades());
+    }
 
     private void Update()
     {
@@ -161,6 +169,12 @@ public class UIManager : Singleton<UIManager>
 
     #region Notifications
 
+    private IEnumerator Fades()
+    {
+        yield return new WaitForSeconds(1f);
+        fade.SetActive(false);
+    }
+
     public void ShowNotification()
     {
         if (questManager.QuestAccepted == true)
@@ -189,6 +203,7 @@ public class UIManager : Singleton<UIManager>
 
     public void ShowSuccesNotification()
     {
+        StartCoroutine(Fades());
         Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
         newNotification.ConfigureNotificationUI(succeed);
         soundManager.Success();
@@ -196,6 +211,7 @@ public class UIManager : Singleton<UIManager>
 
     public void DoorsNotification()
     {
+        StartCoroutine(Fades());
         Notifications newNotification = Instantiate(notificationsPrefab, notificationsContainer);
         newNotification.ConfigureNotificationUI(doors);
         soundManager.OpenDoors();
@@ -214,8 +230,8 @@ public class UIManager : Singleton<UIManager>
 
     public void OpenEmail()
     {
+        CloseAllPanels();
         panelEmail.SetActive(true);
-        bg.SetActive(true);
     }
 
     public void OpenPanelID()
