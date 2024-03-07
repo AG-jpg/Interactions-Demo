@@ -18,6 +18,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] public AudioClip button;
 
     [Header("Music")]
+    [SerializeField] public GameObject musicBox;
     [SerializeField] public AudioSource mainMusic;
     [SerializeField] public AudioClip neonGaming;
     [SerializeField] public AudioClip labMusic;
@@ -31,12 +32,13 @@ public class SoundManager : Singleton<SoundManager>
     public void PlayCity()
     {
         mainMusic.Stop();
-        audioSource.PlayOneShot(neonGaming);
+        musicBox.SetActive(true);
     }
 
     public void PlayLab()
     {
         mainMusic.Stop();
+        Destroy(musicBox);
         audioSource.PlayOneShot(labMusic);
     }
 
