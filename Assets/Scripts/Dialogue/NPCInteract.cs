@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NPCInteract : MonoBehaviour
 {
-    [SerializeField]
-    private NPCDialogue dialogueNPC;
+   [SerializeField] private NPCDialogue dialogueNPC;
+    [SerializeField] private GameObject hint;
 
     public NPCDialogue Dialogo => dialogueNPC;
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,6 +13,7 @@ public class NPCInteract : MonoBehaviour
         if (other.CompareTag ("Player"))
         {
             DialogueManager.Instance.NPCDisponible = this;
+            hint.SetActive(true);
         }
     }
 
@@ -21,6 +22,7 @@ public class NPCInteract : MonoBehaviour
         if (other.CompareTag ("Player"))
         {
             DialogueManager.Instance.NPCDisponible = null;
+            hint.SetActive(false);
         }
     }
 }
