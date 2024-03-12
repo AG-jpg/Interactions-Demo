@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31d086ac55554bd882553deb3a328d3, type: 3}
   m_Name: Ticket to Ride
   m_EditorClassIdentifier: 
-  Name: Ticket to Ride
-  ID: Ticket to Ride
+  Name: Ticket To Ride
+  ID: Ticket To Ride
   CantidadObjetivo: 1
   Description: Fix the ticket scanner machine
   Credits: 5
