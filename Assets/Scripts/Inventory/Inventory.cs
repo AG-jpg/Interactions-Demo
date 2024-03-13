@@ -23,6 +23,11 @@ public class Inventory : Singleton<Inventory>
         itemsInventario = new Item[numeroSlots];
     }
 
+    private void Update()
+    {
+        VerificarAgua();
+    }
+
     public void AddItem(Item itemtoAdd, int cantidad)
     {
         if (itemtoAdd == null)
@@ -89,6 +94,21 @@ public class Inventory : Singleton<Inventory>
         }
 
         return indexItem;
+    }
+
+    private void VerificarAgua()
+    {
+        for (int i = 0; i < itemsInventario.Length; i++)
+        {
+                if (itemsInventario[i].ID == "Water")
+                {
+                    NPCManager.Instance.VMzimanOff();
+                }
+                else
+                {
+                    NPCManager.Instance.VMzimanOn();
+                }
+        }
     }
 
     private void AddItemInSlot(Item item, int cantidad)
