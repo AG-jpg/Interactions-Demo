@@ -18,6 +18,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] public GameObject fade;
     [SerializeField] public GameObject activeButtons;
     [SerializeField] public GameObject inactiveButtons;
+    [SerializeField] public GameObject contactVal;
 
     [Header("Paneles")]
     [SerializeField] private GameObject panelID;
@@ -334,6 +335,12 @@ public class UIManager : Singleton<UIManager>
         SceneManager.LoadScene(sceneID);
     }
 
+    public void FollowVal()
+    {
+        OpenPanelContacts();
+        contactVal.SetActive(true);
+    }
+
     public void CloseAllPanels()
     {
         panelID.SetActive(false);
@@ -370,6 +377,9 @@ public class UIManager : Singleton<UIManager>
                 break;
             case InteractionExtraNPC.Mail:
                 OpenEmail();
+                break;
+                case InteractionExtraNPC.Contact:
+                FollowVal();
                 break;
         }
     }
