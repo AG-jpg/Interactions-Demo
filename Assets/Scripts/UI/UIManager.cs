@@ -16,6 +16,8 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private GameObject bg;
     [SerializeField] public GameObject UIBox;
     [SerializeField] public GameObject fade;
+    [SerializeField] public GameObject activeButtons;
+    [SerializeField] public GameObject inactiveButtons;
 
     [Header("Paneles")]
     [SerializeField] private GameObject panelID;
@@ -171,7 +173,7 @@ public class UIManager : Singleton<UIManager>
 
     private IEnumerator Fades()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         fade.SetActive(false);
     }
 
@@ -311,6 +313,8 @@ public class UIManager : Singleton<UIManager>
         giveAway = true;
         panelInventario.SetActive(!panelInventario.activeSelf);
         UIBox.SetActive(!UIBox.activeSelf);
+        activeButtons.SetActive(false);
+        inactiveButtons.SetActive(true);
         bg.SetActive(!bg.activeSelf);
     }
 
@@ -319,6 +323,8 @@ public class UIManager : Singleton<UIManager>
         giveAway = false;
         CloseAllPanels();
         UIBox.SetActive(!UIBox.activeSelf);
+        activeButtons.SetActive(true);
+        inactiveButtons.SetActive(false);
         bg.SetActive(!bg.activeSelf);
     }
 
