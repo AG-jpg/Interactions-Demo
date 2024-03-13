@@ -29,6 +29,7 @@ public class NPCManager : Singleton<NPCManager>
     [SerializeField] public GameObject VM02;
     [SerializeField] public GameObject VM03;
     [SerializeField] public GameObject VM04;
+    [SerializeField] public GameObject VMziman;
 
     [Header("Jr. Scientist")]
     [SerializeField] public GameObject Jr01;
@@ -73,9 +74,17 @@ public class NPCManager : Singleton<NPCManager>
     [SerializeField] public GameObject Labexit;
     [SerializeField] public GameObject beachWay;
 
+    [Header("Hints")]
+    [SerializeField] public GameObject HintOut;
+
     public void DestroyStartAI()
     {
         Destroy(dasherStart);
+    }
+
+    public void ShowHintOut()
+    {
+        HintOut.SetActive(true);
     }
 
     public void StartMainQuest()
@@ -167,6 +176,7 @@ public class NPCManager : Singleton<NPCManager>
     public void TicketsFinal()
     {
         Destroy(tickets02);
+        Destroy(HintOut);
         tickets01.SetActive(true);
     }
 
@@ -185,6 +195,16 @@ public class NPCManager : Singleton<NPCManager>
         Destroy(VM01);
         Destroy(VM02);
         VM03.SetActive(true);
+    }
+
+    public void VMzimanOn()
+    {
+        VMziman.SetActive(true);
+    }
+
+    public void VMzimanOff()
+    {
+        VMziman.SetActive(false);
     }
 
     public void VMAfter()
