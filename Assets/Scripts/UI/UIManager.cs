@@ -78,6 +78,7 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
+        fade.SetActive(true);
         StartCoroutine(Fades());
     }
 
