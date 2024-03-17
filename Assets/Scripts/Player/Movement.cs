@@ -57,4 +57,14 @@ public class Movement : MonoBehaviour
     {
         rb.MovePosition(rb.position + directionMove * speed * Time.fixedDeltaTime);
     }
+
+    public void NotMove()
+    {
+        this.enabled = false;
+    }
+
+    public void MoveAgain()
+    {
+        this.enabled = true;
+    }
 }
