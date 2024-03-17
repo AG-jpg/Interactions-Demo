@@ -34,7 +34,6 @@ public class DialogueManager : Singleton<DialogueManager>
         if (Input.GetKeyDown(KeyCode.Return) && ConversationInitiated == false)
         {
             ConfigurePanel(NPCDisponible.Dialogo);
-            movement.NotMove();
             ConversationInitiated = true;
         }
 
@@ -69,6 +68,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     private void ConfigurePanel(NPCDialogue dialogueNPC)
     {
+        movement.NotMove();
         OpenPanel(true);
         npcIcon.sprite = dialogueNPC.Icon;
         LoadSentences(dialogueNPC);
