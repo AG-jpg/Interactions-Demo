@@ -9,6 +9,7 @@ public class GameManager : Singleton<GameManager>
     private GameObject puzzleManager;
     private PuzzleManager puzzle;
     [SerializeField] public GameObject spot;
+    [SerializeField] public GameObject fade;
 
     [Header("Puzzle Computers")]
     [SerializeField] public GameObject Pzzl00;
@@ -29,11 +30,11 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        SaveGame.DeleteAll(); //Erase Saved Data
+        //SaveGame.DeleteAll(); //Erase Saved Data
         LoadSavedGame();
         Player.Instance.SaveLocation();
 
-        if(puzzleTrain)
+        if (puzzleTrain)
         {
             NPCManager.Instance.ShowTrainRide();
             Player.instance.transform.position = spot.transform.position;
@@ -66,21 +67,24 @@ public class GameManager : Singleton<GameManager>
         if (puzzle.trainSolved == true)
         {
             puzzleTrain = true;
-            SaveBools();
             NPCManager.Instance.TicketsFinal();
-            Player.Instance.LoadLocation();
+            NPCManager.Instance.ShowTrainRide();
+            Player.instance.transform.position = spot.transform.position;
             SoundManager.Instance.PlayCity();
             Destroy(puzzleManager);
-            puzzleTrain = false;
+            endTrip = true;
+            puzzle.trainSolved = false;
+            SaveBools();
+            SaveMyGame();
         }
 
         if (puzzle.easySolved == true)
         {
+            puzzleTrain = false;
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
             SoundManager.Instance.PlayCity();
             puzzleVM = true;
-            puzzleTrain = false;
             SaveBools();
             //puzzle.easySolved = false;
             Destroy(puzzleManager);
@@ -127,6 +131,8 @@ public class GameManager : Singleton<GameManager>
 
         if (puzzle.battleFinished == true)
         {
+            fade.SetActive(true);
+            StartCoroutine(Fades());
             Player.Instance.LoadLocation();
             UIManager.Instance.CloseEmail();
             puzzleBattle = true;
@@ -140,6 +146,7 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.CloseEmail();
         NPCManager.Instance.HideBoss();
         NPCManager.Instance.OutofOffice();
+        NPCManager.Instance.ShowHintOut();
         Destroy(Pzzl00);
     }
     public void AfterBattle()
@@ -179,6 +186,12 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(4f);
         UIManager.Instance.SavedNotification();
+    }
+
+    private IEnumerator Fades()
+    {
+        yield return new WaitForSeconds(1.5f);
+        fade.SetActive(false);
     }
 
     #region Saving
