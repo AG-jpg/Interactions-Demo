@@ -9,6 +9,7 @@ public class DialogueManager : Singleton<DialogueManager>
     [SerializeField] private Text NameText;
     [SerializeField] private Text DialogueText;
     [SerializeField] private Image npcIcon;
+    [SerializeField] private Movement movement;
 
     public NPCInteract NPCDisponible { get; set; }
 
@@ -33,6 +34,7 @@ public class DialogueManager : Singleton<DialogueManager>
         if (Input.GetKeyDown(KeyCode.Return) && ConversationInitiated == false)
         {
             ConfigurePanel(NPCDisponible.Dialogo);
+            movement.NotMove();
             ConversationInitiated = true;
         }
 
@@ -49,6 +51,7 @@ public class DialogueManager : Singleton<DialogueManager>
                 OpenPanel(false);
                 ShowGoodbye = false;
                 ConversationInitiated = false;
+                movement.MoveAgain();
                 return;
             }
 
@@ -71,7 +74,6 @@ public class DialogueManager : Singleton<DialogueManager>
         LoadSentences(dialogueNPC);
         NameText.text = dialogueNPC.Name;
         ShowText(dialogueNPC.Entrance);
-
     }
 
     private void LoadSentences(NPCDialogue dialogueNPC)
